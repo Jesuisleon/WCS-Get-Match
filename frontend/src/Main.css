@@ -1,0 +1,35 @@
+/* FONTS CONTENT */
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=Zilla+Slab+Highlight:wght@400;700&display=swap");
+
+/* VARIABLE CONTENT */
+:root {
+  --black-color: #161616;
+  --black-light-color: #313133;
+  --white-color: #ffffff;
+  --orange-light-color: #ef7f4d;
+  --orange-dark-color: #e47041;
+  --blue-color: #006bb8;
+  --red-color: #ee104a;
+
+  --spacing: 0.5rem;
+  --spacing-2: calc(var(--spacing) * 2);
+  --spacing-3: calc(var(--spacing) * 3);
+  --spacing-4: calc(var(--spacing) * 4);
+
+  --size-h1: 2.2rem;
+  --size-h2: 1.8rem;
+  --size-text: 1.2rem;
+  --size-text-button: 0.8rem;
+
+  --font-text: "Russo One", sans-serif;
+  --font-infos: "Aldrich", sans-serif;
+  --font-typed: "Zilla Slab Highlight", cursive;
+}
+
+/* DEFAULT CSS */
+body {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  font-family: var(--font-text);
+  margin: 0;
+}
