@@ -1,4 +1,6 @@
 import "./MatchCards.css";
+import ViewMatch from "./ViewMatch";
+import { useState } from "react";
 
 export default function MatchCards({
   time,
@@ -9,8 +11,12 @@ export default function MatchCards({
   playersLeft,
   groundType,
 }) {
+
+const [openViewMatch, setOpenViewMatch] = useState(false)
+
   return (
-    <div className="match-card">
+    <div>
+    <div onClick ={() => setOpenViewMatch(true)} className="match-card">
       <div className="right-contenair">
         <p className="time">{time}</p>
         <p className={versus === "3vs3" ? "versus-red" : "versus-blue"}>
@@ -33,6 +39,8 @@ export default function MatchCards({
           <p className="ground-type">{groundType}</p>
         </div>
       </div>
+    </div>
+    <ViewMatch openViewMatch = {openViewMatch} onClose = {()=> setOpenViewMatch(false)}/>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import OutsideCard from "../img/mobile/outside-card.png";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 
 export default function MainPage() {
+
   return (
     <div className="main-page">
       <div className="logo-container">
