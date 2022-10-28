@@ -7,6 +7,7 @@ import MatchCardsInfos from "../data/MatchCardsInfos";
 
 
 export default function MainPage() {
+
   return (
     <section className="main-page" >
       <div className="logo-container">
