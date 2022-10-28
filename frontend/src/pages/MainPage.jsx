@@ -1,14 +1,13 @@
 import "./MainPage.css";
-import ArrowButton from "@components/ArrowButton"
+import ArrowButton from "@components/ArrowButton";
 import MatchCards from "@components/MatchCards";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 
-
 export default function MainPage() {
   return (
-    <section className="main-page" >
+    <section className="main-page">
       <div className="logo-container">
         <img className="logo" src="src/img/mobile/logo.png" alt="logo" />
       </div>
@@ -37,7 +36,7 @@ export default function MainPage() {
           <ArrowButton />
         </div>
         <div className="right-button">
-        <ArrowButton />
+          <ArrowButton />
         </div>
       </div>
       <div className="add-match-button">

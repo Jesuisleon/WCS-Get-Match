@@ -1,5 +1,5 @@
 import "./IndexPage.css";
-import ArrowButton from "@components/ArrowButton"
+import ArrowButton from "@components/ArrowButton";
 
 export default function IndexPage() {
   return (
@@ -8,7 +8,7 @@ export default function IndexPage() {
         <img className="logo" src="src/img/mobile/logo.png" alt="logo" />
       </div>
       <div className="index-button">
-          <ArrowButton />
+        <ArrowButton />
       </div>
     </section>
   );
