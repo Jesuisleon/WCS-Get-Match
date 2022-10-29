@@ -11,26 +11,25 @@ export default function MatchCards({
 }) {
   return (
     <div className="match-card">
-      <div className="right-contenair">
-        <p className="time">{time}</p>
-        <p className={versus === "3vs3" ? "versus-red" : "versus-blue"}>
-          {versus}
-        </p>
-      </div>
-      <img src={img} alt="card-background" className="image-background" />
-      <div className="card-contenair">
-        <div className="text-infos">
-          <p className="date">{date} </p>
+      <div className="image">
+        <img src={img} alt="card-background" className="card-background" />
+        </div>
+      <div className="text">
+        <div className="city inline">
+          <img className="icons" src="src/img/icons/localisation-white.png" alt="localisation-icons"/>
           <p className="city">{city}</p>
-          <div className="players-left-container">
-            <img
-              className="logo-players"
-              alt="logo-players-left"
-              src="src/img/mobile/logo-players.png"
-            />
-            <p className="player-left-text">{playersLeft}</p>
-          </div>
-          <p className="ground-type">{groundType}</p>
+        </div>
+        <div className="time inline">
+          <img className="icons" src="src/img/icons/schedule-grey.png" alt="schedule-icons"/>
+          <p className="time grey">{time}</p>
+        </div>
+        <div className="versus inline">
+          <img className="icons" src="src/img/icons/versus-grey.png" alt="versus-icons"/>
+          <p className="versus grey">{versus}</p>
+        </div>
+        <div className="player-left inline">
+          <img className="icons" src="src/img/icons/players-left-grey.png" alt="playersleft-icons"/>
+          <p className="player-left-text grey">{playersLeft}</p>
         </div>
       </div>
     </div>

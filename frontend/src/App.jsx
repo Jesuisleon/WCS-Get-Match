@@ -1,11 +1,11 @@
 import IndexPage from "@pages/IndexPage";
-import MainPage from "@pages/MainPage";
+import MatchPage from "@pages/MatchPage";
 
 function App() {
   return (
     <div className="app">
       <IndexPage />
-      <MainPage />
+      <MatchPage />
     </div>
   );
 }

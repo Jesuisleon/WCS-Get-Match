@@ -1,22 +1,27 @@
-import "./MainPage.css";
-import ArrowButton from "@components/ArrowButton"
+import "./MatchPage.css";
 import MatchCards from "@components/MatchCards";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 
-
 export default function MainPage() {
   return (
-    <section className="main-page" >
+    <section className="match-page">
       <div className="logo-container">
-        <img className="logo" src="src/img/mobile/logo.png" alt="logo" />
+        <img className="logo" src="src/img/mobile/logoGetMatch.png" alt="logo" />
+      </div>
+      <div className="hashtag-bar">
       </div>
       <div className="search-buttons">
-        <div className="search-button">CITY</div>
-        <div className="search-button">TODAY</div>
-        <div className="search-button">MORNING</div>
-        <div className="search-button red-text">3vs3</div>
+        <div className="schedule">
+          <img className="icons" src="src/img/icons/schedule-white.png" alt="schedule-icons"/>
+          <p>08:00 AM</p>
+        </div>
+        <div className="calendar">
+        <img className="icons" src="src/img/icons/calendar-white.png" alt="calendar-icons"/>
+          <p>08/11/2024</p>
+        </div>
+        
       </div>
       <div className="cards-container">
         {MatchCardsInfos.map((element, index) => (
@@ -31,14 +36,6 @@ export default function MainPage() {
             groundType={element.groundType}
           />
         ))}
-      </div>
-      <div className="buttons-container">
-        <div className="left-button">
-          <ArrowButton />
-        </div>
-        <div className="right-button">
-        <ArrowButton />
-        </div>
       </div>
       <div className="add-match-button">
         <p>ADD MATCH</p>
