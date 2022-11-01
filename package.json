@@ -19,5 +19,8 @@
     "concurrently": "^7.0.0",
     "husky": "^7.0.0",
     "react-scroll": "^1.8.8"
+  },
+  "dependencies": {
+    "react-select": "^5.5.9"
   }
 }

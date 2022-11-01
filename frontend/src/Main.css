@@ -39,6 +39,11 @@ body {
   color: var(--white-color);
   font-family: var(--font-text);
   font-size: var(--size-text);
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 /* SECTION-CONTENT */
@@ -71,7 +76,6 @@ section {
   width: 15vh;
   max-width: 25%;
 }
-
 
 /* ICONS-CONTENT */
 
