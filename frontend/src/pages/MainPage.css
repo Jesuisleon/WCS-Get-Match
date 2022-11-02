@@ -1,0 +1,57 @@
+/* INIT CONTENT */
+.main-page {
+  background: url("../img/mobile/main-background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+  justify-content: space-between;
+}
+
+/* SEARCH BUTTONS CONTENT */
+.search-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-button {
+  text-align: center;
+  width: 80px;
+  margin: 9px;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(49, 49, 51, 0.5);
+  border-radius: 10px;
+}
+
+.search-buttons .red-text {
+  color: var(--red-color);
+}
+
+/* BUTTON CONTENT */
+.buttons-container {
+  width: 100%;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.buttons-container .left-button {
+  transform: rotate(180deg);
+}
+
+/* ADD-MATCH-BUTTON */
+
+.add-match-button {
+  background: rgba(49, 49, 51, 0.5);
+  border: 0;
+  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.add-match-button p {
+  font-family: var(--font-text);
+  font-size: var(--size-text);
+  margin: 12px 16px;
+}
