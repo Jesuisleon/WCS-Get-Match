@@ -33,6 +33,8 @@ export default function MainPage() {
       ),
     ];
 
+    hashtagSelectedKeys.splice(0, 2);
+
     // Function to filter on a specific key of the card, with the values on the same specific keys of the hashtag
     const filterByKeys = (cards, keys) => {
       return hashtag.some((card) => cards[keys].includes(card[keys]));
