@@ -5,7 +5,11 @@ export default function IndexPage() {
   return (
     <section className="index-page">
       <div className="logo-container">
-        <img className="logo" src="src/img/mobile/logoGetMatch.png" alt="logo" />
+        <img
+          className="logo"
+          src="src/img/mobile/logoGetMatch.png"
+          alt="logo"
+        />
       </div>
       <div className="index-button">
         <ArrowButton />
