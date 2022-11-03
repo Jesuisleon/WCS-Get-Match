@@ -1,10 +1,11 @@
-import "./App.css";
-import ViewMatchPages from "@pages/ViewMatchPages";
+import IndexPage from "@pages/IndexPage";
+import MatchPage from "@pages/MatchPage";
 
 function App() {
   return (
-    <div className="App">
-      <ViewMatchPages />
+    <div className="app">
+      <IndexPage />
+      <MatchPage />
     </div>
   );
 }

@@ -1,35 +1,80 @@
-/* FONTS CONTENT */
+/* FONTS-CONTENT */
 @import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Russo+One&family=Zilla+Slab+Highlight:wght@400;700&display=swap");
 
-/* VARIABLE CONTENT */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* VARIABLE-CONTENT */
 :root {
   --black-color: #161616;
   --black-light-color: #313133;
+  --grey-color: #929292;
   --white-color: #ffffff;
   --orange-light-color: #ef7f4d;
   --orange-dark-color: #e47041;
   --blue-color: #006bb8;
   --red-color: #ee104a;
 
-  --spacing: 0.5rem;
+  --spacing: 1vh;
   --spacing-2: calc(var(--spacing) * 2);
   --spacing-3: calc(var(--spacing) * 3);
   --spacing-4: calc(var(--spacing) * 4);
 
-  --size-h1: 2.2rem;
+  --size-h1: 3vmin;
   --size-h2: 1.8rem;
-  --size-text: 1.2rem;
-  --size-text-button: 0.8rem;
+  --size-text: 17px;
+  --size-text-button: 27px;
 
-  --font-text: "Russo One", sans-serif;
-  --font-infos: "Aldrich", sans-serif;
+  --font-title: "Russo One", sans-serif;
+  --font-text: "Aldrich", sans-serif;
   --font-typed: "Zilla Slab Highlight", cursive;
 }
 
-/* DEFAULT CSS */
+/* DEFAULT-CSS */
 body {
   background-color: var(--black-color);
   color: var(--white-color);
   font-family: var(--font-text);
-  margin: 0;
+  font-size: var(--size-text);
+}
+
+/* SECTION-CONTENT */
+
+section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  scroll-snap-align: start;
+}
+
+/* SNAP-PAGE-CONTENT */
+
+.app {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+/* LOGO-CONTENT */
+.logo-container {
+  margin-top: var(--spacing-3);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 15vh;
+  max-width: 25%;
+}
+
+/* ICONS-CONTENT */
+
+.icons {
+  padding-bottom: 4px;
+  width: 15px;
 }
