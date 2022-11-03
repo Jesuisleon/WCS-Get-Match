@@ -80,7 +80,7 @@ function HashtagBar({ onChange }) {
             ...theme.colors,
             primary25: "orange", // background on select
             primary: "white", // border selected
-            danger: "red", // cross selected
+            danger: "orange", // cross selected
             dangerLight: "gba(49, 49, 51, 0.5)", // cross selected
             neutral0: "rgba(49, 49, 51, 0.5)", //  background container
             neutral10: "rgba(49, 49, 51, 0.2)", // background selected

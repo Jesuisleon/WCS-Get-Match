@@ -5,7 +5,7 @@ const MatchCardsInfos = [
     date: "08/11/2024",
     city: "TOULOUSE",
     playersLeft: "3 players left",
-    groundType: "INSIDE",
+    groundType: "Inside",
   },
   {
     time: "08:00",
@@ -13,7 +13,7 @@ const MatchCardsInfos = [
     date: "08/11/2024",
     city: "TOULOUSE",
     playersLeft: "3 players left",
-    groundType: "OUTSIDE",
+    groundType: "Outside",
   },
   {
     time: "09:00",
@@ -21,7 +21,7 @@ const MatchCardsInfos = [
     date: "08/11/2024",
     city: "PARIS",
     playersLeft: "6 players left",
-    groundType: "OUTSIDE",
+    groundType: "Outside",
   },
   {
     time: "10:00",
@@ -29,7 +29,7 @@ const MatchCardsInfos = [
     date: "08/11/2024",
     city: "PARIS",
     playersLeft: "2 players left",
-    groundType: "OUTSIDE",
+    groundType: "Outside",
   },
 ];
 

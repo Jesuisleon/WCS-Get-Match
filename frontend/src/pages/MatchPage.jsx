@@ -41,7 +41,7 @@ export default function MainPage() {
         {matchCardsList.map((element, index) => (
           <MatchCards
             keys={index}
-            img={element.groundType === "INSIDE" ? InsideCard : OutsideCard}
+            img={element.groundType === "Inside" ? InsideCard : OutsideCard}
             time={element.time}
             versus={element.versus}
             date={element.date}
