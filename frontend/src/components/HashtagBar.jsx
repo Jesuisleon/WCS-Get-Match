@@ -1,4 +1,3 @@
-import "./HashtagBar.css";
 import ReactSelect from "react-select";
 import React, { useState } from "react";
 import MatchCardsInfos from "../data/MatchCardsInfos";
@@ -55,10 +54,17 @@ function HashtagBar({ onChange }) {
     FilterHashtag(selectedHashtag); // and to do a filter wit the new input.
   };
 
+  // Styles-Content_Hashtag-Bar
+  const styles = {
+    container: (base) => ({
+      ...base,
+      width: 360,
+    }),
+  };
+
   return (
     <div>
       <ReactSelect
-        className="hashtag-bar"
         value={hashtagBarSearch}
         onChange={handleChange}
         options={HashtagList}
@@ -66,9 +72,27 @@ function HashtagBar({ onChange }) {
         autoFocus
         isSearchable
         placeholder="#"
+        styles={styles}
+        theme={(theme) => ({
+          ...theme,
+          borderRadius: 10,
+          colors: {
+            ...theme.colors,
+            primary25: "orange", // background on select
+            primary: "white", // border selected
+            danger: "red", // cross selected
+            dangerLight: "gba(49, 49, 51, 0.5)", // cross selected
+            neutral0: "rgba(49, 49, 51, 0.5)", //  background container
+            neutral10: "rgba(49, 49, 51, 0.2)", // background selected
+            neutral20: "rgba(49, 49, 51, 1)", // borders unselected
+            neutral50: "rgba(49, 49, 51, 1)", // placeholder
+            neutral30: "rgba(49, 49, 51, 0.2)", // border hover
+            neutral60: "white", // button when pick
+            neutral80: "white", // hashtag text
+          },
+        })}
       />
     </div>
   );
 }
-
 export default HashtagBar;
