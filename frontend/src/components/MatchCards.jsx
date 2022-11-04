@@ -6,6 +6,10 @@ import { CardTextElements } from "./CardTextElements";
 export default function MatchCards({ time, versus, img, city, playersLeft }) {
   const [openViewMatch, setOpenViewMatch] = useState(false);
 
+  const handleClose = () => {
+    setOpenViewMatch(!openViewMatch);
+  };
+
   return (
     <div
       onClick={() => setOpenViewMatch(true)}
@@ -39,10 +43,7 @@ export default function MatchCards({ time, versus, img, city, playersLeft }) {
           icons="src/img/icons/players-left-grey.png"
         />
       </div>
-      <ViewMatch
-        openViewMatch={openViewMatch}
-        onClose={() => setOpenViewMatch(false)}
-      />
+      <ViewMatch openViewMatch={openViewMatch} onClose={handleClose} />
     </div>
   );
 }
