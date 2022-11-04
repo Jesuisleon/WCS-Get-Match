@@ -2,17 +2,32 @@
 import "./ViewMatchPages.css";
 import { useState } from "react";
 import ModalPlayers from "@components/ModalPlayers";
+import MatchCards from "@components/MatchCards";
+import MatchCardsInfos from "../data/MatchCardsInfos";
+import InsideCard from "../img/mobile/inside-card.png";
+import OutsideCard from "../img/mobile/outside-card.png";
 
-export default function ViewMatchPages() {
+export default function ViewMatchPages({ openViewMatch, onClose }) {
+  if (!openViewMatch) return null;
   const [openModalPlayers, setOpenModalPlayers] = useState(false);
 
   return (
     <div className="viewback">
-      <div className="logoviewback">
-        <div className="modal-viewMatch">
-          {openModalPlayers && (
-            <ModalPlayers closeModalPlayers={setOpenModalPlayers} />
-          )}
+      <div className="modal-viewMatch">
+        {openModalPlayers && (
+          <ModalPlayers closeModalPlayers={setOpenModalPlayers} />
+        )}
+      </div>
+
+      <div className="view-teams">
+        <div
+          className="close"
+          onClick={onClose}
+          onKeyDown={onClose}
+          role="link"
+          tabIndex={0}
+        >
+          X
         </div>
 
         <div className="team1">
@@ -43,11 +58,20 @@ export default function ViewMatchPages() {
         </div>
 
         <div className="terrain">
-          <img
-            className="terrain-logo"
-            src="src/img/mobile/outside-card.png"
-            alt="logo"
-          />
+          {MatchCardsInfos.filter((card) => card.id === "1").map(
+            (element, index) => (
+              <MatchCards
+                keys={index}
+                img={element.groundType === "Inside" ? InsideCard : OutsideCard}
+                time={element.time}
+                versus={element.versus}
+                date={element.date}
+                city={element.city}
+                playersLeft={element.playersLeft}
+                groundType={element.groundType}
+              />
+            )
+          )}
         </div>
 
         <div className="team2">

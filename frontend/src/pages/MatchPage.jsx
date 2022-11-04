@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import MatchCards from "@components/MatchCards";
 import HashtagBar from "@components/HashtagBar";
 import Calendar from "../components/Calendar";
-import ViewMatch from "../components/ViewMatch";
+import ViewMatchPage from "./ViewMatchPages";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
@@ -54,7 +54,9 @@ export default function MainPage() {
       <div className="cards-container">
         {matchCardsList.map((element, index) => (
           <MatchCards
-            viewMatch={() => {setOpenViewMatch(true)}}
+            viewMatch={() => {
+              setOpenViewMatch(true);
+            }}
             keys={index}
             img={element.groundType === "Inside" ? InsideCard : OutsideCard}
             time={element.time}
@@ -70,7 +72,7 @@ export default function MainPage() {
       <div className="add-match-button">
         <p>ADD MATCH</p>
       </div>
-      <ViewMatch
+      <ViewMatchPage
         openViewMatch={openViewMatch}
         onClose={() => setOpenViewMatch(false)}
       />
