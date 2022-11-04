@@ -1,13 +1,17 @@
 import "./MatchPage.css";
+import React, { useState } from "react";
 import MatchCards from "@components/MatchCards";
-import { useState } from "react";
+import HashtagBar from "@components/HashtagBar";
+import Calendar from "../components/Calendar";
+import ViewMatch from "../components/ViewMatch";
+import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
-import MatchCardsInfos from "../data/MatchCardsInfos";
-import Calendar from "../components/Calendar";
 
 export default function MainPage() {
+  const [matchCardsList, setMatchCardsList] = useState(MatchCardsInfos);
   const [viewCalendar, setViewCalendar] = useState(false);
+  const [openViewMatch, setOpenViewMatch] = useState(false);
 
   return (
     <section className="match-page">
@@ -18,7 +22,7 @@ export default function MainPage() {
           alt="logo"
         />
       </div>
-      <div className="hashtag-bar" />
+      <HashtagBar onChange={setMatchCardsList} />
       <div className="search-buttons">
         <div className="schedule">
           <img
@@ -48,22 +52,28 @@ export default function MainPage() {
         />
       </div>
       <div className="cards-container">
-        {MatchCardsInfos.map((element, index) => (
+        {matchCardsList.map((element, index) => (
           <MatchCards
+            viewMatch={() => {setOpenViewMatch(true)}}
             keys={index}
-            img={element.groundType === "INSIDE" ? InsideCard : OutsideCard}
+            img={element.groundType === "Inside" ? InsideCard : OutsideCard}
             time={element.time}
             versus={element.versus}
             date={element.date}
             city={element.city}
             playersLeft={element.playersLeft}
             groundType={element.groundType}
+            name={element.id}
           />
         ))}
       </div>
       <div className="add-match-button">
         <p>ADD MATCH</p>
       </div>
+      <ViewMatch
+        openViewMatch={openViewMatch}
+        onClose={() => setOpenViewMatch(false)}
+      />
     </section>
   );
 }

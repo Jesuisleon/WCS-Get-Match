@@ -39,6 +39,12 @@ body {
   color: var(--white-color);
   font-family: var(--font-text);
   font-size: var(--size-text);
+  line-height: 20px;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 /* SECTION-CONTENT */
