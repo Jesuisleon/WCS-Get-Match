@@ -1,10 +1,14 @@
 import "./MatchPage.css";
 import MatchCards from "@components/MatchCards";
+import { useState } from "react";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
 import MatchCardsInfos from "../data/MatchCardsInfos";
+import Calendar from "../components/Calendar";
 
 export default function MainPage() {
+  const [viewCalendar, setViewCalendar] = useState(false);
+
   return (
     <section className="match-page">
       <div className="logo-container">
@@ -24,7 +28,13 @@ export default function MainPage() {
           />
           <p>08:00 AM</p>
         </div>
-        <div className="calendar">
+        <div
+          onClick={() => setViewCalendar(true)}
+          onKeyDown={() => setViewCalendar(true)}
+          className="calendar"
+          role="button"
+          tabIndex={0}
+        >
           <img
             className="icons"
             src="src/img/icons/calendar-white.png"
@@ -32,6 +42,10 @@ export default function MainPage() {
           />
           <p>08/11/2024</p>
         </div>
+        <Calendar
+          viewCalendar={viewCalendar}
+          setViewCalendar={setViewCalendar}
+        />
       </div>
       <div className="cards-container">
         {MatchCardsInfos.map((element, index) => (
