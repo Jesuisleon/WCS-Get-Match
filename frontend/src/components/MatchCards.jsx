@@ -1,17 +1,11 @@
 import "./MatchCards.css";
-import { useState } from "react";
-import ViewMatch from "./ViewMatch";
 import { CardTextElements } from "./CardTextElements";
 
-export default function MatchCards({ time, versus, img, city, playersLeft }) {
-  const [openViewMatch, setOpenViewMatch] = useState(false);
+export default function MatchCards({ time, versus, img, city, playersLeft, viewMatch }) {
 
   return (
     <div
-      onClick={() => setOpenViewMatch(true)}
-      onKeyDown={() => setOpenViewMatch(true)}
-      role="button"
-      tabIndex={0}
+      onClick={viewMatch}
       className="match-card"
     >
       <div className="image">
@@ -39,10 +33,6 @@ export default function MatchCards({ time, versus, img, city, playersLeft }) {
           icons="src/img/icons/players-left-grey.png"
         />
       </div>
-      <ViewMatch
-        openViewMatch={openViewMatch}
-        onClose={() => setOpenViewMatch(false)}
-      />
     </div>
   );
 }
