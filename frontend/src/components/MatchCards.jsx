@@ -1,11 +1,20 @@
 import "./MatchCards.css";
 import { CardTextElements } from "./CardTextElements";
 
-export default function MatchCards({ time, versus, img, city, playersLeft, viewMatch }) {
-
+export default function MatchCards({
+  time,
+  versus,
+  img,
+  city,
+  playersLeft,
+  viewMatch,
+}) {
   return (
     <div
       onClick={viewMatch}
+      onKeyDown={viewMatch}
+      role="button"
+      tabIndex={0}
       className="match-card"
     >
       <div className="image">
