@@ -1,9 +1,9 @@
 import "./MatchPage.css";
 import React, { useState } from "react";
-import MatchCards from "@components/MatchCards";
-import HashtagBar from "@components/HashtagBar";
-import Calendar from "../components/Calendar";
-import ViewMatchPage from "@components/ViewMatchPages";
+import HashtagBar from "@components/HashtagBar/HashtagBar";
+import Calendar from "../components/Calendar/Calendar";
+import MatchCards from "@components/MatchCards/MatchCards";
+import ViewMatchPage from "@pages/ViewMatchPages";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
@@ -13,7 +13,6 @@ export default function MainPage() {
   const [viewCalendar, setViewCalendar] = useState(false);
   const [openViewMatch, setOpenViewMatch] = useState(false);
   const [matchId, setMatchId] = useState("");
-
 
   return (
     <section className="match-page">

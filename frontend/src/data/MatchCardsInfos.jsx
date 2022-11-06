@@ -12,13 +12,13 @@ const MatchCardsInfos = [
         name: "Pascal",
         age: "12",
         from: "Paris",
-        avatar: "url"
+        avatar: "url",
       },
       players2: {
         name: "Joris",
         age: "45",
         from: "Chicago",
-        avatar: "url"
+        avatar: "url",
       },
     },
     playersLeft: "3 players left",
@@ -37,7 +37,7 @@ const MatchCardsInfos = [
         name: "Pascal",
         age: "12",
         from: "Paris",
-        avatar: "url"
+        avatar: "url",
       },
     },
     playersLeft: "9 players left",

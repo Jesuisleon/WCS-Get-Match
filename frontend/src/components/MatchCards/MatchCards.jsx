@@ -1,5 +1,5 @@
 import "./MatchCards.css";
-import { CardTextElements } from "./CardTextElements";
+import { CardTextElements } from "./CardTexts";
 
 export default function MatchCards({
   time,

@@ -1,5 +1,5 @@
 import "./IndexPage.css";
-import ArrowButton from "@components/ArrowButton";
+import ArrowButton from "../assets/ArrowButton";
 
 export default function IndexPage() {
   return (
