@@ -1,35 +1,46 @@
 const MatchCardsInfos = [
   {
     id: "1",
+    city: "Toulouse",
+    adress: "31000 Toulouse 52 rue des blanchers",
+    date: "08/11/2024",
     time: "08:00",
     versus: "3vs3",
-    date: "08/11/2024",
-    city: "TOULOUSE",
+    maxPlayers: "6",
+    players: {
+      players1: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url"
+      },
+      players2: {
+        name: "Joris",
+        age: "45",
+        from: "Chicago",
+        avatar: "url"
+      },
+    },
     playersLeft: "3 players left",
     groundType: "Inside",
   },
   {
-    time: "08:00",
-    versus: "3vs3",
+    id: "2",
+    city: "Toulouse",
+    adress: "31000 Toulouse 52 rue des blanchers",
     date: "08/11/2024",
-    city: "TOULOUSE",
-    playersLeft: "3 players left",
-    groundType: "Outside",
-  },
-  {
     time: "09:00",
     versus: "5vs5",
-    date: "08/11/2024",
-    city: "PARIS",
-    playersLeft: "6 players left",
-    groundType: "Outside",
-  },
-  {
-    time: "10:00",
-    versus: "1vs1",
-    date: "08/11/2024",
-    city: "PARIS",
-    playersLeft: "2 players left",
+    maxPlayers: "10",
+    players: {
+      players1: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url"
+      },
+    },
+    playersLeft: "9 players left",
     groundType: "Outside",
   },
 ];

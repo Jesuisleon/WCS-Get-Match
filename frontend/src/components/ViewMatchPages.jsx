@@ -1,14 +1,15 @@
 // import MatchCards from "@components/MatchCards";
 import "./ViewMatchPages.css";
 import { useState } from "react";
-import ModalPlayers from "@components/ModalPlayers";
-import MatchCards from "@components/MatchCards";
+import ModalPlayers from "./ModalPlayers";
+import MatchCards from "./MatchCards";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
 
-export default function ViewMatchPages({ openViewMatch, onClose }) {
+export default function ViewMatchPages({ openViewMatch, onClose, matchId }) {
   if (!openViewMatch) return null;
+  
   const [openModalPlayers, setOpenModalPlayers] = useState(false);
 
   return (
@@ -56,19 +57,21 @@ export default function ViewMatchPages({ openViewMatch, onClose }) {
             <p className="players-name">Tony P</p>
           </div>
         </div>
-
+            
         <div className="terrain">
-          {MatchCardsInfos.filter((card) => card.id === "1").map(
-            (element, index) => (
+          {MatchCardsInfos.filter((card) => card.id === matchId).map(
+            (card) => (
               <MatchCards
-                keys={index}
-                img={element.groundType === "Inside" ? InsideCard : OutsideCard}
-                time={element.time}
-                versus={element.versus}
-                date={element.date}
-                city={element.city}
-                playersLeft={element.playersLeft}
-                groundType={element.groundType}
+              img={card.groundType === "Inside" ? InsideCard : OutsideCard}
+                key={card.id}
+                city={card.city}
+                adress={card.adress}
+                date={card.date}
+                time={card.time}
+                versus={card.versus}
+                playersLeft={card.playersLeft}
+                groundType={card.groundType}
+                players={card.players}
               />
             )
           )}

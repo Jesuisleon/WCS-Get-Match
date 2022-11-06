@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import MatchCards from "@components/MatchCards";
 import HashtagBar from "@components/HashtagBar";
 import Calendar from "../components/Calendar";
-import ViewMatchPage from "./ViewMatchPages";
+import ViewMatchPage from "@components/ViewMatchPages";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
@@ -12,6 +12,8 @@ export default function MainPage() {
   const [matchCardsList, setMatchCardsList] = useState(MatchCardsInfos);
   const [viewCalendar, setViewCalendar] = useState(false);
   const [openViewMatch, setOpenViewMatch] = useState(false);
+  const [matchId, setMatchId] = useState("");
+
 
   return (
     <section className="match-page">
@@ -52,20 +54,20 @@ export default function MainPage() {
         />
       </div>
       <div className="cards-container">
-        {matchCardsList.map((element, index) => (
+        {matchCardsList.map((card) => (
           <MatchCards
             viewMatch={() => {
               setOpenViewMatch(true);
+              setMatchId(card.id);
             }}
-            keys={index}
-            img={element.groundType === "Inside" ? InsideCard : OutsideCard}
-            time={element.time}
-            versus={element.versus}
-            date={element.date}
-            city={element.city}
-            playersLeft={element.playersLeft}
-            groundType={element.groundType}
-            name={element.id}
+            img={card.groundType === "Inside" ? InsideCard : OutsideCard}
+            key={card.id}
+            city={card.city}
+            date={card.date}
+            time={card.time}
+            versus={card.versus}
+            playersLeft={card.playersLeft}
+            groundType={card.groundType}
           />
         ))}
       </div>
@@ -73,6 +75,7 @@ export default function MainPage() {
         <p>ADD MATCH</p>
       </div>
       <ViewMatchPage
+        matchId={matchId}
         openViewMatch={openViewMatch}
         onClose={() => setOpenViewMatch(false)}
       />
