@@ -1,9 +1,9 @@
 import "./MatchPage.css";
 import React, { useState } from "react";
 import HashtagBar from "@components/HashtagBar/HashtagBar";
-import Calendar from "../components/Calendar/Calendar";
 import MatchCards from "@components/MatchCards/MatchCards";
 import ViewMatchPage from "@pages/ViewMatchPages";
+import Calendar from "../components/Calendar/Calendar";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
