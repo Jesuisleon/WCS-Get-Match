@@ -9,12 +9,14 @@ const MatchCardsInfos = [
     maxPlayers: "6",
     players: {
       players1: {
+        id: "1",
         name: "Pascal",
         age: "12",
         from: "Paris",
         avatar: "url",
       },
       players2: {
+        id: "1",
         name: "Joris",
         age: "45",
         from: "Chicago",
