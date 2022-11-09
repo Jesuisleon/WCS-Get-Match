@@ -11,8 +11,10 @@ import OutsideCard from "../img/mobile/outside-card.png";
 export default function MainPage() {
   const [matchCardsList, setMatchCardsList] = useState(MatchCardsInfos);
   const [viewCalendar, setViewCalendar] = useState(false);
-  const [openViewMatch, setOpenViewMatch] = useState(false);
+  const [viewMatch, setViewMatch] = useState(false);
   const [matchId, setMatchId] = useState("");
+  const [date, setDate] = useState(new Date());
+
 
   return (
     <section className="match-page">
@@ -45,18 +47,20 @@ export default function MainPage() {
             src="src/img/icons/calendar-white.png"
             alt="calendar-icons"
           />
-          <p>08/11/2024</p>
+          <p>{date.toLocaleDateString()}</p>
         </div>
         <Calendar
           viewCalendar={viewCalendar}
           setViewCalendar={setViewCalendar}
+          date={date}
+          setDate={setDate}
         />
       </div>
       <div className="cards-container">
         {matchCardsList.map((card) => (
           <MatchCards
             viewMatch={() => {
-              setOpenViewMatch(true);
+              setViewMatch(true);
               setMatchId(card.id);
             }}
             img={card.groundType === "Inside" ? InsideCard : OutsideCard}
@@ -75,8 +79,8 @@ export default function MainPage() {
       </div>
       <ViewMatchPage
         matchId={matchId}
-        openViewMatch={openViewMatch}
-        onClose={() => setOpenViewMatch(false)}
+        viewMatch={viewMatch}
+        onClose={() => setViewMatch(false)}
       />
     </section>
   );

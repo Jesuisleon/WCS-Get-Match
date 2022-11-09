@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "./Calendar.css";
 
-export default function Calendar1({ viewCalendar, setViewCalendar }) {
-  const [date, setDate] = useState(new Date());
+export default function Calendar1({ viewCalendar, setViewCalendar,date ,setDate }) {
+  
 
   function onCloseCalendar() {
     setViewCalendar(false);
