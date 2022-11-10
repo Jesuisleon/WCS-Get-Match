@@ -1,18 +1,29 @@
 import "./SearchButtons.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HashtagBar from "@components/Search/HashtagBar/HashtagBar";
+import MatchCardsInfos from "../../data/MatchCardsInfos";
 import Calendar from "./Calendar/Calendar";
 
-function SearchButtons({
-  viewCalendar,
-  setViewCalendar,
-  setMatchCardsList,
-}) {
+function SearchButtons({ viewCalendar, setViewCalendar, setMatchCardsList }) {
+  const [date, setDate] = useState(new Date());
+  const [time] = useState(new Date());
+  const [city] = useState("TOULOUSE");
 
-    const [date, setDate] = useState(new Date());
-    const [time, setTime] = useState(new Date());
-    const [city, setCity] = useState("TOULOUSE");
+  useEffect(() => {
+    const dateAndTime = new Date(
+      `${date.toLocaleDateString("en-US")} ${time.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })}`
+    );
 
+    const FilterTime = (cards, lastDate) => {
+      return cards.filter((card) => {
+        return new Date(`${card.time} ${card.date}`) >= lastDate;
+      });
+    };
+    setMatchCardsList(FilterTime(MatchCardsInfos, dateAndTime));
+  }, [date]);
 
   return (
     <div className="search-container">
@@ -24,7 +35,12 @@ function SearchButtons({
             src="src/img/icons/schedule-white.png"
             alt="schedule-icons"
           />
-          <p>{time.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' })}</p>
+          <p>
+            {time.toLocaleTimeString("en-US", {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+          </p>
         </div>
         <div className="inline">
           <img
