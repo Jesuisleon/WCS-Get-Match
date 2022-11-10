@@ -1,7 +1,7 @@
 import ReactSelect from "react-select";
 import React, { useState } from "react";
-import MatchCardsInfos from "../../data/MatchCardsInfos";
-import HashtagList from "../../data/HashtagList";
+import MatchCardsInfos from "../../../data/MatchCardsInfos";
+import HashtagList from "../../../data/HashtagList";
 
 function HashtagBar({ onChange }) {
   const [hashtagBarSearch, SethashtagBarSearch] = useState(); // To keep them as values when users select a new hashtag.

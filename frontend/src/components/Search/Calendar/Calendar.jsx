@@ -5,10 +5,10 @@ import Calendar from "react-calendar";
 import "./Calendar.css";
 
 export default function CalendarModal({
-  viewCalendar,
-  setViewCalendar,
   date,
   setDate,
+  viewCalendar,
+  setViewCalendar,
 }) {
   function onCloseCalendar() {
     setViewCalendar(false);

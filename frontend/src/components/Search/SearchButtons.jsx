@@ -1,40 +1,53 @@
 import "./SearchButtons.css";
+import HashtagBar from "@components/Search/HashtagBar/HashtagBar";
 import Calendar from "./Calendar/Calendar";
 
-const SearchButtons = ({date, setDate, viewCalendar, setViewCalendar}) => {
-  return (
-    <div className="search-buttons">
-    <div className="schedule">
-      <img
-        className="icons"
-        src="src/img/icons/schedule-white.png"
-        alt="schedule-icons"
-      />
-      <p>{date.toLocaleTimeString('en-US')}</p>
+function SearchButtons({  time, setTime, city, setCity, date, setDate, viewCalendar, setViewCalendar, onChange }) {
+    return (
+      
+        <div className="search-container">
+            <HashtagBar onChange={onChange} />
+        <div className="search-buttons">
+          <div className="inline">
+            <img
+              className="icons"
+              src="src/img/icons/schedule-white.png"
+              alt="schedule-icons"
+            />
+            <p>{time.toLocaleTimeString("en-US")}</p>
           </div>
-          
-    <div
-      onClick={() => setViewCalendar(true)}
-      onKeyDown={() => setViewCalendar(true)}
-      role="button"
-      tabIndex={0}
-       className="calendar"
-    >
-      <img
-        className="icons"
-        src="src/img/icons/calendar-white.png"
-        alt="calendar-icons"
-      />
-      <p>{date.toLocaleDateString()}</p>
+              <div className="inline">
+              <img
+              className="icons"
+              src="src/img/icons/localisation-white.png"
+              alt="localisation-icons"
+                  />
+                  <p>{city}</p>
+            </div>
+        
+          <div
+            onClick={() => setViewCalendar(true)}
+            onKeyDown={() => setViewCalendar(true)}
+            role="button"
+            tabIndex={0}
+            className="inline"
+          >
+            <img
+              className="icons"
+              src="src/img/icons/calendar-white.png"
+              alt="calendar-icons"
+            />
+            <p>{date.toLocaleDateString()}</p>
+          </div>
+          <Calendar
+            viewCalendar={viewCalendar}
+            setViewCalendar={setViewCalendar}
+            date={date}
+            setDate={setDate}
+          />
+        </div>
     </div>
-    <Calendar
-      viewCalendar={viewCalendar}
-      setViewCalendar={setViewCalendar}
-      date={date}
-      setDate={setDate}
-    />
-  </div>
-  )
+  );
 }
 
-export default SearchButtons
+export default SearchButtons;

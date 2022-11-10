@@ -1,12 +1,11 @@
-import InsideCard from "../img/mobile/inside-card.png";
-import OutsideCard from "../img/mobile/outside-card.png";
 import "./MatchPage.css";
 import React, { useState } from "react";
-import HashtagBar from "@components/HashtagBar/HashtagBar";
 import SearchButtons from "@components/Search/SearchButtons";
 import MatchCards from "@components/MatchCards/MatchCards";
 import ViewMatchPage from "@pages/ViewMatchPages";
 import MatchCardsInfos from "../data/MatchCardsInfos";
+import InsideCard from "../img/mobile/inside-card.png";
+import OutsideCard from "../img/mobile/outside-card.png";
 
 export default function MainPage() {
   const [matchCardsList, setMatchCardsList] = useState(MatchCardsInfos);
@@ -14,6 +13,8 @@ export default function MainPage() {
   const [viewMatch, setViewMatch] = useState(false);
   const [matchId, setMatchId] = useState("");
   const [date, setDate] = useState(new Date());
+  const [time, setTime] = useState(new Date());
+  const [city, setCity] = useState("TOULOUSE");
 
   return (
     <section className="match-page">
@@ -24,12 +25,17 @@ export default function MainPage() {
           alt="logo"
         />
       </div>
-      <HashtagBar onChange={setMatchCardsList} />
       <SearchButtons
+        time={time}
+        setTime={setTime}
+        city={city}
+        setCity={setCity}
         date={date}
         setDate={setDate}
         viewCalendar={viewCalendar}
-        setViewCalendar={setViewCalendar} />
+        setViewCalendar={setViewCalendar}
+        onChange={setMatchCardsList}
+      />
       <div className="cards-container">
         {matchCardsList.map((card) => (
           <MatchCards
