@@ -1,12 +1,12 @@
+import InsideCard from "../img/mobile/inside-card.png";
+import OutsideCard from "../img/mobile/outside-card.png";
 import "./MatchPage.css";
 import React, { useState } from "react";
 import HashtagBar from "@components/HashtagBar/HashtagBar";
+import SearchButtons from "@components/Search/SearchButtons";
 import MatchCards from "@components/MatchCards/MatchCards";
 import ViewMatchPage from "@pages/ViewMatchPages";
-import Calendar from "../components/Calendar/Calendar";
 import MatchCardsInfos from "../data/MatchCardsInfos";
-import InsideCard from "../img/mobile/inside-card.png";
-import OutsideCard from "../img/mobile/outside-card.png";
 
 export default function MainPage() {
   const [matchCardsList, setMatchCardsList] = useState(MatchCardsInfos);
@@ -14,7 +14,6 @@ export default function MainPage() {
   const [viewMatch, setViewMatch] = useState(false);
   const [matchId, setMatchId] = useState("");
   const [date, setDate] = useState(new Date());
-
 
   return (
     <section className="match-page">
@@ -26,36 +25,11 @@ export default function MainPage() {
         />
       </div>
       <HashtagBar onChange={setMatchCardsList} />
-      <div className="search-buttons">
-        <div className="schedule">
-          <img
-            className="icons"
-            src="src/img/icons/schedule-white.png"
-            alt="schedule-icons"
-          />
-          <p>08:00 AM</p>
-        </div>
-        <div
-          onClick={() => setViewCalendar(true)}
-          onKeyDown={() => setViewCalendar(true)}
-          className="calendar"
-          role="button"
-          tabIndex={0}
-        >
-          <img
-            className="icons"
-            src="src/img/icons/calendar-white.png"
-            alt="calendar-icons"
-          />
-          <p>{date.toLocaleDateString()}</p>
-        </div>
-        <Calendar
-          viewCalendar={viewCalendar}
-          setViewCalendar={setViewCalendar}
-          date={date}
-          setDate={setDate}
-        />
-      </div>
+      <SearchButtons
+        date={date}
+        setDate={setDate}
+        viewCalendar={viewCalendar}
+        setViewCalendar={setViewCalendar} />
       <div className="cards-container">
         {matchCardsList.map((card) => (
           <MatchCards

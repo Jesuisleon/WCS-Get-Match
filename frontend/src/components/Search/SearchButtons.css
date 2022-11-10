@@ -1,0 +1,35 @@
+/* SEARCH BUTTONS CONTENT */
+
+.search-buttons {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 50px;
+  }
+  
+  .schedule {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .schedule p {
+    border-bottom: 1px white solid;
+    border-top: 1px white solid;
+    padding-top: 4px;
+  }
+  
+  .calendar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .calendar p {
+    border-bottom: 1px white solid;
+    border-top: 1px white solid;
+    padding-top: 4px;
+  }
