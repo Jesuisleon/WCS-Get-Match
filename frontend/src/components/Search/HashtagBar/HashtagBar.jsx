@@ -3,15 +3,18 @@ import React, { useState } from "react";
 import MatchCardsInfos from "../../../data/MatchCardsInfos";
 import HashtagList from "../../../data/HashtagList";
 
+
 function HashtagBar({ onChange }) {
+
+
   const [hashtagBarSearch, SethashtagBarSearch] = useState(); // To keep them as values when users select a new hashtag.
+
   //  The function to filter cards with hashtag
   const FilterHashtag = (selectedOption) => {
     // Keep all hashtags and transform it on object with only the {keys : values} of the hashtag.
     const hashtag = selectedOption.filter((option) => {
       if (option.versus !== undefined) return { versus: option.versus };
-      if (option.groundType !== undefined)
-        return { groundType: option.groundType };
+      if (option.groundType !== undefined) return { groundType: option.groundType };
       return false;
     });
 

@@ -12,9 +12,6 @@ export default function MainPage() {
   const [viewCalendar, setViewCalendar] = useState(false);
   const [viewMatch, setViewMatch] = useState(false);
   const [matchId, setMatchId] = useState("");
-  const [date, setDate] = useState(new Date());
-  const [time, setTime] = useState(new Date());
-  const [city, setCity] = useState("TOULOUSE");
 
   return (
     <section className="match-page">
@@ -26,15 +23,9 @@ export default function MainPage() {
         />
       </div>
       <SearchButtons
-        time={time}
-        setTime={setTime}
-        city={city}
-        setCity={setCity}
-        date={date}
-        setDate={setDate}
         viewCalendar={viewCalendar}
         setViewCalendar={setViewCalendar}
-        onChange={setMatchCardsList}
+        setMatchCardsList={setMatchCardsList}
       />
       <div className="cards-container">
         {matchCardsList.map((card) => (
