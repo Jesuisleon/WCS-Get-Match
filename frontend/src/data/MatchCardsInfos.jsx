@@ -1,9 +1,9 @@
 const MatchCardsInfos = [
   {
     id: "1",
-    city: "Toulouse",
+    city: "TOULOUSE",
     adress: "31000 Toulouse 52 rue des blanchers",
-    date: "12/11/2022",
+    date: "11/11/2022",
     time: "08:00 AM",
     versus: "3vs3",
     maxPlayers: "6",
@@ -28,7 +28,7 @@ const MatchCardsInfos = [
   },
   {
     id: "2",
-    city: "Toulouse",
+    city: "TOULOUSE",
     adress: "31000 Toulouse 52 rue des blanchers",
     date: "11/11/2022",
     time: "09:00 AM",
@@ -66,9 +66,9 @@ const MatchCardsInfos = [
   },
   {
     id: "4",
-    city: "Toulouse",
+    city: "TOULOUSE",
     adress: "31000 Toulouse 52 rue des blanchers",
-    date: "11/12/2022",
+    date: "12/12/2022",
     time: "05:00 PM",
     versus: "3vs3",
     maxPlayers: "10",

@@ -5,29 +5,67 @@ import MatchCardsInfos from "../../data/MatchCardsInfos";
 import Calendar from "./Calendar/Calendar";
 
 function SearchButtons({ viewCalendar, setViewCalendar, setMatchCardsList }) {
-  const [date, setDate] = useState(new Date());
+  const [cardsList, setCardsList] = useState([]);
+  useEffect(() => {
+    setMatchCardsList(cardsList);
+  }, [cardsList]);
+
   const [time] = useState(new Date());
   const [city] = useState("TOULOUSE");
+  const [date, setDate] = useState(new Date());
 
-  useEffect(() => {
-    const dateAndTime = new Date(
-      `${date.toLocaleDateString("en-US")} ${time.toLocaleTimeString("en-US", {
+  const FilterTime = (cards, lastDate) => {
+    return cards.filter((card) => {
+      return new Date(`${card.time} ${card.date}`) >= lastDate;
+    });
+  };
+
+  const dateAndTime = new Date(
+    `${date.toLocaleDateString("en-US")} 
+      ${time.toLocaleTimeString("en-US", {
         hour: "2-digit",
         minute: "2-digit",
       })}`
-    );
+  );
 
-    const FilterTime = (cards, lastDate) => {
-      return cards.filter((card) => {
-        return new Date(`${card.time} ${card.date}`) >= lastDate;
-      });
-    };
-    setMatchCardsList(FilterTime(MatchCardsInfos, dateAndTime));
+  useEffect(() => {
+    setCardsList(FilterTime(MatchCardsInfos, dateAndTime));
   }, [date]);
+
+  const FilterHashtag = (hashtag) => {
+    const hashtagSelectedKeys = [
+      ...new Set(
+        hashtag
+          .map((element) => {
+            return Object.keys(element);
+          })
+          .flat()
+      ),
+    ].splice(2, 2);
+
+    const filterHashtagByKeys = (cards, keys) => {
+      return hashtag.some((card) => cards[keys].includes(card[keys]));
+    };
+
+    const filteredCards = cardsList.filter((cards) => {
+      if (hashtag.length === 0) return cards;
+      if (hashtagSelectedKeys.length === 1)
+        return filterHashtagByKeys(cards, hashtagSelectedKeys);
+      if (hashtagSelectedKeys.length === 2) {
+        return (
+          filterHashtagByKeys(cards, hashtagSelectedKeys[0]) &&
+          filterHashtagByKeys(cards, hashtagSelectedKeys[1])
+        );
+      }
+      return false;
+    });
+
+    setMatchCardsList(filteredCards);
+  };
 
   return (
     <div className="search-container">
-      <HashtagBar onChange={setMatchCardsList} />
+      <HashtagBar onChange={FilterHashtag} />
       <div className="search-buttons">
         <div className="inline">
           <img
