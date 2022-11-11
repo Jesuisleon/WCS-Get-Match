@@ -1,55 +1,18 @@
-/* eslint no-lone-blocks: "error" */
-
-import { useEffect } from "react";
-import Calendar from "react-calendar";
-import "./Calendar.css";
-
-export default function CalendarModal({
-  date,
-  setDate,
-  viewCalendar,
-  setViewCalendar,
-}) {
-  function onCloseCalendar() {
-    setViewCalendar(false);
-  }
-
-  useEffect(() => {
-    onCloseCalendar(false);
-  }, [date]);
-
-  if (!viewCalendar) return null;
-
+export default function Calendar({ date, setViewCalendar }) {
   return (
     <div
-      onClick={onCloseCalendar}
-      onKeyDown={onCloseCalendar}
-      className="calendar-main"
+      onClick={() => setViewCalendar(true)}
+      onKeyDown={() => setViewCalendar(true)}
       role="button"
       tabIndex={0}
+      className="inline"
     >
-      <div className="Calendar-close-div" />
-      <div
-        onClick={onCloseCalendar}
-        onKeyDown={onCloseCalendar}
-        role="button"
-        tabIndex={0}
-        className="calendar-section"
-      >
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-          onKeyDown={(e) => {
-            e.stopPropagation();
-          }}
-          role="button"
-          tabIndex={0}
-          className="calendar-container"
-        >
-          <Calendar onChange={setDate} value={date} />
-        </div>
-      </div>
+      <img
+        className="icons"
+        src="src/img/icons/calendar-white.png"
+        alt="calendar-icons"
+      />
+      <p>{date.toLocaleDateString("en-US")}</p>
     </div>
   );
 }

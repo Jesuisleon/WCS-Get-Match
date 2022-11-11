@@ -102,6 +102,44 @@ const MatchCardsInfos = [
     playersLeft: "9 players left",
     groundType: "Outside",
   },
+  {
+    id: "6",
+    city: "BOSTON",
+    adress: "31000 Toulouse 52 rue des blanchers",
+    date: "11/24/2022",
+    time: "07:00 PM",
+    versus: "1vs1",
+    maxPlayers: "2",
+    players: {
+      players1: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+    },
+    playersLeft: "9 players left",
+    groundType: "Outside",
+  },
+  {
+    id: "7",
+    city: "CHICAGO",
+    adress: "31000 Toulouse 52 rue des blanchers",
+    date: "11/25/2022",
+    time: "07:00 PM",
+    versus: "1vs1",
+    maxPlayers: "2",
+    players: {
+      players1: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+    },
+    playersLeft: "9 players left",
+    groundType: "Inside",
+  },
 ];
 
 export default MatchCardsInfos;

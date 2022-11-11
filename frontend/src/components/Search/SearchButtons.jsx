@@ -2,18 +2,21 @@ import "./SearchButtons.css";
 import { useState, useEffect } from "react";
 import HashtagBar from "@components/Search/HashtagBar/HashtagBar";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
+import Timer from "./Timer/Timer";
+import City from "./City/City";
 import Calendar from "./Calendar/Calendar";
+import ModalCalendar from "./Calendar/ModalCalendar";
 
-function SearchButtons({ viewCalendar, setViewCalendar, setMatchCardsList }) {
+export default function SearchButtons({ viewCalendar, setViewCalendar, setMatchCardsList }) {
+
   const [cardsList, setCardsList] = useState([]);
   useEffect(() => {
     setMatchCardsList(cardsList);
   }, [cardsList]);
 
   const [hashtagList, setHashtagList] = useState([]);
-
   const [time] = useState(new Date());
-  const [city] = useState("NEW-YORK");
+  const [city, setCity] = useState("NEW-YORK");
   const [date, setDate] = useState(new Date());
 
   const dateAndTime = new Date(
@@ -72,43 +75,10 @@ function SearchButtons({ viewCalendar, setViewCalendar, setMatchCardsList }) {
     <div className="search-container">
       <HashtagBar onChange={setHashtagList} />
       <div className="search-buttons">
-        <div className="inline">
-          <img
-            className="icons"
-            src="src/img/icons/schedule-white.png"
-            alt="schedule-icons"
-          />
-          <p>
-            {time.toLocaleTimeString("en-US", {
-              hour: "2-digit",
-              minute: "2-digit",
-            })}
-          </p>
-        </div>
-        <div className="inline">
-          <img
-            className="icons"
-            src="src/img/icons/localisation-white.png"
-            alt="localisation-icons"
-          />
-          <p>{city}</p>
-        </div>
-
-        <div
-          onClick={() => setViewCalendar(true)}
-          onKeyDown={() => setViewCalendar(true)}
-          role="button"
-          tabIndex={0}
-          className="inline"
-        >
-          <img
-            className="icons"
-            src="src/img/icons/calendar-white.png"
-            alt="calendar-icons"
-          />
-          <p>{date.toLocaleDateString("en-US")}</p>
-        </div>
-        <Calendar
+        <Timer time={time}  />
+        <City city={city} setCity={setCity} />
+        <Calendar date={date} setViewCalendar={setViewCalendar} />
+        <ModalCalendar
           viewCalendar={viewCalendar}
           setViewCalendar={setViewCalendar}
           date={date}
@@ -118,5 +88,3 @@ function SearchButtons({ viewCalendar, setViewCalendar, setMatchCardsList }) {
     </div>
   );
 }
-
-export default SearchButtons;
