@@ -10,15 +10,11 @@ function SearchButtons({ viewCalendar, setViewCalendar, setMatchCardsList }) {
     setMatchCardsList(cardsList);
   }, [cardsList]);
 
-  const [time] = useState(new Date());
-  const [city] = useState("TOULOUSE");
-  const [date, setDate] = useState(new Date());
+  const [hashtagList, setHashtagList] = useState([]);
 
-  const FilterTime = (cards, lastDate) => {
-    return cards.filter((card) => {
-      return new Date(`${card.time} ${card.date}`) >= lastDate;
-    });
-  };
+  const [time] = useState(new Date());
+  const [city] = useState("NEW-YORK");
+  const [date, setDate] = useState(new Date());
 
   const dateAndTime = new Date(
     `${date.toLocaleDateString("en-US")} 
@@ -29,43 +25,52 @@ function SearchButtons({ viewCalendar, setViewCalendar, setMatchCardsList }) {
   );
 
   useEffect(() => {
-    setCardsList(FilterTime(MatchCardsInfos, dateAndTime));
-  }, [date]);
-
-  const FilterHashtag = (hashtag) => {
-    const hashtagSelectedKeys = [
-      ...new Set(
-        hashtag
-          .map((element) => {
-            return Object.keys(element);
-          })
-          .flat()
-      ),
-    ].splice(2, 2);
-
-    const filterHashtagByKeys = (cards, keys) => {
-      return hashtag.some((card) => cards[keys].includes(card[keys]));
+    const FilterByDateAndTime = (cards, lastDate) => {
+      return cards.filter((card) => {
+        return new Date(`${card.time} ${card.date}`) >= lastDate;
+      });
     };
 
-    const filteredCards = cardsList.filter((cards) => {
-      if (hashtag.length === 0) return cards;
-      if (hashtagSelectedKeys.length === 1)
-        return filterHashtagByKeys(cards, hashtagSelectedKeys);
-      if (hashtagSelectedKeys.length === 2) {
-        return (
-          filterHashtagByKeys(cards, hashtagSelectedKeys[0]) &&
-          filterHashtagByKeys(cards, hashtagSelectedKeys[1])
-        );
-      }
-      return false;
-    });
+    const FilterByHashtag = (cardsFilterByDateAndTime, hashtag) => {
+      const hashtagSelectedKeys = [
+        ...new Set(
+          hashtag
+            .map((element) => {
+              return Object.keys(element);
+            })
+            .flat()
+        ),
+      ].splice(2, 2);
 
-    setMatchCardsList(filteredCards);
-  };
+      const filterKeysByHashtag = (cards, keys) => {
+        return hashtag.some((card) => cards[keys].includes(card[keys]));
+      };
+
+      const FilterCards = cardsFilterByDateAndTime.filter((cards) => {
+        if (hashtag.length === 0) return cards;
+        if (hashtagSelectedKeys.length === 1)
+          return filterKeysByHashtag(cards, hashtagSelectedKeys);
+        if (hashtagSelectedKeys.length === 2) {
+          return (
+            filterKeysByHashtag(cards, hashtagSelectedKeys[0]) &&
+            filterKeysByHashtag(cards, hashtagSelectedKeys[1])
+          );
+        }
+        return false;
+      });
+      return FilterCards;
+    };
+    setCardsList(
+      FilterByHashtag(
+        FilterByDateAndTime(MatchCardsInfos, dateAndTime),
+        hashtagList
+      )
+    );
+  }, [date, hashtagList]);
 
   return (
     <div className="search-container">
-      <HashtagBar onChange={FilterHashtag} />
+      <HashtagBar onChange={setHashtagList} />
       <div className="search-buttons">
         <div className="inline">
           <img
@@ -101,7 +106,7 @@ function SearchButtons({ viewCalendar, setViewCalendar, setMatchCardsList }) {
             src="src/img/icons/calendar-white.png"
             alt="calendar-icons"
           />
-          <p>{date.toLocaleDateString()}</p>
+          <p>{date.toLocaleDateString("en-US")}</p>
         </div>
         <Calendar
           viewCalendar={viewCalendar}
