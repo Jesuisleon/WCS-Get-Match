@@ -7,16 +7,19 @@ import City from "./City/City";
 import Calendar from "./Calendar/Calendar";
 import ModalCalendar from "./Calendar/ModalCalendar";
 
-export default function SearchButtons({ viewCalendar, setViewCalendar, setMatchCardsList }) {
-
+export default function SearchButtons({
+  viewCalendar,
+  setViewCalendar,
+  setMatchCardsList,
+}) {
   const [cardsList, setCardsList] = useState([]);
   useEffect(() => {
     setMatchCardsList(cardsList);
   }, [cardsList]);
 
+  const [city, setCity] = useState("NEW-YORK");
   const [hashtagList, setHashtagList] = useState([]);
   const [time] = useState(new Date());
-  const [city, setCity] = useState("NEW-YORK");
   const [date, setDate] = useState(new Date());
 
   const dateAndTime = new Date(
@@ -33,8 +36,12 @@ export default function SearchButtons({ viewCalendar, setViewCalendar, setMatchC
         return new Date(`${card.time} ${card.date}`) >= lastDate;
       });
     };
-
-    const FilterByHashtag = (cardsFilterByDateAndTime, hashtag) => {
+    const FilterByCity = (cardsFilterByDate) => {
+      return cardsFilterByDate.filter((card) => {
+        return card.city === city;
+      });
+    };
+    const FilterByHashtag = (cardsFilterByCityAndDate, hashtag) => {
       const hashtagSelectedKeys = [
         ...new Set(
           hashtag
@@ -43,20 +50,26 @@ export default function SearchButtons({ viewCalendar, setViewCalendar, setMatchC
             })
             .flat()
         ),
-      ].splice(2, 2);
-
+      ].filter((element, index) => index > 1);
       const filterKeysByHashtag = (cards, keys) => {
         return hashtag.some((card) => cards[keys].includes(card[keys]));
       };
-
-      const FilterCards = cardsFilterByDateAndTime.filter((cards) => {
+      const FilterCards = cardsFilterByCityAndDate.filter((cards) => {
         if (hashtag.length === 0) return cards;
+
         if (hashtagSelectedKeys.length === 1)
-          return filterKeysByHashtag(cards, hashtagSelectedKeys);
+          return filterKeysByHashtag(cards, hashtagSelectedKeys[0]);
         if (hashtagSelectedKeys.length === 2) {
           return (
             filterKeysByHashtag(cards, hashtagSelectedKeys[0]) &&
             filterKeysByHashtag(cards, hashtagSelectedKeys[1])
+          );
+        }
+        if (hashtagSelectedKeys.length === 3) {
+          return (
+            filterKeysByHashtag(cards, hashtagSelectedKeys[0]) &&
+            filterKeysByHashtag(cards, hashtagSelectedKeys[1]) &&
+            filterKeysByHashtag(cards, hashtagSelectedKeys[2])
           );
         }
         return false;
@@ -65,17 +78,17 @@ export default function SearchButtons({ viewCalendar, setViewCalendar, setMatchC
     };
     setCardsList(
       FilterByHashtag(
-        FilterByDateAndTime(MatchCardsInfos, dateAndTime),
+        FilterByCity(FilterByDateAndTime(MatchCardsInfos, dateAndTime)),
         hashtagList
       )
     );
-  }, [date, hashtagList]);
+  }, [date, city, hashtagList]);
 
   return (
     <div className="search-container">
       <HashtagBar onChange={setHashtagList} />
       <div className="search-buttons">
-        <Timer time={time}  />
+        <Timer time={time} />
         <City city={city} setCity={setCity} />
         <Calendar date={date} setViewCalendar={setViewCalendar} />
         <ModalCalendar

@@ -6,12 +6,12 @@ export default function Timer({ time }) {
         src="src/img/icons/schedule-white.png"
         alt="schedule-icons"
       />
-        <p>
-          {time.toLocaleTimeString("en-US", {
+      <p>
+        {time.toLocaleTimeString("en-US", {
           hour: "2-digit",
           minute: "2-digit",
-          })}</p>
-
+        })}
+      </p>
     </div>
   );
 }
