@@ -2,37 +2,27 @@
 
 import "./AddMatchPage.css";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
+import ModalCalendar from "@components/Search/Calendar/ModalCalendar";
 
 const steps = [
   {
     label: "Choose your City",
-    description: `Toulouse Paris Bordeaux Lyon Marseille Strasbourg...`,
   },
   {
     label: "Choose a Date",
-    description: "26/10/22 27/10/22 28/10/22 19/10/22....",
   },
   {
     label: "Choose the type of game",
-    description: `3vs3 5vs5 1vs1`,
   },
 ];
 
-export function InputStepper({
-  index,
-  description,
-  handleNext,
-  handleBack,
-  children,
-}) {
+export function InputStepper({ index, handleNext, handleBack, children }) {
   return (
     <StepContent>
-      <p>{description}</p>
-
       {children}
       <div className="button-container">
         {index === steps.length - 1 ? (
@@ -57,10 +47,96 @@ export function InputStepper({
   );
 }
 
+export function CityStepper({ register }) {
+  return (
+    <div className="stepper">
+      <div className="inline">
+        <img
+          className="icons"
+          src="src/img/icons/localisation-white.png"
+          alt="localisation-icons"
+        />
+        <div className="select-dropdown borders-styled">
+          <select className="select" {...register("city")}>
+            <option value="NEW-YORK">NEW-YORK</option>
+            <option value="BOSTON">BOSTON</option>
+            <option value="CHICAGO">CHICAGO</option>
+          </select>
+        </div>
+      </div>
+      <div className="inline">
+        <input
+          placeholder="Enter the adress"
+          type="text"
+          {...register("adress")}
+        />
+      </div>
+    </div>
+  );
+}
+
+export function DateStepper({ setViewCalendar, date, time }) {
+  return (
+    <div className="stepper">
+      <div
+        onClick={() => setViewCalendar(true)}
+        onKeyDown={() => setViewCalendar(true)}
+        role="button"
+        tabIndex={0}
+        className="inline"
+      >
+        <img
+          className="icons"
+          src="src/img/icons/calendar-white.png"
+          alt="calendar-icons"
+        />
+        <p className="borders-styled">{date.toLocaleDateString("en-US")}</p>
+      </div>
+      <div className="inline">
+        <img
+          className="icons"
+          src="src/img/icons/schedule-white.png"
+          alt="schedule-icons"
+        />
+        <p className="borders-styled">
+          {time.toLocaleTimeString("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export function MatchTypeStepper({ register }) {
+  return (
+    <div className="stepper">
+      <div className="inline">
+        <select {...register("versus")}>
+          <option value="1vs1">1vs1</option>
+          <option value="3vs3">3vs3</option>
+          <option value="5vs5">5vs5</option>
+        </select>
+      </div>
+      <div className="inline">
+        <select {...register("groundType")}>
+          <option value="Inside">Inside</option>
+          <option value="Outside">Outside</option>
+        </select>
+      </div>
+    </div>
+  );
+}
+
 export default function VerticalLinearStepper() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control } = useForm();
 
   const onSubmit = (data) => console.error(data);
+
+  const [viewCalendar, setViewCalendar] = useState(false);
+  const [time] = useState(new Date());
+  const [date, setDate] = useState(new Date());
 
   const [activeStep, setActiveStep] = useState(0);
 
@@ -70,6 +146,10 @@ export default function VerticalLinearStepper() {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleChangeDate = (newDate) => {
+    setDate(newDate);
   };
 
   return (
@@ -86,15 +166,17 @@ export default function VerticalLinearStepper() {
                 index={index}
                 handleNext={handleNext}
                 handleBack={handleBack}
-                description={step.description}
               >
-                {index === 0 && (
-                  <select {...register("gender")}>
-                    <option value="female">female</option>
-                    <option value="male">male</option>
-                    <option value="other">other</option>
-                  </select>
+                {index === 0 && <CityStepper register={register} />}
+                {index === 1 && (
+                  <DateStepper
+                    register={register}
+                    setViewCalendar={setViewCalendar}
+                    date={date}
+                    time={time}
+                  />
                 )}
+                {index === 2 && <MatchTypeStepper register={register} />}
               </InputStepper>
             </Step>
           ))}
@@ -105,6 +187,21 @@ export default function VerticalLinearStepper() {
           </div>
         )}
       </form>
+      <Controller
+        control={control}
+        name="date"
+        defaultValue={date.toLocaleDateString("en-US")}
+        render={({ onChange, value }) => (
+          <ModalCalendar
+            onChange={onChange}
+            selected={value}
+            viewCalendar={viewCalendar}
+            setViewCalendar={setViewCalendar}
+            date={date}
+            setDate={handleChangeDate}
+          />
+        )}
+      />
     </div>
   );
 }

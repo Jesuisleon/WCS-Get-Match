@@ -4,6 +4,17 @@
   margin: 9px;
 }
 
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stepper {
+  display: flex;
+  gap: 15px;
+}
+
 .button-container {
   display: flex;
   gap: 10px;
