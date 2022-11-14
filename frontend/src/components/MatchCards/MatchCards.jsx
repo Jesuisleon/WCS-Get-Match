@@ -20,6 +20,7 @@ export default function MatchCards({
       <div className="image">
         <img src={img} alt="card-background" className="card-background" />
       </div>
+
       <div className="text">
         <CardTextElements
           value={city}

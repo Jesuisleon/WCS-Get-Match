@@ -1,40 +1,28 @@
 .viewback {
-  z-index: 2;
   position: fixed;
-  top: 10%;
-  bottom: 0;
+  top: 0;
   right: 0;
-  left: 0;
-  margin: auto;
   height: 100%;
   width: 100%;
+  box-sizing: content-box;
 }
 
-.view-teams {
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  height: 90%;
-  width: 90%;
-  background: url("../img/mobile/surbackground.png");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: var(--black-color);
+.logoviewback {
   display: flex;
+  justify-content: space-between;
+  align-content: center;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  position: relative;
+  background: url("../img/mobile/surbackground.png");
+  background-color: rgb(30, 26, 26);
+  min-height: 100vh;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-
-.close {
-  position: absolute;
-  top: 20px;
-  font-size: 45px;
-  color: white;
+.closeButton {
+  position: fixed;
+  z-index: 5;
 }
 
 .team1 {
@@ -101,11 +89,6 @@ p.players-name {
 .terrain {
   margin: 0;
   height: auto;
-}
-
-.terrain-logo {
-  width: 16rem;
-  height: 9rem;
 }
 
 .terrain-logo {

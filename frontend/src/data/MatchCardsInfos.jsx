@@ -1,3 +1,5 @@
+// import PlayersInfos from "./PlayersInfos";
+
 const MatchCardsInfos = [
   {
     id: "1",
@@ -129,7 +131,39 @@ const MatchCardsInfos = [
     time: "07:00 PM",
     versus: "1vs1",
     maxPlayers: "2",
-    players: {
+    team1: {
+      players1: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+      players2: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+      players3: {
+        name: "",
+        age: "",
+        from: "",
+        avatar: "",
+      },
+      players4: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+      players5: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+    },
+    team2: {
       players1: {
         name: "Pascal",
         age: "12",
