@@ -1,4 +1,3 @@
-
 const MatchCardsInfos = [
   {
     id: "1",
