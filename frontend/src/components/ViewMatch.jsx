@@ -1,6 +1,7 @@
 import "./ViewMatch.css";
 import { useState } from "react";
 import ModalPlayers from "@components/ModalPlayers";
+import PlayerCard from "./PlayerCard/PlayerCard";
 
 export default function ViewMatchPages({ openViewMatch, onClose }) {
   const [openModalPlayers, setOpenModalPlayers] = useState(false);
@@ -30,7 +31,9 @@ export default function ViewMatchPages({ openViewMatch, onClose }) {
         <div className="team1">
           <div className="players-container">
             <div className="avatar-container"> </div>
-            <p className="players-name"> Kobe</p>
+            <p className="players-name">
+              <PlayerCard name="Lamelo Ball" />
+            </p>
           </div>
 
           <div

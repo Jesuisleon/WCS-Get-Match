@@ -18,9 +18,7 @@ function ModalPlayers({ closeModalPlayers }) {
         <div className="modalPlayersTitle">
           <ViewPlayers />
         </div>
-        <div className="modalPlayersBody">
-          <p> stat du joueurs ou image du joueurs </p>
-        </div>
+        <div className="modalPlayersBody" />
       </div>
     </div>
   );
