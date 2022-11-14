@@ -1,4 +1,26 @@
 // import PlayersInfos from "./PlayersInfos";
+const teamPlayers1 = [
+  {
+    players1: {
+    name: "Pascal",
+    age: "12",
+    from: "Paris",
+    avatar: "url",
+  },
+   players2: {
+    name: "Pascal",
+    age: "12",
+    from: "Paris",
+    avatar: "url",
+   },
+   players3: {
+    name: "",
+    age: "",
+    from: "",
+    avatar: "",
+  }
+}
+]
 
 const MatchCardsInfos = [
   {
@@ -9,25 +31,31 @@ const MatchCardsInfos = [
     time: "08:00 AM",
     versus: "3vs3",
     maxPlayers: "6",
-    players: {
+    team1: teamPlayers1,
+    team2: {
       players1: {
-        id: "1",
         name: "Pascal",
         age: "12",
         from: "Paris",
         avatar: "url",
       },
       players2: {
-        id: "1",
-        name: "Joris",
-        age: "45",
-        from: "Chicago",
+        name: "Bernard",
+        age: "12",
+        from: "Paris",
         avatar: "url",
+      },
+      players3: {
+        name: "",
+        age: "",
+        from: "",
+        avatar: "",
       },
     },
     playersLeft: "3 players left",
     groundType: "Inside",
   },
+
   {
     id: "2",
     city: "NEW-YORK",
@@ -36,8 +64,64 @@ const MatchCardsInfos = [
     time: "09:00 AM",
     versus: "5vs5",
     maxPlayers: "10",
-    players: {
+    team1: {
       players1: {
+        name: "",
+        age: "",
+        from: "",
+        avatar: "",
+      },
+      players2: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+      players3: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+      players4: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+      players5: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+    },
+    team2: {
+      players1: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+      players2: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+      players3: {
+        name: "",
+        age: "",
+        from: "",
+        avatar: "",
+      },
+      players4: {
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar: "url",
+      },
+      players5: {
         name: "Pascal",
         age: "12",
         from: "Paris",
@@ -55,7 +139,7 @@ const MatchCardsInfos = [
     time: "09:00 AM",
     versus: "5vs5",
     maxPlayers: "10",
-    players: {
+    team1: {
       players1: {
         name: "Pascal",
         age: "12",
@@ -74,7 +158,7 @@ const MatchCardsInfos = [
     time: "05:00 PM",
     versus: "3vs3",
     maxPlayers: "10",
-    players: {
+    team1: {
       players1: {
         name: "Pascal",
         age: "12",

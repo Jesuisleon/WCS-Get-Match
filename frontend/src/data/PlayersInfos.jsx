@@ -6,7 +6,6 @@ const PlayersInfos = [
     from: "NY",
     avatar: "img",
   },
-
   {
     id: 2,
     name: "Magik Remy",
@@ -14,7 +13,6 @@ const PlayersInfos = [
     from: "LA",
     avatar: "img",
   },
-
   {
     id: 3,
     name: "Jordan Jhon",
@@ -22,7 +20,6 @@ const PlayersInfos = [
     from: "Cleveland",
     avatar: "img",
   },
-
   {
     id: 4,
     name: "Parker Lucas",
@@ -30,7 +27,6 @@ const PlayersInfos = [
     from: "Miami",
     avatar: "img",
   },
-
   {
     id: 5,
     Name: "Kobe Bryant",
