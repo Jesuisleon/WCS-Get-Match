@@ -8,9 +8,9 @@ import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
 
 export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
-  if (!viewMatch) return null;
-
   const [openModalPlayers, setOpenModalPlayers] = useState(false);
+
+  if (!viewMatch) return null;
 
   return (
     <div className="viewback">

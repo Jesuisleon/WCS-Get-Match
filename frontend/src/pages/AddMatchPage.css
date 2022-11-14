@@ -1,3 +1,59 @@
+/* SECTION-CONTENT */
+.add-match-page {
+  width: 100vh;
+  height: 100vh;
+  background-color: var(--black-color);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* ADRESS-INPUT-PICKER */
+
+.adress-input input {
+  text-align: center;
+  color: var(--white-color);
+  font-size: var(--size-text);
+  font-family: var(--font-text);
+  background: none;
+  border: none;
+  border-bottom: 1px white solid;
+  border-top: 1px white solid;
+  padding-top: 4px;
+}
+
+/* TIME-PICKER-CONTENT */
+input[type="time"] {
+  text-align: center;
+  border: none;
+  color: var(--white-color);
+  background: none;
+  font-size: var(--size-text);
+  font-family: var(--font-text);
+  width: 100%;
+  position: relative;
+  border-bottom: 1px white solid;
+  border-top: 1px white solid;
+  padding-top: 4px;
+}
+
+input[type="time"]::-webkit-clear-button {
+  display: none;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+  position: absolute;
+  width: 100%;
+}
+
 .step-container {
   display: flex;
   gap: 25px;

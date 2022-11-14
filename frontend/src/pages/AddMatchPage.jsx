@@ -2,11 +2,12 @@
 
 import "./AddMatchPage.css";
 import React, { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
 import ModalCalendar from "@components/Search/Calendar/ModalCalendar";
+import MatchCardsInfos from "../data/MatchCardsInfos";
 
 const steps = [
   {
@@ -64,7 +65,7 @@ export function CityStepper({ register }) {
           </select>
         </div>
       </div>
-      <div className="inline">
+      <div className="inline adress-input">
         <input
           placeholder="Enter the adress"
           type="text"
@@ -75,7 +76,7 @@ export function CityStepper({ register }) {
   );
 }
 
-export function DateStepper({ setViewCalendar, date, time }) {
+export function DateStepper({ setViewCalendar, date, time, register }) {
   return (
     <div className="stepper">
       <div
@@ -98,12 +99,18 @@ export function DateStepper({ setViewCalendar, date, time }) {
           src="src/img/icons/schedule-white.png"
           alt="schedule-icons"
         />
-        <p className="borders-styled">
-          {time.toLocaleTimeString("en-US", {
+        <input
+          type="time"
+          defaultValue={time.toLocaleTimeString("fr", {
             hour: "2-digit",
             minute: "2-digit",
           })}
-        </p>
+          placeholder={time.toLocaleTimeString("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+          {...register("time", {})}
+        />
       </div>
     </div>
   );
@@ -129,14 +136,107 @@ export function MatchTypeStepper({ register }) {
   );
 }
 
-export default function VerticalLinearStepper() {
-  const { register, handleSubmit, control } = useForm();
+export default function VerticalLinearStepper({
+  viewAddMatch,
+  setViewAddMatch,
+}) {
+  if (!viewAddMatch) return null;
 
-  const onSubmit = (data) => console.error(data);
+  const { register, handleSubmit } = useForm();
 
   const [viewCalendar, setViewCalendar] = useState(false);
   const [time] = useState(new Date());
   const [date, setDate] = useState(new Date());
+
+  const onSubmit = (data) => {
+    const output = {
+      ...data,
+      playersLeft: "10",
+      team1: {
+        players1: {
+          name: "",
+          age: "",
+          from: "",
+          avatar: "",
+          isopen: true,
+        },
+        players2: {
+          name: "",
+          age: "",
+          from: "",
+          avatar: "",
+          isopen: true,
+        },
+        players3: {
+          name: "",
+          age: "",
+          from: "",
+          avatar: "",
+          isopen: true,
+        },
+        players4: {
+          name: "",
+          age: "",
+          from: "",
+          avatar: "",
+          isopen: true,
+        },
+        players5: {
+          name: "",
+          age: "",
+          from: "",
+          avatar: "",
+          isopen: true,
+        },
+      },
+      team2: {
+        players1: {
+          name: "",
+          age: "",
+          from: "",
+          avatar: "",
+          isopen: true,
+        },
+        players2: {
+          name: "",
+          age: "",
+          from: "",
+          avatar: "",
+          isopen: true,
+        },
+        players3: {
+          name: "",
+          age: "",
+          from: "",
+          avatar: "",
+          isopen: true,
+        },
+        players4: {
+          name: "",
+          age: "",
+          from: "",
+          avatar: "",
+          isopen: true,
+        },
+        players5: {
+          name: "",
+          age: "",
+          from: "",
+          avatar: "",
+          isopen: true,
+        },
+      },
+    };
+    output.date = date.toLocaleDateString("en-US");
+    output.id = MatchCardsInfos.length + 2;
+    if (output.versus === "1vs1") output.maxPlayers = 2;
+    if (output.versus === "3vs3") output.maxPlayers = 6;
+    if (output.versus === "5vs5") output.maxPlayers = 10;
+
+    setTimeout(() => {
+      setViewAddMatch();
+    }, 3000);
+  };
 
   const [activeStep, setActiveStep] = useState(0);
 
@@ -148,12 +248,8 @@ export default function VerticalLinearStepper() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleChangeDate = (newDate) => {
-    setDate(newDate);
-  };
-
   return (
-    <div>
+    <section className="add-match-page">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (
@@ -187,21 +283,12 @@ export default function VerticalLinearStepper() {
           </div>
         )}
       </form>
-      <Controller
-        control={control}
-        name="date"
-        defaultValue={date.toLocaleDateString("en-US")}
-        render={({ onChange, value }) => (
-          <ModalCalendar
-            onChange={onChange}
-            selected={value}
-            viewCalendar={viewCalendar}
-            setViewCalendar={setViewCalendar}
-            date={date}
-            setDate={handleChangeDate}
-          />
-        )}
+      <ModalCalendar
+        viewCalendar={viewCalendar}
+        setViewCalendar={setViewCalendar}
+        date={date}
+        setDate={setDate}
       />
-    </div>
+    </section>
   );
 }

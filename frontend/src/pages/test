@@ -1,0 +1,87 @@
+const MatchCardsInfos = [
+  {
+    id: "",
+    city: "",
+    adress: "",
+    date: "",
+    time: "",
+    versus: "",
+    groundType: "",
+    maxPlayers: "",
+    playersLeft: "",
+    team1: {
+      players1: {
+        name: "",
+        age: "",
+        from: "",
+        avatar: "",
+        isopen: true,
+      },
+      players2: {
+        name: "",
+        age: "",
+        from: "",
+        avatar: "",
+        isopen: true,
+      },
+      players3: {
+        name: "",
+        age: "",
+        from: "",
+        avatar: "",
+        isopen: true,
+      },
+      players4: {
+        name: "",
+        age: "",
+        from: "",
+        avatar: "",
+        isopen: true,
+      },
+      players5: {
+        name: "",
+        age: "",
+        from: "",
+        avatar: "",
+        isopen: true,
+      },
+
+    },
+    team2: {
+        players1: {
+            name: "",
+            age: "",
+            from: "",
+            avatar: "",
+            isopen: true,
+          },
+          players2: {
+            name: "",
+            age: "",
+            from: "",
+            avatar: "",
+            isopen: true,
+          },
+          players3: {
+            name: "",
+            age: "",
+            from: "",
+            avatar: "",
+            isopen: true,
+          },
+          players4: {
+            name: "",
+            age: "",
+            from: "",
+            avatar: "",
+            isopen: true,
+          },
+          players5: {
+            name: "",
+            age: "",
+            from: "",
+            avatar: "",
+            isopen: true,
+          },
+    },
+  }]
