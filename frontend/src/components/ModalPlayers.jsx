@@ -1,5 +1,6 @@
 import React from "react";
 import "./ModalPlayers.css";
+import ViewPlayers from "./PlayerCard/ViewPlayers";
 
 function ModalPlayers({ closeModalPlayers }) {
   return (
@@ -15,7 +16,7 @@ function ModalPlayers({ closeModalPlayers }) {
           X
         </button>
         <div className="modalPlayersTitle">
-          <hi> Nom Du Joueur </hi>
+          <ViewPlayers />
         </div>
         <div className="modalPlayersBody">
           <p> stat du joueurs ou image du joueurs </p>

@@ -1,0 +1,134 @@
+.Card-ViewPlayer {
+    background-image: url("../../img/mobile/main-background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+  }
+  
+  .closeButton {
+    display: flex;
+    align-items: center;
+    color: var(--white-color);
+    background-color: rgba(0, 0, 0, 0);
+    border-style: none;
+    font-size: 4vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }
+  
+  .Background-Players {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .Background-Player1,
+  .Background-Player2,
+  .Background-Player3,
+  .Background-Player4,
+  .Background-Player5 {
+    display: flex;
+    background-color: #3131336c;
+    border-radius: 30px;
+    margin: auto;
+    width: 50vh;
+    height: 15vh;
+    align-items: center;
+  }
+  
+  .player1-img,
+  .player2-img,
+  .player3-img,
+  .player4-img,
+  .player5-img {
+    display: flex;
+    margin-right: 5vh;
+    margin-left: 1vh;
+  }
+  
+  .player1-CardText,
+  .player2-CardText,
+  .player3-CardText,
+  .player4-CardText,
+  .player5-CardText {
+    width: 80%;
+  }
+  
+  .player1-All-Text-Name,
+  .player2-All-Text-Name,
+  .player3-All-Text-Name,
+  .player4-All-Text-Name,
+  .player5-All-Text-Name {
+    display: flex;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+  
+  .player1-Name,
+  .player2-Name,
+  .player3-Name,
+  .player4-Name,
+  .player5-Name {
+    padding-left: 5px;
+  }
+  
+  .player1-All-Text-Age,
+  .player2-All-Text-Age,
+  .player3-All-Text-Age,
+  .player4-All-Text-Age,
+  .player5-All-Text-Age {
+    display: flex;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+  
+  .player1-Age,
+  .player2-Age,
+  .player3-Age,
+  .player4-Age,
+  .player5-Age {
+    padding-left: 5px;
+  }
+  
+  .player1-All-Text-City,
+  .player2-All-Text-City,
+  .player3-All-Text-City,
+  .player4-All-Text-Age,
+  .player5-All-Text-City {
+    display: flex;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+  
+  .player1-City,
+  .player2-City,
+  .player3-City,
+  .player4-City,
+  .player5-City {
+    padding-left: 5px;
+  }
+  
+  .player1-TitleName,
+  .player2-TitleName,
+  .player3-TitleName,
+  .player4-TitleName,
+  .player5-TitleName {
+    color: var(--orange-light-color);
+  }
+  
+  .player1-TitleAge,
+  .player2-TitleAge,
+  .player3-TitleAge,
+  .player4-TitleAge,
+  .player5-TitleAge {
+    color: var(--orange-superlight-color);
+  }
+  
+  .player1-TitleCity,
+  .player2-TitleCity,
+  .player3-TitleCity,
+  .player4-TitleCity,
+  .player5-TitleCity {
+    color: var(--orange-dark-color);
+  }
