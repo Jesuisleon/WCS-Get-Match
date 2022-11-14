@@ -1,11 +1,56 @@
+import PlayersInfos from "./PlayersInfos";
+
 const MatchCardsInfos = [
   {
+    id: 1,
     time: "08:00",
     versus: "3vs3",
     date: "08/11/2024",
     city: "TOULOUSE",
     playersLeft: "3 players left",
     groundType: "INSIDE",
+    players: PlayersInfos,
+  },
+
+  {
+    id: 2,
+    time: "09:00",
+    versus: "5vs5",
+    date: "08/11/2024",
+    city: "TOULOUSE",
+    playersLeft: "6 players left",
+    groundType: "OUTSIDE",
+    players: PlayersInfos,
+  },
+  {
+    id: 3,
+    time: "09:00",
+    versus: "5vs5",
+    date: "08/11/2024",
+    city: "TOULOUSE",
+    playersLeft: "6 players left",
+    groundType: "OUTSIDE",
+    players: PlayersInfos,
+  },
+  {
+    id: 4,
+    time: "09:00",
+    versus: "5vs5",
+    date: "08/11/2024",
+    city: "TOULOUSE",
+    playersLeft: "6 players left",
+    groundType: "OUTSIDE",
+    players: PlayersInfos,
+  },
+  {
+    id: 5,
+    time: "09:00",
+    versus: "5vs5",
+    date: "08/11/2024",
+    city: "TOULOUSE",
+    playersLeft: "6 players left",
+    groundType: "OUTSIDE",
+    players: PlayersInfos,
   },
   {
     time: "09:00",
@@ -14,6 +59,7 @@ const MatchCardsInfos = [
     city: "TOULOUSE",
     playersLeft: "6 players left",
     groundType: "OUTSIDE",
+    players: PlayersInfos,
   },
   {
     time: "09:00",
@@ -22,6 +68,7 @@ const MatchCardsInfos = [
     city: "TOULOUSE",
     playersLeft: "6 players left",
     groundType: "OUTSIDE",
+    players: PlayersInfos,
   },
   {
     time: "09:00",
@@ -30,38 +77,7 @@ const MatchCardsInfos = [
     city: "TOULOUSE",
     playersLeft: "6 players left",
     groundType: "OUTSIDE",
-  },
-  {
-    time: "09:00",
-    versus: "5vs5",
-    date: "08/11/2024",
-    city: "TOULOUSE",
-    playersLeft: "6 players left",
-    groundType: "OUTSIDE",
-  },
-  {
-    time: "09:00",
-    versus: "5vs5",
-    date: "08/11/2024",
-    city: "TOULOUSE",
-    playersLeft: "6 players left",
-    groundType: "OUTSIDE",
-  },
-  {
-    time: "09:00",
-    versus: "5vs5",
-    date: "08/11/2024",
-    city: "TOULOUSE",
-    playersLeft: "6 players left",
-    groundType: "OUTSIDE",
-  },
-  {
-    time: "09:00",
-    versus: "5vs5",
-    date: "08/11/2024",
-    city: "TOULOUSE",
-    playersLeft: "6 players left",
-    groundType: "OUTSIDE",
+    players: PlayersInfos,
   },
 ];
 

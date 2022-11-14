@@ -16,11 +16,13 @@ export default function ViewMatchPages({ openViewMatch, onClose }) {
       </div>
       <div className="logoviewback">
         <div
+          role="button"
+          tabIndex={0}
           className="closeButton"
           onClick={() => onClose(false)}
-          onKeyDown={() => onClose(false)}
-          role="link"
-          tabIndex={0}
+          onKeyDown={() => {
+            onClose(false);
+          }}
         >
           <p>X</p>
         </div>
