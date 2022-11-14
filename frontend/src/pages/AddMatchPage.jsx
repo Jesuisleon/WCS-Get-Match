@@ -232,7 +232,7 @@ export default function VerticalLinearStepper({
     if (output.versus === "1vs1") output.maxPlayers = 2;
     if (output.versus === "3vs3") output.maxPlayers = 6;
     if (output.versus === "5vs5") output.maxPlayers = 10;
-
+    MatchCardsInfos.push(output);
     setTimeout(() => {
       setViewAddMatch();
     }, 3000);

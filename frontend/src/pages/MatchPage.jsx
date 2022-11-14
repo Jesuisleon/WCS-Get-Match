@@ -13,6 +13,7 @@ export default function MainPage() {
   const [viewCalendar, setViewCalendar] = useState(false);
   const [viewMatch, setViewMatch] = useState(false);
   const [viewAddMatch, setViewAddMatch] = useState(false);
+
   const [matchId, setMatchId] = useState("");
 
   return (
