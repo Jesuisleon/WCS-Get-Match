@@ -1,12 +1,15 @@
 /* eslint no-lone-blocks: "error" */
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Calendar from "react-calendar";
-import "./Calendar.css";
+import "./ModalCalendar.css";
 
-export default function Calendar1({ viewCalendar, setViewCalendar }) {
-  const [date, setDate] = useState(new Date());
-
+export default function CalendarModal({
+  date,
+  setDate,
+  viewCalendar,
+  setViewCalendar,
+}) {
   function onCloseCalendar() {
     setViewCalendar(false);
   }

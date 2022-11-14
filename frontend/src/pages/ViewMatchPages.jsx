@@ -7,8 +7,8 @@ import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
 
-export default function ViewMatchPages({ openViewMatch, onClose, matchId }) {
-  if (!openViewMatch) return null;
+export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
+  if (!viewMatch) return null;
 
   const [openModalPlayers, setOpenModalPlayers] = useState(false);
 

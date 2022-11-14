@@ -21,6 +21,7 @@
     "react-scroll": "^1.8.8"
   },
   "dependencies": {
+    "@atlaskit/datetime-picker": "^12.3.0",
     "@emotion/react": "^11.10.5",
     "react-select": "^5.5.9"
   }
