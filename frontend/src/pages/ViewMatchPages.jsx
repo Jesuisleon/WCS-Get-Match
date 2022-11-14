@@ -33,8 +33,8 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
 
         <div className="team1">
           <div className="players-container">
-            <div className="avatar-container"> </div>
-            <p className="players-name"> Kobe</p>
+            <div className="avatar-container" />
+            <p className="players-name" />
           </div>
 
           <div
@@ -53,8 +53,8 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
           </div>
 
           <div className="players-container">
-            <div className="avatar-container"> </div>
-            <p className="players-name">Tony P</p>
+            <div className="avatar-container" />
+            <p className="players-name" />
           </div>
         </div>
 

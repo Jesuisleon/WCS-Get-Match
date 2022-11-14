@@ -132,3 +132,7 @@
 .player5-TitleCity {
   color: var(--orange-dark-color);
 }
+
+.player1-CardText {
+  font-size: 0.7rem;
+}

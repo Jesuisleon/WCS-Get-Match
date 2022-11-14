@@ -11,11 +11,36 @@ export default function ViewPlayers() {
         </button>
       </div>
       <div className="Background-Players">
-        <PlayerCard name="Lamelo Ball" age="23 years" city="Charlotte" />
-        <PlayerCard name="Kevin Durant" age="32 years" city="Brooklyn" />
-        <PlayerCard name="Steve Adams" age="29 years" city="Oklahoma" />
-        <PlayerCard name="Stephen Curry" age="32 years" city="San Francisco" />
-        <PlayerCard name="Lebron James" age="35 years" city="Los Angeles" />
+        <PlayerCard
+          avatar="src/img/mobile/Avatar-player.png"
+          name="Lamelo Ball"
+          age="23 years"
+          city="Charlotte"
+        />
+        <PlayerCard
+          avatar="src/img/mobile/Avatar-player.png"
+          name="Kevin Durant"
+          age="32 years"
+          city="Brooklyn"
+        />
+        <PlayerCard
+          avatar="src/img/mobile/Avatar-player.png"
+          name="Steve Adams"
+          age="29 years"
+          city="Oklahoma"
+        />
+        <PlayerCard
+          avatar="src/img/mobile/Avatar-player.png"
+          name="Stephen Curry"
+          age="32 years"
+          city="San Francisco"
+        />
+        <PlayerCard
+          avatar="src/img/mobile/Avatar-player.png"
+          name="Lebron James"
+          age="35 years"
+          city="Los Angeles"
+        />
       </div>
     </section>
   );

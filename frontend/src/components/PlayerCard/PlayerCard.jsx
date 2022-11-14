@@ -1,12 +1,8 @@
-function PlayerCard({ name, age, city }) {
+function PlayerCard({ avatar, name, age, city }) {
   return (
     <div className="Background-Player1">
       <div className="Player1-image">
-        <img
-          className="player1-img"
-          src="src/img/mobile/Avatar-player.png"
-          alt="Player1Img"
-        />
+        <img className="player1-img" src={avatar} alt="Player1Img" />
       </div>
       <div className="player1-CardText">
         <div className="player1-All-Text-Name">
