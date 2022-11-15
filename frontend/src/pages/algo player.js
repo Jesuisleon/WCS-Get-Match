@@ -6,351 +6,108 @@ const MatchCardsInfos = [
     date: "11/12/2022",
     time: "08:00 AM",
     versus: "3vs3",
-    maxPlayers: "6",
+    maxPlayers: 6,
     team1: [
       {
-        players1: {
-          id: "1",
-          name: "Pascal",
-          age: "12",
-          from: "Paris",
-          avatar:
-            "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1630173.png",
-          isOpen: false,
-        },
+        id: "1",
+        name: "Pascal",
+        age: "12",
+        from: "Paris",
+        avatar:
+          "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1630173.png",
+        isOpen: false,
       },
       {
-        players2: {
-          id: "2",
-          name: "Bernard",
-          age: "12",
-          from: "Paris",
-          avatar: "url",
-          isOpen: false,
-        },
+        id: "2",
+        name: "",
+        age: "",
+        from: "",
+        avatar: "",
+        isOpen: true,
       },
       {
-        players3: {
-          id: "3",
-          name: "",
-          age: "",
-          from: "",
-          avatar: "",
-          isOpen: true,
-        },
+        id: "3",
+        name: "",
+        age: "",
+        from: "",
+        avatar: "",
+        isOpen: true,
       },
     ],
-    team2: {
-      players1: {
+    team2: [
+      {
         name: "Pascal",
         age: "12",
         from: "Paris",
         avatar: "url",
         isOpen: false,
       },
-      players2: {
+      {
         name: "Bernard",
         age: "12",
         from: "Paris",
         avatar: "url",
         isOpen: false,
       },
-      players3: {
+      {
         name: "",
         age: "",
         from: "",
         avatar: "",
         isOpen: true,
       },
-    },
+    ],
     playersLeft: "3 players left",
-    groundType: "Inside",
-  },
-
-  {
-    id: "2",
-    city: "NEW-YORK",
-    adress: "31000 Toulouse 52 rue des blanchers",
-    date: "11/13/2022",
-    time: "09:00 AM",
-    versus: "5vs5",
-    maxPlayers: "10",
-    team1: {
-      players1: {
-        name: "",
-        age: "",
-        from: "",
-        avatar: "",
-        isOpen: true,
-      },
-      players2: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players3: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players4: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players5: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-    },
-    team2: {
-      players1: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players2: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players3: {
-        name: "",
-        age: "",
-        from: "",
-        avatar: "",
-        isOpen: true,
-      },
-      players4: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players5: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-    },
-    playersLeft: "9 players left",
-    groundType: "Outside",
-  },
-  {
-    id: "3",
-    city: "NEW-YORK",
-    adress: "31000 Toulouse 52 rue des blanchers",
-    date: "11/24/2022",
-    time: "09:00 AM",
-    versus: "5vs5",
-    maxPlayers: "10",
-    team1: {
-      players1: {
-        name: "",
-        age: "",
-        from: "",
-        avatar: "",
-        isOpen: true,
-      },
-      players2: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players3: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players4: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players5: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-    },
-    team2: {
-      players1: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players2: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players3: {
-        name: "",
-        age: "",
-        from: "",
-        avatar: "",
-        isOpen: true,
-      },
-      players4: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-      players5: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
-      },
-    },
-    playersLeft: "9 players left",
-    groundType: "Inside",
-  },
-  {
-    id: "4",
-    city: "NEW-YORK",
-    adress: "31000 Toulouse 52 rue des blanchers",
-    date: "12/12/2022",
-    time: "05:00 PM",
-    versus: "3vs3",
-    maxPlayers: "10",
-    team1: {
-      players1: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-      },
-    },
-    playersLeft: "9 players left",
-    groundType: "Outside",
-  },
-  {
-    id: "5",
-    city: "NEW-YORK",
-    adress: "31000 Toulouse 52 rue des blanchers",
-    date: "11/03/2022",
-    time: "07:00 PM",
-    versus: "1vs1",
-    maxPlayers: "2",
-    team1: {
-      players1: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-      },
-    },
-    playersLeft: "9 players left",
-    groundType: "Outside",
-  },
-  {
-    id: "6",
-    city: "BOSTON",
-    adress: "31000 Toulouse 52 rue des blanchers",
-    date: "11/24/2022",
-    time: "07:00 PM",
-    versus: "1vs1",
-    maxPlayers: "2",
-    team1: {
-      players1: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-      },
-    },
-    playersLeft: "9 players left",
-    groundType: "Outside",
-  },
-  {
-    id: "7",
-    city: "CHICAGO",
-    adress: "31000 Toulouse 52 rue des blanchers",
-    date: "11/25/2022",
-    time: "07:00 PM",
-    versus: "1vs1",
-    maxPlayers: "2",
-    team1: {
-      players1: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-      },
-      players2: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-      },
-      players3: {
-        name: "",
-        age: "",
-        from: "",
-        avatar: "",
-      },
-      players4: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-      },
-      players5: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-      },
-    },
-    team2: {
-      players1: {
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-      },
-    },
-    playersLeft: "9 players left",
     groundType: "Inside",
   },
 ];
 
-console.log(
-  MatchCardsInfos.filter((card) => card.id === "1").map((element) => element)
-);
+const PlayersInfos = [
+  {
+    id: 1,
+    name: "Lebron Leon",
+    age: 20,
+    from: "NY",
+    avatar: "avatar1",
+    isOpen: false,
+  },
+  {
+    id: 2,
+    name: "Magik Remy",
+    age: 20,
+    from: "LA",
+    avatar: "avatar2",
+    isOpen: false,
+  },
+  {
+    id: 3,
+    name: "Jordan Jhon",
+    age: 20,
+    from: "Cleveland",
+    avatar: "avatar3",
+    isOpen: false,
+  },
+  {
+    id: 4,
+    name: "Parker Lucas",
+    age: 20,
+    from: "Miami",
+    avatar:
+      "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/203507.png",
+    isOpen: false,
+  },
+  {
+    id: 5,
+    Name: "Kobe Bryant",
+    Age: 20,
+    from: "Miami",
+    avatar: "avatar1",
+    isOpen: false,
+  },
+];
 
-console.log([MatchCardsInfos[0].team1].map((element) => element.players1));
+MatchCardsInfos[0].team1[1] = PlayersInfos[1];
+delete PlayersInfos[0];
 
-console.log(MatchCardsInfos[0].team1.map((element, index) => element));
+console.log(MatchCardsInfos);
+console.log(PlayersInfos);

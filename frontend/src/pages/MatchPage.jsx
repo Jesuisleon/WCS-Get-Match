@@ -2,7 +2,7 @@ import "./MatchPage.css";
 import React, { useState } from "react";
 import SearchButtons from "@components/Search/SearchButtons";
 import MatchCards from "@components/MatchCards/MatchCards";
-import ViewMatchPage from "@pages/ViewMatchPages";
+import ViewMatchPage from "@components/ViewMatch/ViewMatchPages";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
