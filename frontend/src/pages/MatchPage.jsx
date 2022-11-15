@@ -7,7 +7,7 @@ import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
 
-export default function MainPage() {
+export default function MainPage({ playersPic, setPlayersPic }) {
   const [matchCardsList, setMatchCardsList] = useState(MatchCardsInfos);
   const [viewCalendar, setViewCalendar] = useState(false);
   const [viewMatch, setViewMatch] = useState(false);
@@ -49,6 +49,8 @@ export default function MainPage() {
         <p>ADD MATCH</p>
       </div>
       <ViewMatchPage
+        playersPic={playersPic}
+        setPlayersPic={setPlayersPic}
         matchId={matchId}
         viewMatch={viewMatch}
         onClose={() => setViewMatch(false)}

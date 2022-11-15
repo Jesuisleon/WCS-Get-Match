@@ -1,6 +1,16 @@
-function PlayerCard({ avatar, name, age, city }) {
+function PlayerCard({ avatar, name, age, city, setPlayersPic }) {
+  const playersGrap = () => {
+    setPlayersPic(avatar);
+  };
+
   return (
-    <div className="Background-Player1">
+    <div
+      onClick={playersGrap}
+      onKeyDown={playersGrap}
+      role="link"
+      tabIndex={0}
+      className="Background-Player1"
+    >
       <div className="Player1-image">
         <img className="player1-img" src={avatar} alt="Player1Img" />
       </div>

@@ -1,13 +1,20 @@
 // import MatchCards from "@components/MatchCards";
 import "./ViewMatchPages.css";
 import { useState } from "react";
+
 import ModalPlayers from "../components/ModalPlayers";
 import MatchCards from "../components/MatchCards/MatchCards";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
 
-export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
+export default function ViewMatchPages({
+  viewMatch,
+  onClose,
+  matchId,
+  playersPic,
+  setPlayersPic,
+}) {
   if (!viewMatch) return null;
 
   const [openModalPlayers, setOpenModalPlayers] = useState(false);
@@ -16,7 +23,11 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
     <div className="viewback">
       <div className="modal-viewMatch">
         {openModalPlayers && (
-          <ModalPlayers closeModalPlayers={setOpenModalPlayers} />
+          <ModalPlayers
+            playersPic={playersPic}
+            setPlayersPic={setPlayersPic}
+            closeModalPlayers={setOpenModalPlayers}
+          />
         )}
       </div>
 
@@ -33,8 +44,11 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
 
         <div className="team1">
           <div className="players-container">
-            <div className="avatar-container" />
-            <p className="players-name" />
+            <div className="avatar-container">
+              {" "}
+              <img src={playersPic} alt="players" />{" "}
+            </div>
+            <p className="players-name"> </p>
           </div>
 
           <div
@@ -48,7 +62,7 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
               setOpenModalPlayers(true);
             }}
           >
-            <div className="avatar-container" />
+            <div className="avatar-container"> </div>
             <p className="players-name">Lucas</p>
           </div>
 
@@ -77,7 +91,9 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
 
         <div className="team2">
           <div className="players-container">
-            <div className="avatar-container"> </div>
+            <div className="avatar-container">
+              <img src={playersPic} alt="players" />
+            </div>
             <p className="players-name">Jordan</p>
           </div>
 
