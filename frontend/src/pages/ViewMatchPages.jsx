@@ -31,20 +31,17 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
         >
           X
         </div>
-
         <div className="team1">
-          {MatchCardsInfos.filter((card) => card.id === "1").map(
-            (card, index) => (
-              <PlayerPosition
-                className={index === 2 ? "middle" : null}
-                name={card.team1.players1.name}
-                avatar={card.team1.players1.avatar}
-                setOpenModalPlayers={() => {
-                  setOpenModalPlayers(true);
-                }}
-              />
-            )
-          )}
+          {MatchCardsInfos[0].team1.map((card, index) => (
+            <PlayerPosition
+              className={index === 2 ? "middle" : null}
+              name={card.name}
+              avatar={card.avatar}
+              setOpenModalPlayers={() => {
+                setOpenModalPlayers(true);
+              }}
+            />
+          ))}
         </div>
 
         <div className="terrain">
@@ -65,22 +62,16 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
         </div>
 
         <div className="team2">
-          <div className="players-container">
-            <div className="avatar-container">
-              <img src="" alt="players" />
-            </div>
-            <p className="players-name">Jordan</p>
-          </div>
-
-          <div className="players-container middle">
-            <div className="avatar-container"> </div>
-            <p className="players-name">Steph</p>
-          </div>
-
-          <div className="players-container">
-            <div className="avatar-container"> </div>
-            <p className="players-name">Magik</p>
-          </div>
+          {MatchCardsInfos[0].team2.map((card, index) => (
+            <PlayerPosition
+              className={index === 2 ? "middle" : null}
+              name={card.name}
+              avatar={card.avatar}
+              setOpenModalPlayers={() => {
+                setOpenModalPlayers(true);
+              }}
+            />
+          ))}
         </div>
       </div>
     </div>

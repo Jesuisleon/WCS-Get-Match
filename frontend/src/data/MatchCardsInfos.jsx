@@ -7,8 +7,8 @@ const MatchCardsInfos = [
     time: "08:00 AM",
     versus: "3vs3",
     maxPlayers: "6",
-    team1: {
-      players1: {
+    team1: [
+      {
         id: "1",
         name: "Pascal",
         age: "12",
@@ -17,46 +17,48 @@ const MatchCardsInfos = [
           "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1630173.png",
         isOpen: false,
       },
-      players2: {
+      {
         id: "2",
         name: "Bernard",
-        age: "12",
+        age: "122",
         from: "Paris",
-        avatar: "url",
+        avatar:
+          "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1628389.png",
         isOpen: false,
       },
-      players3: {
+      {
         id: "3",
-        name: "",
-        age: "",
-        from: "",
-        avatar: "",
+        name: "Jean-François",
+        age: "12",
+        from: "Perpignan",
+        avatar:
+          "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/203500.png",
         isOpen: true,
       },
-    },
-    team2: {
-      players1: {
-        name: "Pascal",
+    ],
+    team2: [
+      {
+        name: "Francis",
         age: "12",
         from: "Paris",
         avatar: "url",
         isOpen: false,
       },
-      players2: {
-        name: "Bernard",
+      {
+        name: "Kevin",
         age: "12",
         from: "Paris",
         avatar: "url",
         isOpen: false,
       },
-      players3: {
-        name: "",
+      {
+        name: "Rémy",
         age: "",
         from: "",
         avatar: "",
         isOpen: true,
       },
-    },
+    ],
     playersLeft: "3 players left",
     groundType: "Inside",
   },

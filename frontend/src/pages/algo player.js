@@ -7,33 +7,39 @@ const MatchCardsInfos = [
     time: "08:00 AM",
     versus: "3vs3",
     maxPlayers: "6",
-    team1: {
-      players1: {
-        id: "1",
-        name: "Pascal",
-        age: "12",
-        from: "Paris",
-        avatar:
-          "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1630173.png",
-        isOpen: false,
+    team1: [
+      {
+        players1: {
+          id: "1",
+          name: "Pascal",
+          age: "12",
+          from: "Paris",
+          avatar:
+            "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1630173.png",
+          isOpen: false,
+        },
       },
-      players2: {
-        id: "2",
-        name: "Bernard",
-        age: "12",
-        from: "Paris",
-        avatar: "url",
-        isOpen: false,
+      {
+        players2: {
+          id: "2",
+          name: "Bernard",
+          age: "12",
+          from: "Paris",
+          avatar: "url",
+          isOpen: false,
+        },
       },
-      players3: {
-        id: "3",
-        name: "",
-        age: "",
-        from: "",
-        avatar: "",
-        isOpen: true,
+      {
+        players3: {
+          id: "3",
+          name: "",
+          age: "",
+          from: "",
+          avatar: "",
+          isOpen: true,
+        },
       },
-    },
+    ],
     team2: {
       players1: {
         name: "Pascal",
@@ -344,3 +350,7 @@ const MatchCardsInfos = [
 console.log(
   MatchCardsInfos.filter((card) => card.id === "1").map((element) => element)
 );
+
+console.log([MatchCardsInfos[0].team1].map((element) => element.players1));
+
+console.log(MatchCardsInfos[0].team1.map((element, index) => element));
