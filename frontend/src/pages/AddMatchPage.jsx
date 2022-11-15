@@ -139,6 +139,8 @@ export function MatchTypeStepper({ register }) {
 export default function VerticalLinearStepper({
   viewAddMatch,
   setViewAddMatch,
+  viewMatch,
+  onClose,
 }) {
   if (!viewAddMatch) return null;
 
@@ -233,9 +235,11 @@ export default function VerticalLinearStepper({
     if (output.versus === "3vs3") output.maxPlayers = 6;
     if (output.versus === "5vs5") output.maxPlayers = 10;
     MatchCardsInfos.push(output);
+
     setTimeout(() => {
       setViewAddMatch();
-    }, 3000);
+      viewMatch(output.id);
+    }, 1000);
   };
 
   const [activeStep, setActiveStep] = useState(0);
@@ -250,7 +254,16 @@ export default function VerticalLinearStepper({
 
   return (
     <section className="add-match-page">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <div
+          className="close"
+          onClick={onClose}
+          onKeyDown={onClose}
+          role="link"
+          tabIndex={0}
+        >
+          X
+        </div>
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (
             <Step key={step.label}>

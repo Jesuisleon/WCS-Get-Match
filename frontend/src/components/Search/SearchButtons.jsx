@@ -21,7 +21,6 @@ export default function SearchButtons({
   const [hashtagList, setHashtagList] = useState([]);
   const [time] = useState(new Date());
   const [date, setDate] = useState(new Date());
-
   const dateAndTime = new Date(
     `${date.toLocaleDateString("en-US")} 
       ${time.toLocaleTimeString("en-US", {

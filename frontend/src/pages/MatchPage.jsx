@@ -4,16 +4,14 @@ import SearchButtons from "@components/Search/SearchButtons";
 import MatchCards from "@components/MatchCards/MatchCards";
 import ViewMatchPage from "@pages/ViewMatchPages";
 import AddMatchPage from "@pages/AddMatchPage";
-import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
 
 export default function MainPage() {
-  const [matchCardsList, setMatchCardsList] = useState(MatchCardsInfos);
+  const [matchCardsList, setMatchCardsList] = useState([]);
   const [viewCalendar, setViewCalendar] = useState(false);
   const [viewMatch, setViewMatch] = useState(false);
   const [viewAddMatch, setViewAddMatch] = useState(false);
-
   const [matchId, setMatchId] = useState("");
 
   return (
@@ -71,6 +69,10 @@ export default function MainPage() {
         viewAddMatch={viewAddMatch}
         setViewAddMatch={() => setViewAddMatch(false)}
         onClose={() => setViewAddMatch(false)}
+        viewMatch={(id) => {
+          setViewMatch(true);
+          setMatchId(id);
+        }}
       />
     </section>
   );
