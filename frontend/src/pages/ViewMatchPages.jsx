@@ -1,20 +1,14 @@
 // import MatchCards from "@components/MatchCards";
 import "./ViewMatchPages.css";
 import { useState } from "react";
-
+import PlayerPosition from "@components/PlayerPosition";
 import ModalPlayers from "../components/ModalPlayers";
 import MatchCards from "../components/MatchCards/MatchCards";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
 
-export default function ViewMatchPages({
-  viewMatch,
-  onClose,
-  matchId,
-  playersPic,
-  setPlayersPic,
-}) {
+export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
   if (!viewMatch) return null;
 
   const [openModalPlayers, setOpenModalPlayers] = useState(false);
@@ -23,11 +17,7 @@ export default function ViewMatchPages({
     <div className="viewback">
       <div className="modal-viewMatch">
         {openModalPlayers && (
-          <ModalPlayers
-            playersPic={playersPic}
-            setPlayersPic={setPlayersPic}
-            closeModalPlayers={setOpenModalPlayers}
-          />
+          <ModalPlayers closeModalPlayers={setOpenModalPlayers} />
         )}
       </div>
 
@@ -43,33 +33,18 @@ export default function ViewMatchPages({
         </div>
 
         <div className="team1">
-          <div className="players-container">
-            <div className="avatar-container">
-              {" "}
-              <img src={playersPic} alt="players" />{" "}
-            </div>
-            <p className="players-name"> </p>
-          </div>
-
-          <div
-            role="button"
-            tabIndex={0}
-            className="players-container middle"
-            onClick={() => {
-              setOpenModalPlayers(true);
-            }}
-            onKeyDown={() => {
-              setOpenModalPlayers(true);
-            }}
-          >
-            <div className="avatar-container"> </div>
-            <p className="players-name">Lucas</p>
-          </div>
-
-          <div className="players-container">
-            <div className="avatar-container" />
-            <p className="players-name" />
-          </div>
+          {MatchCardsInfos.filter((card) => card.id === "1").map(
+            (card, index) => (
+              <PlayerPosition
+                className={index === 2 ? "middle" : null}
+                name={card.team1.players1.name}
+                avatar={card.team1.players1.avatar}
+                setOpenModalPlayers={() => {
+                  setOpenModalPlayers(true);
+                }}
+              />
+            )
+          )}
         </div>
 
         <div className="terrain">
@@ -92,7 +67,7 @@ export default function ViewMatchPages({
         <div className="team2">
           <div className="players-container">
             <div className="avatar-container">
-              <img src={playersPic} alt="players" />
+              <img src="" alt="players" />
             </div>
             <p className="players-name">Jordan</p>
           </div>

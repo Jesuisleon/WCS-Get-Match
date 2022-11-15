@@ -72,6 +72,10 @@
   border: 1px solid white;
 }
 
+.avatar-player {
+  width: 90px;
+}
+
 p.players-name {
   position: absolute;
   bottom: 10px;

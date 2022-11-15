@@ -341,4 +341,6 @@ const MatchCardsInfos = [
   },
 ];
 
-export default MatchCardsInfos;
+console.log(
+  MatchCardsInfos.filter((card) => card.id === "1").map((element) => element)
+);
