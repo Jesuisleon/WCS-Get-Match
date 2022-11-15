@@ -23,11 +23,7 @@
   gap: 15px;
 }
 
-.Background-Player1,
-.Background-Player2,
-.Background-Player3,
-.Background-Player4,
-.Background-Player5 {
+.Background-Player1 {
   display: flex;
   background-color: #3131336c;
   border-radius: 30px;
@@ -37,102 +33,60 @@
   align-items: center;
 }
 
-.player1-img,
-.player2-img,
-.player3-img,
-.player4-img,
-.player5-img {
+.player-img {
   display: flex;
   margin-right: 5vh;
   margin-left: 1vh;
+  width: 5rem;
+  height: 5rem;
 }
 
-.player1-CardText,
-.player2-CardText,
-.player3-CardText,
-.player4-CardText,
-.player5-CardText {
+.player-CardText {
   width: 80%;
 }
 
-.player1-All-Text-Name,
-.player2-All-Text-Name,
-.player3-All-Text-Name,
-.player4-All-Text-Name,
-.player5-All-Text-Name {
+.player-All-Text-Name {
   display: flex;
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
 }
 
-.player1-Name,
-.player2-Name,
-.player3-Name,
-.player4-Name,
-.player5-Name {
+.player-Name {
   padding-left: 5px;
 }
 
-.player1-All-Text-Age,
-.player2-All-Text-Age,
-.player3-All-Text-Age,
-.player4-All-Text-Age,
-.player5-All-Text-Age {
+.player-All-Text-Age {
   display: flex;
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
 }
 
-.player1-Age,
-.player2-Age,
-.player3-Age,
-.player4-Age,
-.player5-Age {
+.player-Age {
   padding-left: 5px;
 }
 
-.player1-All-Text-City,
-.player2-All-Text-City,
-.player3-All-Text-City,
-.player4-All-Text-Age,
-.player5-All-Text-City {
+.player-All-Text-City {
   display: flex;
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
 }
 
-.player1-City,
-.player2-City,
-.player3-City,
-.player4-City,
-.player5-City {
+.player-City {
   padding-left: 5px;
 }
 
-.player1-TitleName,
-.player2-TitleName,
-.player3-TitleName,
-.player4-TitleName,
-.player5-TitleName {
+.player-TitleName {
   color: var(--orange-light-color);
 }
 
-.player1-TitleAge,
-.player2-TitleAge,
-.player3-TitleAge,
-.player4-TitleAge,
-.player5-TitleAge {
+.player-TitleAge {
   color: var(--orange-superlight-color);
 }
 
-.player1-TitleCity,
-.player2-TitleCity,
-.player3-TitleCity,
-.player4-TitleCity,
-.player5-TitleCity {
+.player-TitleCity {
   color: var(--orange-dark-color);
 }
 
-.player1-CardText {
+.player-CardText {
   font-size: 0.7rem;
 }

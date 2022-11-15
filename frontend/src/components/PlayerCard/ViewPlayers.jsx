@@ -1,5 +1,6 @@
 import "./ViewPlayers.css";
 import PlayerCard from "@components/PlayerCard/PlayerCard";
+import PlayersInfos from "../../data/PlayersInfos";
 
 export default function ViewPlayers({ playersPic, setPlayersPic }) {
   return (
@@ -10,46 +11,16 @@ export default function ViewPlayers({ playersPic, setPlayersPic }) {
         </button>
       </div>
       <div className="Background-Players">
-        <PlayerCard
-          playersPic={playersPic}
-          setPlayersPic={setPlayersPic}
-          avatar="src/img/mobile/Avatar-player.png"
-          name="Lamelo Ball"
-          age="23 years"
-          city="Charlotte"
-        />
-        <PlayerCard
-          playersPic={playersPic}
-          setPlayersPic={setPlayersPic}
-          avatar="src/img/mobile/Avatar-player.png"
-          name="Kevin Durant"
-          age="32 years"
-          city="Brooklyn"
-        />
-        <PlayerCard
-          playersPic={playersPic}
-          setPlayersPic={setPlayersPic}
-          avatar="src/img/mobile/Avatar-player.png"
-          name="Steve Adams"
-          age="29 years"
-          city="Oklahoma"
-        />
-        <PlayerCard
-          playersPic={playersPic}
-          setPlayersPic={setPlayersPic}
-          avatar="src/img/mobile/Avatar-player.png"
-          name="Stephen Curry"
-          age="32 years"
-          city="San Francisco"
-        />
-        <PlayerCard
-          playersPic={playersPic}
-          setPlayersPic={setPlayersPic}
-          avatar="src/img/mobile/Avatar-player.png"
-          name="Lebron James"
-          age="35 years"
-          city="Los Angeles"
-        />
+        {PlayersInfos.map((player) => (
+          <PlayerCard
+            playersPic={playersPic}
+            setPlayersPic={setPlayersPic}
+            avatar={player.avatar}
+            name={player.name}
+            age={player.age}
+            city={player.from}
+          />
+        ))}
       </div>
     </section>
   );
