@@ -33,11 +33,12 @@ const MatchCardsInfos = [
         from: "Perpignan",
         avatar:
           "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/203500.png",
-        isOpen: true,
+        isOpen: false,
       },
     ],
     team2: [
       {
+        id: "4",
         name: "Francis",
         age: "12",
         from: "Paris",
@@ -45,6 +46,7 @@ const MatchCardsInfos = [
         isOpen: false,
       },
       {
+        id: "5",
         name: "Kevin",
         age: "12",
         from: "Paris",
@@ -52,7 +54,8 @@ const MatchCardsInfos = [
         isOpen: false,
       },
       {
-        name: "Rémy",
+        id: "6",
+        name: "",
         age: "",
         from: "",
         avatar: "",

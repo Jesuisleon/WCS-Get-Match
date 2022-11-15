@@ -1,7 +1,6 @@
 import avatar1 from "../img/mobile/avatar1.png";
 import avatar2 from "../img/mobile/avatar2.png";
 import avatar3 from "../img/mobile/avatar3.png";
-import addPlayersIcon from "../img/mobile/addPlayersIcon.png";
 
 const PlayersInfos = [
   {
@@ -10,6 +9,7 @@ const PlayersInfos = [
     age: 20,
     from: "NY",
     avatar: avatar1,
+    isOpen: false,
   },
   {
     id: 2,
@@ -17,6 +17,7 @@ const PlayersInfos = [
     age: 20,
     from: "LA",
     avatar: avatar2,
+    isOpen: false,
   },
   {
     id: 3,
@@ -24,13 +25,16 @@ const PlayersInfos = [
     age: 20,
     from: "Cleveland",
     avatar: avatar3,
+    isOpen: false,
   },
   {
     id: 4,
     name: "Parker Lucas",
     age: 20,
     from: "Miami",
-    avatar: addPlayersIcon,
+    avatar:
+      "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/203507.png",
+    isOpen: false,
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ const PlayersInfos = [
     Age: 20,
     from: "Miami",
     avatar: avatar1,
+    isOpen: false,
   },
 ];
 

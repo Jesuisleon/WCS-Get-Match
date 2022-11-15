@@ -1,18 +1,8 @@
 import PlayersData from "./PlayersData";
 
-function PlayerCard({ avatar, name, age, city, setPlayersPic }) {
-  const playersGrap = () => {
-    setPlayersPic(avatar);
-  };
-
+function PlayerCard({ avatar, name, age, city }) {
   return (
-    <div
-      onClick={playersGrap}
-      onKeyDown={playersGrap}
-      role="button"
-      tabIndex={0}
-      className="Background-Player1"
-    >
+    <div role="button" tabIndex={0} className="Background-Player1">
       <div className="player-image">
         <img className="player-img" src={avatar} alt="playerImg" />
       </div>

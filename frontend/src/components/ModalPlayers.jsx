@@ -2,7 +2,7 @@ import React from "react";
 import "./ModalPlayers.css";
 import ViewPlayers from "./PlayerCard/ViewPlayers";
 
-function ModalPlayers({ closeModalPlayers, playersPic, setPlayersPic }) {
+function ModalPlayers({ closeModalPlayers }) {
   return (
     <div className="modalPlayersBackground">
       <div className="modalPlayersContenair">
@@ -12,13 +12,9 @@ function ModalPlayers({ closeModalPlayers, playersPic, setPlayersPic }) {
           className="modalPlayersBtn"
           onClick={() => closeModalPlayers(false)}
         >
-          {" "}
           X
         </button>
-        <div className="modalPlayersTitle">
-          <ViewPlayers playersPic={playersPic} setPlayersPic={setPlayersPic} />
-        </div>
-        <div className="modalPlayersBody" />
+        <ViewPlayers />
       </div>
     </div>
   );

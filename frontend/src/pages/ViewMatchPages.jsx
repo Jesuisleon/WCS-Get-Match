@@ -32,11 +32,13 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
           X
         </div>
         <div className="team1">
-          {MatchCardsInfos[0].team1.map((card, index) => (
+          {MatchCardsInfos[0].team1.map((player, index) => (
             <PlayerPosition
+              isOpen={player.isOpen}
+              key={player.id}
               className={index === 2 ? "middle" : null}
-              name={card.name}
-              avatar={card.avatar}
+              name={player.name}
+              avatar={player.avatar}
               setOpenModalPlayers={() => {
                 setOpenModalPlayers(true);
               }}
@@ -62,11 +64,13 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
         </div>
 
         <div className="team2">
-          {MatchCardsInfos[0].team2.map((card, index) => (
+          {MatchCardsInfos[0].team2.map((player, index) => (
             <PlayerPosition
+              isOpen={player.isOpen}
+              key={player.id}
               className={index === 2 ? "middle" : null}
-              name={card.name}
-              avatar={card.avatar}
+              name={player.name}
+              avatar={player.avatar}
               setOpenModalPlayers={() => {
                 setOpenModalPlayers(true);
               }}
