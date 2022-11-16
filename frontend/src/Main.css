@@ -75,8 +75,8 @@ section {
 }
 
 .logo {
-  width: 15vh;
-  max-width: 25%;
+  width: 10vmax;
+  min-width: 13%;
 }
 
 /* ICONS-CONTENT */
@@ -84,4 +84,41 @@ section {
 .icons {
   padding-bottom: 4px;
   width: 18px;
+}
+
+/* BORDER-STYLED-CONTENT */
+
+.borders-styled {
+  border-bottom: 1px white solid;
+  border-top: 1px white solid;
+  padding-top: 4px;
+}
+
+/* DROPDOWN-MENU-CONTENT */
+
+.select-dropdown {
+  background-color: transparent;
+  width: auto;
+  max-width: 100%;
+  padding-top: 4px;
+  position: relative;
+}
+
+.select {
+  text-align: center;
+  font-family: var(--font-text);
+  color: var(--white-color);
+  font-size: var(--size-text);
+  line-height: 20px;
+  border: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.select:active,
+:focus {
+  outline: none;
+  box-shadow: none;
 }

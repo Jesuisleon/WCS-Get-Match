@@ -46,7 +46,7 @@ export default function MatchCards({
           icons="src/img/icons/versus-grey.png"
         />
         <CardTextElements
-          value={playersLeft}
+          value={playersLeft + " Players Left"}
           color="grey"
           icons="src/img/icons/players-left-grey.png"
         />

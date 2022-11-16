@@ -6,7 +6,7 @@ const MatchCardsInfos = [
     date: "12/12/2022",
     time: "08:00 AM",
     versus: "3vs3",
-    maxPlayers: "6",
+    maxPlayers: 6,
     team1: [
       {
         id: null,
@@ -61,7 +61,7 @@ const MatchCardsInfos = [
         isOpen: true,
       },
     ],
-    playersLeft: "3 players left",
+    playersLeft: 3,
     groundType: "Inside",
   },
 ];

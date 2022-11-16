@@ -1,0 +1,112 @@
+/* SECTION-CONTENT */
+.add-match-page {
+  background-color: var(--black-color);
+  position: fixed;
+  width: 100vh;
+  height: 100vh;
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiStep-vertical {
+  width: 100%;
+}
+
+/* ADRESS-INPUT-PICKER */
+.adress-input input {
+  text-align: center;
+  color: var(--white-color);
+  font-size: var(--size-text);
+  font-family: var(--font-text);
+  width: 150px;
+  background: none;
+  border: none;
+  border-bottom: 1px white solid;
+  border-top: 1px white solid;
+  padding-top: 4px;
+}
+
+/* TIME-PICKER-CONTENT */
+input[type="time"] {
+  text-align: center;
+  border: none;
+  color: var(--white-color);
+  background: none;
+  font-size: var(--size-text);
+  font-family: var(--font-text);
+  position: relative;
+  border-bottom: 1px white solid;
+  border-top: 1px white solid;
+  padding-top: 4px;
+}
+
+input[type="time"]::-webkit-clear-button {
+  display: none;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+  position: absolute;
+  width: 100%;
+}
+
+.step-container {
+  display: flex;
+  gap: 25px;
+  margin: 9px;
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stepper {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  margin: 2rem 0 0 0;
+  background: rgba(49, 49, 51, 0.5);
+  color: var(--white-color);
+  font-family: var(--font-text);
+  line-height: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.next:hover {
+  background: var(--orange-light-color);
+}
+
+.submit:hover {
+  background-color: var(--blue-color);
+}
+
+.match-ready {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: var(--orange-light-color);
+}
