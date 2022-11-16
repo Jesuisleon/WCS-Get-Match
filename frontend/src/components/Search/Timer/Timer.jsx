@@ -6,7 +6,7 @@ export default function Timer({ time }) {
         src="src/img/icons/schedule-white.png"
         alt="schedule-icons"
       />
-      <p>
+      <p className="borders-styled">
         {time.toLocaleTimeString("en-US", {
           hour: "2-digit",
           minute: "2-digit",

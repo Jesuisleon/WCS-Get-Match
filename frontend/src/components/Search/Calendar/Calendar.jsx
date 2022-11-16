@@ -12,7 +12,7 @@ export default function Calendar({ date, setViewCalendar }) {
         src="src/img/icons/calendar-white.png"
         alt="calendar-icons"
       />
-      <p>{date.toLocaleDateString("en-US")}</p>
+      <p className="borders-styled">{date.toLocaleDateString("en-US")}</p>
     </div>
   );
 }

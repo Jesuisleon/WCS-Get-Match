@@ -1,5 +1,13 @@
 import "./MatchCards.css";
-import { CardTextElements } from "./CardTexts";
+
+export function CardTextElements({ value, color, icons }) {
+  return (
+    <div className="inline">
+      <img className="icons" src={icons} alt={value} />
+      <p className={color}>{value}</p>
+    </div>
+  );
+}
 
 export default function MatchCards({
   time,
@@ -20,6 +28,7 @@ export default function MatchCards({
       <div className="image">
         <img src={img} alt="card-background" className="card-background" />
       </div>
+
       <div className="text">
         <CardTextElements
           value={city}
@@ -37,7 +46,7 @@ export default function MatchCards({
           icons="src/img/icons/versus-grey.png"
         />
         <CardTextElements
-          value={playersLeft}
+          value={playersLeft + " Players Left"}
           color="grey"
           icons="src/img/icons/players-left-grey.png"
         />

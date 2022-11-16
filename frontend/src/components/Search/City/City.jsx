@@ -13,7 +13,7 @@ export default function City({ city, setCity }) {
         src="src/img/icons/localisation-white.png"
         alt="localisation-icons"
       />
-      <div className="select-dropdown">
+      <div className="select-dropdown borders-styled">
         <select className="select" value={city} onChange={handleChange}>
           <option value={defaultCity}>{defaultCity}</option>
           <option value="BOSTON">BOSTON</option>

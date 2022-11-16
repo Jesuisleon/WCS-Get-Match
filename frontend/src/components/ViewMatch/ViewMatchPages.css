@@ -18,7 +18,7 @@
   margin: auto;
   height: 90%;
   width: 90%;
-  background: url("../img/mobile/surbackground.png");
+  background: url("src/img/mobile/surbackground.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -72,6 +72,10 @@
   border: 1px solid white;
 }
 
+.avatar-player {
+  width: 90px;
+}
+
 p.players-name {
   position: absolute;
   bottom: 10px;
@@ -101,6 +105,11 @@ p.players-name {
 .terrain {
   margin: 0;
   height: auto;
+}
+
+.terrain-logo {
+  width: 16rem;
+  height: 9rem;
 }
 
 .terrain-logo {
