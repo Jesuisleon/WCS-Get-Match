@@ -5,7 +5,6 @@ import HashtagList from "../../data/HashtagList";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
 import ModalCalendar from "./ModalCalendar";
 
-
 function HashtagBar({ onChange }) {
   const [hashtagBarSearch, SethashtagBarSearch] = useState();
 
@@ -55,7 +54,13 @@ function HashtagBar({ onChange }) {
   );
 }
 
-export function Timer({ time }) {
+export function Timer({ time, setTime }) {
+  const handleChange = (e) => {
+    const hours = e.target.value.split(":")[0];
+    const minutes = e.target.value.split(":")[1];
+    const newTime = new Date(`November 16, 2022 ${hours}:${minutes}:00`);
+    setTime(newTime);
+  };
   return (
     <div className="inline">
       <img
@@ -63,12 +68,18 @@ export function Timer({ time }) {
         src="src/img/icons/schedule-white.png"
         alt="schedule-icons"
       />
-      <p className="borders-styled">
-        {time.toLocaleTimeString("en-US", {
+      <input
+        onChange={handleChange}
+        type="time"
+        value={time.toLocaleTimeString("fr", {
           hour: "2-digit",
           minute: "2-digit",
         })}
-      </p>
+        placeholder={time.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+        })}
+      />
     </div>
   );
 }
@@ -97,7 +108,6 @@ export function City({ city, setCity }) {
   );
 }
 
-
 export function Calendar({ date, setViewCalendar }) {
   return (
     <div
@@ -117,7 +127,6 @@ export function Calendar({ date, setViewCalendar }) {
   );
 }
 
-
 export default function SearchButtons({
   viewCalendar,
   setViewCalendar,
@@ -130,8 +139,9 @@ export default function SearchButtons({
 
   const [city, setCity] = useState("NEW-YORK");
   const [hashtagList, setHashtagList] = useState([]);
-  const [time] = useState(new Date());
+  const [time, setTime] = useState(new Date());
   const [date, setDate] = useState(new Date());
+
   const dateAndTime = new Date(
     `${date.toLocaleDateString("en-US")} 
       ${time.toLocaleTimeString("en-US", {
@@ -192,13 +202,13 @@ export default function SearchButtons({
         hashtagList
       )
     );
-  }, [date, city, hashtagList]);
+  }, [date, time, city, hashtagList]);
 
   return (
     <div className="search-container">
       <HashtagBar onChange={setHashtagList} />
       <div className="search-buttons">
-        <Timer time={time} />
+        <Timer time={time} setTime={setTime} />
         <City city={city} setCity={setCity} />
         <Calendar date={date} setViewCalendar={setViewCalendar} />
         <ModalCalendar

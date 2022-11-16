@@ -57,9 +57,7 @@ export function PlayerCard({ avatar, name, age, city, onClick }) {
 }
 
 function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
-
   const handleClick = (playerIndex) => {
-
     const PlayerPicked = PlayersInfos.findIndex((e) => e.id === playerIndex);
     MatchCardsInfos.find((e) => e.id === matchId)[team][playerPosition] =
       PlayersInfos[PlayerPicked];

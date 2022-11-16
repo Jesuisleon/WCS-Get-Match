@@ -11,6 +11,7 @@ export function CardTextElements({ value, color, icons }) {
 
 export default function MatchCards({
   time,
+  date,
   versus,
   img,
   city,
@@ -34,6 +35,11 @@ export default function MatchCards({
           value={city}
           color="white"
           icons="src/img/icons/localisation-white.png"
+        />
+        <CardTextElements
+          value={date}
+          color="white"
+          icons="src/img/icons/calendar-white.png"
         />
         <CardTextElements
           value={time}

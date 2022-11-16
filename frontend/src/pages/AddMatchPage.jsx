@@ -76,7 +76,14 @@ export function CityStepper({ register }) {
   );
 }
 
-export function DateStepper({ setViewCalendar, date, time, register }) {
+export function DateStepper({ setViewCalendar, date, time, setTime }) {
+  const handleChange = (e) => {
+    const hours = e.target.value.split(":")[0];
+    const minutes = e.target.value.split(":")[1];
+    const newTime = new Date(`November 16, 2022 ${hours}:${minutes}:00`);
+    setTime(newTime);
+  };
+
   return (
     <div className="stepper">
       <div
@@ -109,7 +116,7 @@ export function DateStepper({ setViewCalendar, date, time, register }) {
             hour: "2-digit",
             minute: "2-digit",
           })}
-          {...register("time", {})}
+          onChange={handleChange}
         />
       </div>
     </div>
@@ -147,7 +154,7 @@ export default function VerticalLinearStepper({
   const { register, handleSubmit } = useForm();
 
   const [viewCalendar, setViewCalendar] = useState(false);
-  const [time] = useState(new Date());
+  const [time, setTime] = useState(new Date());
   const [date, setDate] = useState(new Date());
 
   const onSubmit = (data) => {
@@ -208,6 +215,10 @@ export default function VerticalLinearStepper({
       ],
     };
     output.date = date.toLocaleDateString("en-US");
+    output.time = time.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
     output.id = MatchCardsInfos.length + 2;
     if (output.versus === "1vs1") output.maxPlayers = 2;
     if (output.versus === "3vs3") output.maxPlayers = 6;
@@ -260,6 +271,7 @@ export default function VerticalLinearStepper({
                     setViewCalendar={setViewCalendar}
                     date={date}
                     time={time}
+                    setTime={setTime}
                   />
                 )}
                 {index === 2 && <MatchTypeStepper register={register} />}
