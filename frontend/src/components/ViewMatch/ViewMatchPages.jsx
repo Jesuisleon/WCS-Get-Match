@@ -1,4 +1,3 @@
-// import MatchCards from "@components/MatchCards";
 import "./ViewMatchPages.css";
 import { useState } from "react";
 import AddPlayersPage from "@components/ViewMatch/AddPlayersPage";
@@ -7,7 +6,7 @@ import MatchCardsInfos from "../../data/MatchCardsInfos";
 import InsideCard from "../../img/mobile/inside-card.png";
 import OutsideCard from "../../img/mobile/outside-card.png";
 
-export function PlayerPosition({
+export function TeamPosition({
   setOpenModalPlayers,
   name,
   avatar,
@@ -50,15 +49,27 @@ export function PlayerPosition({
 export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
   if (!viewMatch) return null;
   const [openModalPlayers, setOpenModalPlayers] = useState(false);
+  const [PlayerPosition, setPlayerPosition] = useState();
+  const [Team, setTeam] = useState();
+
+  const handleClick = (index, team) => {
+    setTeam(team);
+    setPlayerPosition(index);
+    setOpenModalPlayers(true);
+  };
 
   return (
     <div className="viewback">
       <div className="modal-viewMatch">
         {openModalPlayers && (
-          <AddPlayersPage closeModalPlayers={setOpenModalPlayers} />
+          <AddPlayersPage
+            closeModalPlayers={setOpenModalPlayers}
+            matchId={matchId}
+            team={Team}
+            playerPosition={PlayerPosition}
+          />
         )}
       </div>
-
       <div className="view-teams">
         <div
           className="close"
@@ -70,19 +81,21 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
           X
         </div>
         <div className="team1">
-          {MatchCardsInfos[0].team1.map((player, index) => (
-            <PlayerPosition
-              team="team1"
-              isOpen={player.isOpen}
-              key={player.id}
-              className={index === 2 ? "middle" : null}
-              name={player.name}
-              avatar={player.avatar}
-              setOpenModalPlayers={() => {
-                setOpenModalPlayers(true);
-              }}
-            />
-          ))}
+          {MatchCardsInfos.filter((card) => card.id === matchId)
+            .map((e) => e.team1)
+            .flat()
+            .map((player, index) => (
+              <TeamPosition
+                isOpen={player.isOpen}
+                key={player.id}
+                className={index === 2 ? "middle" : null}
+                name={player.name}
+                avatar={player.avatar}
+                setOpenModalPlayers={() => {
+                  handleClick(index, "team1");
+                }}
+              />
+            ))}
         </div>
         <div className="terrain">
           {MatchCardsInfos.filter((card) => card.id === matchId).map((card) => (
@@ -100,21 +113,22 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
             />
           ))}
         </div>
-
         <div className="team2">
-          {MatchCardsInfos[0].team2.map((player, index) => (
-            <PlayerPosition
-              team="team2"
-              isOpen={player.isOpen}
-              key={player.id}
-              className={index === 2 ? "middle" : null}
-              name={player.name}
-              avatar={player.avatar}
-              setOpenModalPlayers={() => {
-                setOpenModalPlayers(true);
-              }}
-            />
-          ))}
+          {MatchCardsInfos.filter((card) => card.id === matchId)
+            .map((e) => e.team2)
+            .flat()
+            .map((player, index) => (
+              <TeamPosition
+                isOpen={player.isOpen}
+                key={player.id}
+                className={index === 2 ? "middle" : null}
+                name={player.name}
+                avatar={player.avatar}
+                setOpenModalPlayers={() => {
+                  handleClick(index, "team2");
+                }}
+              />
+            ))}
         </div>
       </div>
     </div>

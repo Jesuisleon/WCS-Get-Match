@@ -11,7 +11,7 @@ export default function MainPage() {
   const [matchCardsList, setMatchCardsList] = useState(MatchCardsInfos);
   const [viewCalendar, setViewCalendar] = useState(false);
   const [viewMatch, setViewMatch] = useState(false);
-  const [matchId, setMatchId] = useState("");
+  const [matchId, setMatchId] = useState();
 
   return (
     <section className="match-page">

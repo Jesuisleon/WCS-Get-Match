@@ -18,7 +18,7 @@
   margin: auto;
   height: 90%;
   width: 90%;
-  background: url("../img/mobile/surbackground.png");
+  background: url("src/img/mobile/surbackground.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

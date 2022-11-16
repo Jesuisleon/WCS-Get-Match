@@ -1,5 +1,6 @@
 import "./AddPlayersPage.css";
 import PlayersInfos from "../../data/PlayersInfos";
+import MatchCardsInfos from "../../data/MatchCardsInfos";
 
 export function PlayersData({
   data,
@@ -16,9 +17,15 @@ export function PlayersData({
   );
 }
 
-function PlayerCard({ avatar, name, age, city }) {
+function PlayerCard({ avatar, name, age, city, onClick }) {
   return (
-    <div role="button" tabIndex={0} className="Background-Player1">
+    <div
+      onClick={onClick}
+      onKeyDown={onClick}
+      role="button"
+      tabIndex={0}
+      className="Background-Player1"
+    >
       <div className="player-image">
         <img className="player-img" src={avatar} alt="playerImg" />
       </div>
@@ -49,24 +56,14 @@ function PlayerCard({ avatar, name, age, city }) {
   );
 }
 
-export function ViewPlayers() {
-  return (
-    <section className="Card-ViewPlayer">
-      <div className="Background-Players">
-        {PlayersInfos.map((player) => (
-          <PlayerCard
-            avatar={player.avatar}
-            name={player.name}
-            age={player.age}
-            city={player.from}
-          />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function AddPlayers({ closeModalPlayers }) {
+function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
+  const handleClick = (playerIndex) => {
+    const PlayerPicked = PlayersInfos.findIndex((e) => e.id === playerIndex);
+    MatchCardsInfos.find((e) => e.id === matchId)[team][playerPosition] =
+      PlayersInfos[PlayerPicked];
+    PlayersInfos.splice(PlayerPicked, 1);
+    closeModalPlayers(false);
+  };
   return (
     <div className="modalPlayersBackground">
       <div className="modalPlayersContenair">
@@ -78,10 +75,23 @@ function AddPlayers({ closeModalPlayers }) {
         >
           X
         </button>
-        <ViewPlayers />
+        <section className="Card-ViewPlayer">
+          <div className="Background-Players">
+            {PlayersInfos.map((player) => (
+              <PlayerCard
+                key={player.id}
+                onClick={() => handleClick(player.id)}
+                name={player.name}
+                age={player.age}
+                city={player.from}
+                avatar={player.avatar}
+              />
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
 }
 
-export default AddPlayers;
+export default AddPlayersPage;

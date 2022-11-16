@@ -1,59 +1,63 @@
 const MatchCardsInfos = [
   {
-    id: "1",
+    id: 1,
     city: "NEW-YORK",
     adress: "31000 Toulouse 52 rue des blanchers",
-    date: "11/12/2022",
+    date: "12/12/2022",
     time: "08:00 AM",
     versus: "3vs3",
-    maxPlayers: 6,
+    maxPlayers: "6",
     team1: [
       {
-        id: "1",
-        name: "Pascal",
-        age: "12",
+        id: null,
+        name: null,
+        age: null,
+        from: null,
+        avatar: null,
+        isOpen: true,
+      },
+      {
+        id: 2,
+        name: "Bernard",
+        age: "122",
         from: "Paris",
         avatar:
-          "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1630173.png",
+          "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1628389.png",
         isOpen: false,
       },
       {
-        id: "2",
-        name: "",
-        age: "",
-        from: "",
-        avatar: "",
-        isOpen: true,
-      },
-      {
-        id: "3",
-        name: "",
-        age: "",
-        from: "",
-        avatar: "",
-        isOpen: true,
+        id: 3,
+        name: "Jean-François",
+        age: "12",
+        from: "Perpignan",
+        avatar:
+          "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/203500.png",
+        isOpen: false,
       },
     ],
     team2: [
       {
-        name: "Pascal",
+        id: 4,
+        name: "Francis",
         age: "12",
         from: "Paris",
         avatar: "url",
         isOpen: false,
       },
       {
-        name: "Bernard",
+        id: 5,
+        name: "Kevin",
         age: "12",
         from: "Paris",
         avatar: "url",
         isOpen: false,
       },
       {
-        name: "",
-        age: "",
-        from: "",
-        avatar: "",
+        id: null,
+        name: null,
+        age: null,
+        from: null,
+        avatar: null,
         isOpen: true,
       },
     ],
@@ -106,8 +110,31 @@ const PlayersInfos = [
   },
 ];
 
-MatchCardsInfos[0].team1[1] = PlayersInfos[1];
-delete PlayersInfos[0];
+const matchId = 1;
+const team = "team1";
+
+MatchCardsInfos[0][team][0] = PlayersInfos[0];
+
+console.log(MatchCardsInfos[0][team][0]);
+
+console.log(
+  PlayersInfos.splice(
+    PlayersInfos.findIndex((e) => e.id === 1),
+    1
+  )
+);
 
 console.log(MatchCardsInfos);
-console.log(PlayersInfos);
+
+console.log(
+  MatchCardsInfos.filter((card) => card.id === matchId)
+    .map((e) => e[team])
+    .flat()
+    .filter((player) => player.id === 2)
+);
+
+console.log(
+  MatchCardsInfos.filter((card) => card.id === matchId)
+    .map((e) => e[team][0])
+    .map((e) => (e = PlayersInfos[0]))
+);
