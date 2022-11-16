@@ -1,13 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import "./AddMatchPage.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
 import ModalCalendar from "@components/Search/ModalCalendar";
 import MatchCardsInfos from "../data/MatchCardsInfos";
+import { MatchListContext } from "../data/MatchListContext";
 
 const steps = [
   {
@@ -157,6 +158,8 @@ export default function VerticalLinearStepper({
   const [time, setTime] = useState(new Date());
   const [date, setDate] = useState(new Date());
 
+  const { refresh, setRefresh } = useContext(MatchListContext);
+
   const onSubmit = (data) => {
     const output = {
       ...data,
@@ -227,6 +230,7 @@ export default function VerticalLinearStepper({
     setTimeout(() => {
       setViewAddMatch();
       viewMatch(output.id);
+      setRefresh(!refresh);
     }, 1000);
   };
 

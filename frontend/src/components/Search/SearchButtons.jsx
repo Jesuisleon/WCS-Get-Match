@@ -1,9 +1,10 @@
 import "./SearchButtons.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ReactSelect from "react-select";
 import HashtagList from "../../data/HashtagList";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
 import ModalCalendar from "./ModalCalendar";
+import { MatchListContext } from "../../data/MatchListContext";
 
 function HashtagBar({ onChange }) {
   const [hashtagBarSearch, SethashtagBarSearch] = useState();
@@ -61,6 +62,7 @@ export function Timer({ time, setTime }) {
     const newTime = new Date(`November 16, 2022 ${hours}:${minutes}:00`);
     setTime(newTime);
   };
+
   return (
     <div className="inline">
       <img
@@ -132,6 +134,8 @@ export default function SearchButtons({
   setViewCalendar,
   setMatchCardsList,
 }) {
+  const { refresh } = useContext(MatchListContext);
+
   const [cardsList, setCardsList] = useState([]);
   useEffect(() => {
     setMatchCardsList(cardsList);
@@ -141,13 +145,12 @@ export default function SearchButtons({
   const [hashtagList, setHashtagList] = useState([]);
   const [time, setTime] = useState(new Date());
   const [date, setDate] = useState(new Date());
-
   const dateAndTime = new Date(
     `${date.toLocaleDateString("en-US")} 
-      ${time.toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-      })}`
+    ${time.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    })}`
   );
 
   useEffect(() => {
@@ -156,6 +159,7 @@ export default function SearchButtons({
         return new Date(`${card.time} ${card.date}`) >= lastDate;
       });
     };
+
     const FilterByCity = (cardsFilterByDate) => {
       return cardsFilterByDate.filter((card) => {
         return card.city === city;
@@ -202,7 +206,7 @@ export default function SearchButtons({
         hashtagList
       )
     );
-  }, [date, time, city, hashtagList]);
+  }, [date, time, city, hashtagList, refresh]);
 
   return (
     <div className="search-container">
