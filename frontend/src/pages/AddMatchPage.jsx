@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
-import ModalCalendar from "@components/Search/Calendar/ModalCalendar";
+import ModalCalendar from "@components/Search/ModalCalendar";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 
 const steps = [
@@ -213,7 +213,6 @@ export default function VerticalLinearStepper({
     if (output.versus === "3vs3") output.maxPlayers = 6;
     if (output.versus === "5vs5") output.maxPlayers = 10;
     MatchCardsInfos.push(output);
-
     setTimeout(() => {
       setViewAddMatch();
       viewMatch(output.id);

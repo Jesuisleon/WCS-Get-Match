@@ -7,7 +7,7 @@ const MatchCardsInfos = [
     time: "08:00 AM",
     versus: "3vs3",
     maxPlayers: "6",
-    team1: [
+    "team1": [
       {
         id: null,
         name: null,
@@ -35,7 +35,7 @@ const MatchCardsInfos = [
         isOpen: false,
       },
     ],
-    team2: [
+    "team2": [
       {
         id: 4,
         name: "Francis",
@@ -115,13 +115,10 @@ const team = "team1";
 
 MatchCardsInfos[0][team][0] = PlayersInfos[0];
 
-console.log(MatchCardsInfos[0][team][0]);
+
 
 console.log(
-  PlayersInfos.splice(
-    PlayersInfos.findIndex((e) => e.id === 1),
-    1
-  )
+  PlayersInfos.splice( PlayersInfos.find((element) => element.id === 1), 1)
 );
 
 console.log(MatchCardsInfos);
