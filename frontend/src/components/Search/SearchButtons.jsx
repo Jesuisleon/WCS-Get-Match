@@ -1,6 +1,7 @@
 import "./SearchButtons.css";
 import { useState, useEffect, useContext } from "react";
 import ReactSelect from "react-select";
+import { red } from "@mui/material/colors";
 import HashtagList from "../../data/HashtagList";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
 import ModalCalendar from "./ModalCalendar";
@@ -19,6 +20,18 @@ function HashtagBar({ onChange }) {
       ...base,
       width: 360,
     }),
+    menu: (base) => ({
+      ...base,
+      backgroundColor: red,
+    }),
+    control: (base) => ({
+      ...base,
+      backgroundColor: red,
+    }),
+    multiValue: (base) => ({
+      ...base,
+      backgroundColor: red,
+    }),
   };
 
   return (
@@ -32,24 +45,24 @@ function HashtagBar({ onChange }) {
         isSearchable
         placeholder="#"
         styles={styles}
-        theme={(theme) => ({
-          ...theme,
-          borderRadius: 10,
-          colors: {
-            ...theme.colors,
-            primary25: "orange", // background on select
-            primary: "white", // border selected
-            danger: "orange", // cross selected
-            dangerLight: "gba(49, 49, 51, 0.5)", // cross selected
-            neutral0: "rgba(49, 49, 51, 0.5)", //  background container
-            neutral10: "rgba(49, 49, 51, 0.2)", // background selected
-            neutral20: "rgba(49, 49, 51, 1)", // borders unselected
-            neutral50: "rgba(49, 49, 51, 1)", // placeholder
-            neutral30: "rgba(49, 49, 51, 0.2)", // border hover
-            neutral60: "white", // button when pick
-            neutral80: "white", // hashtag text
-          },
-        })}
+        // theme={(theme) => ({
+        //   ...theme,
+        //   borderRadius: 10,
+        //   colors: {
+        //     ...theme.colors,
+        //     primary25: "orange", // background on select
+        //     primary: "white", // border selected
+        //     danger: "orange", // cross selected
+        //     dangerLight: "gba(49, 49, 51, 0.5)", // cross selected
+        //     neutral0: "rgba(49, 49, 51, 0.5)", //  background container
+        //     neutral10: "rgba(49, 49, 51, 0.2)", // background selected
+        //     neutral20: "rgba(49, 49, 51, 1)", // borders unselected
+        //     neutral50: "rgba(49, 49, 51, 1)", // placeholder
+        //     neutral30: "rgba(49, 49, 51, 0.2)", // border hover
+        //     neutral60: "white", // button when pick
+        //     neutral80: "white", // hashtag text
+        //   },
+        // })}
       />
     </div>
   );
@@ -67,8 +80,8 @@ export function Timer({ time, setTime }) {
     <div className="inline">
       <img
         className="icons"
-        src="src/img/icons/schedule-white.png"
-        alt="schedule-icons"
+        src="src/img/icons/clock-white.png"
+        alt="clock-icons"
       />
       <input
         onChange={handleChange}
@@ -96,8 +109,8 @@ export function City({ city, setCity }) {
     <div className="inline">
       <img
         className="icons"
-        src="src/img/icons/localisation-white.png"
-        alt="localisation-icons"
+        src="src/img/icons/map-white.png"
+        alt="map-icons"
       />
       <div className="select-dropdown borders-styled">
         <select className="select" value={city} onChange={handleChange}>

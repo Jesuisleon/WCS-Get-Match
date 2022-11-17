@@ -46,6 +46,7 @@ export default function CalendarModal({
           tabIndex={0}
         >
           <Calendar
+            className="background-container"
             onChange={setDate}
             value={date}
             calendarType="US"

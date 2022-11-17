@@ -61,7 +61,7 @@ const MatchCardsInfos = [
         isOpen: true,
       },
     ],
-    playersLeft: 3,
+    playersLeft: 2,
     groundType: "Inside",
   },
 ];

@@ -40,7 +40,7 @@ export function InputStepper({ index, handleNext, handleBack, children }) {
           </button>
         )}
         {index !== 0 && (
-          <button type="button" onClick={handleBack} className="button back">
+          <button type="button" className="button back" onClick={handleBack}>
             Back
           </button>
         )}
@@ -55,8 +55,8 @@ export function CityStepper({ register }) {
       <div className="inline">
         <img
           className="icons"
-          src="src/img/icons/localisation-white.png"
-          alt="localisation-icons"
+          src="src/img/icons/map-white.png"
+          alt="map-icons"
         />
         <div className="select-dropdown borders-styled">
           <select className="select" {...register("city")}>
@@ -67,6 +67,11 @@ export function CityStepper({ register }) {
         </div>
       </div>
       <div className="inline adress-input">
+        <img
+          className="icons"
+          src="src/img/icons/adress-white.png"
+          alt="adress-icons"
+        />
         <input
           placeholder="Enter the adress"
           type="text"
@@ -104,8 +109,8 @@ export function DateStepper({ setViewCalendar, date, time, setTime }) {
       <div className="inline">
         <img
           className="icons"
-          src="src/img/icons/schedule-white.png"
-          alt="schedule-icons"
+          src="src/img/icons/clock-white.png"
+          alt="clock-icons"
         />
         <input
           type="time"
@@ -128,6 +133,11 @@ export function MatchTypeStepper({ register }) {
   return (
     <div className="stepper">
       <div className="inline">
+        <img
+          className="icons"
+          src="src/img/icons/players-left-white.png"
+          alt="clock-icons"
+        />
         <select {...register("versus")}>
           <option value="1vs1">1vs1</option>
           <option value="3vs3">3vs3</option>
@@ -135,6 +145,11 @@ export function MatchTypeStepper({ register }) {
         </select>
       </div>
       <div className="inline">
+        <img
+          className="icons"
+          src="src/img/icons/field-white.png"
+          alt="field-icons"
+        />
         <select {...register("groundType")}>
           <option value="Inside">Inside</option>
           <option value="Outside">Outside</option>
