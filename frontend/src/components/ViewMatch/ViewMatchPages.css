@@ -21,7 +21,7 @@
   background-color: var(--black-color);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
   position: relative;
 }
@@ -31,7 +31,7 @@
   justify-content: space-between;
   margin-top: var(--spacing-4);
   height: 280px;
-  position: relative;
+  position: absolute;
   width: 80%;
 }
 
@@ -51,7 +51,6 @@
   align-items: center;
   position: relative;
   box-sizing: content-box;
-  height: 110px;
 }
 
 .avatar-container {
