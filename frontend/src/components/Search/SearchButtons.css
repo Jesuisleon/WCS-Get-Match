@@ -4,6 +4,7 @@
   flex-direction: column;
   gap: 20px;
 }
+
 .search-buttons {
   height: 30px;
   display: flex;
@@ -11,11 +12,10 @@
   justify-content: center;
   align-items: center;
   padding: 0px;
-  gap: 50px;
+  gap: 2rem;
 }
 
-.search-buttons .inline {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.search-button:hover {
+  opacity: 0.8;
+  cursor: crosshair;
 }

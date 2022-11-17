@@ -61,7 +61,7 @@ export default function MainPage() {
             ))}
           </div>
           <div
-            className="add-match-button"
+            className="add-match-button background-container"
             type="button"
             onClick={() => {
               setViewAddMatch(true);

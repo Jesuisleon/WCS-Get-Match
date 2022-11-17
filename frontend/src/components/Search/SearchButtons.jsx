@@ -68,22 +68,44 @@ function HashtagBar({ onChange }) {
   );
 }
 
-export function Timer({ time, setTime }) {
-  const handleChange = (e) => {
-    const hours = e.target.value.split(":")[0];
-    const minutes = e.target.value.split(":")[1];
-    const newTime = new Date(`November 16, 2022 ${hours}:${minutes}:00`);
-    setTime(newTime);
-  };
-
+export function Timer() {
   return (
-    <div className="inline">
+    <div className="inline ">
       <img
         className="icons"
         src="src/img/icons/clock-white.png"
         alt="clock-icons"
       />
-      <input
+      <div className="select-dropdown borders-styled">
+        <select className="select" aria-label="hours" />
+        <option value="0">00</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <span>:</span>
+        <select className="select" aria-label="minutes">
+          <option value="0">00</option>
+          <option value="15">15</option>
+          <option value="30">30</option>
+          <option value="45">45</option>
+        </select>
+        <span>:</span>
+        <select className="select" aria-label="amp-pm">
+          <option value="AM">AM</option>
+          <option value="PM">PM</option>
+        </select>
+      </div>
+      {/* <input
         onChange={handleChange}
         type="time"
         value={time.toLocaleTimeString("fr", {
@@ -94,7 +116,7 @@ export function Timer({ time, setTime }) {
           hour: "2-digit",
           minute: "2-digit",
         })}
-      />
+      /> */}
     </div>
   );
 }
@@ -106,7 +128,7 @@ export function City({ city, setCity }) {
     setCity(e.target.value);
   };
   return (
-    <div className="inline">
+    <div className="inline ">
       <img
         className="icons"
         src="src/img/icons/map-white.png"
@@ -130,7 +152,7 @@ export function Calendar({ date, setViewCalendar }) {
       onKeyDown={() => setViewCalendar(true)}
       role="button"
       tabIndex={0}
-      className="inline"
+      className="inline "
     >
       <img
         className="icons"
