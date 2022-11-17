@@ -11,13 +11,9 @@
 }
 
 .view-teams {
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
   margin: auto;
-  height: 90%;
-  width: 90%;
+  height: 93%;
+  width: 93%;
   background: url("src/img/mobile/surbackground.png");
   background-position: center center;
   background-size: cover;
@@ -28,13 +24,6 @@
   justify-content: space-around;
   align-items: center;
   position: relative;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  font-size: 45px;
-  color: white;
 }
 
 .team1 {
@@ -66,20 +55,38 @@
 }
 
 .avatar-container {
-  height: 90px;
-  width: 90px;
-  border-radius: 100px;
+  overflow: hidden;
+  height: 10vh;
+  width: 10vh;
+  border-radius: 100%;
   border: 1px solid white;
+  background: linear-gradient(
+    180deg,
+    rgb(46, 46, 46) 10%,
+    rgb(20, 20, 20) 100%
+  );
+}
+
+.avatar-container:hover {
+  opacity: 85%;
 }
 
 .avatar-player {
-  width: 90px;
+  margin: auto;
+  width: 100%;
+  border-radius: 100%;
 }
 
 p.players-name {
   position: absolute;
-  bottom: 10px;
+  font-weight: bold;
+  text-shadow: -3px -3px 0 var(--black-light-color),
+    3px -3px 0 var(--black-light-color), -3px 3px 0 var(--black-light-color),
+    3px 3px 0 var(--black-light-color);
+  bottom: 3px;
+  text-align: center;
   text-transform: uppercase;
+  font-size: 2.5vh;
   margin: 0;
   height: auto;
 }
@@ -112,7 +119,12 @@ p.players-name {
   height: 9rem;
 }
 
-.terrain-logo {
-  width: 16rem;
-  height: 9rem;
+.add-player {
+  display: grid;
+  margin: 30%;
+  width: 40%;
+}
+
+.add-player:hover {
+  opacity: 50%;
 }

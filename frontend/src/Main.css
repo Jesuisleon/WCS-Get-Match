@@ -11,6 +11,7 @@
 :root {
   --black-color: #161616;
   --black-light-color: #313133;
+  --black-light-color-semi-transparent: #313133b9;
   --grey-color: #929292;
   --white-color: #ffffff;
   --orange-light-color: #ef7f4d;
@@ -121,4 +122,18 @@ section {
 :focus {
   outline: none;
   box-shadow: none;
+}
+
+/*Close-Buuton*/
+.close-button {
+  display: flex;
+  width: 6vh;
+  background: transparent;
+  filter: drop-shadow(0px 0px 2px var(--orange-dark-color));
+  border-style: none;
+  margin: auto;
+}
+
+.close-button:hover {
+  filter: drop-shadow(0px 0px 3px var(--orange-dark-color));
 }

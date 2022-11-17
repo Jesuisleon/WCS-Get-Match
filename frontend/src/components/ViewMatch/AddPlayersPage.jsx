@@ -2,55 +2,33 @@ import "./AddPlayersPage.css";
 import PlayersInfos from "../../data/PlayersInfos";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
 
-export function PlayersData({
-  data,
-  title,
-  classNameAll,
-  classNameTitle,
-  classNameData,
-}) {
+export function PlayersData({ data, title, className }) {
   return (
-    <div className={classNameAll}>
-      <h2 className={classNameTitle}>{title}</h2>
-      <p className={classNameData}>{data}</p>
+    <div className={`inline ${className}`}>
+      <h2>{title}</h2>
+      <p>{data}</p>
     </div>
   );
 }
 
 function PlayerCard({ avatar, name, age, city, onClick }) {
   return (
-    <div
-      onClick={onClick}
-      onKeyDown={onClick}
-      role="button"
-      tabIndex={0}
-      className="Background-Player1"
-    >
-      <div className="player-image">
-        <img className="player-img" src={avatar} alt="playerImg" />
-      </div>
-      <div className="player-CardText">
-        <PlayersData
-          data={name}
-          title="Name"
-          classNameAll="player-All-Text-Name"
-          classNameTitle="player-TitleName"
-          classNameData="player-Name"
-        />
-        <PlayersData
-          data={age}
-          title="Age"
-          classNameAll="player-All-Text-Age"
-          classNameTitle="player-TitleAge"
-          classNameData="player-Age"
-        />
-        <PlayersData
-          data={city}
-          title="City"
-          classNameAll="player-All-Text-City"
-          classNameTitle="player-TitleCity"
-          classNameData="player-City"
-        />
+    <div className="player-card-container">
+      <div
+        onClick={onClick}
+        onKeyDown={onClick}
+        role="button"
+        tabIndex={0}
+        className="Background-Player"
+      >
+        <div className="player-image">
+          <img className="player-img" src={avatar} alt="playerImg" />
+        </div>
+        <div className="player-card-text">
+          <PlayersData data={name} title="NAME:" className="player-card-name" />
+          <PlayersData data={age} title="AGE:" className="player-card-age" />
+          <PlayersData data={city} title="CITY:" className="player-card-city" />
+        </div>
       </div>
     </div>
   );
@@ -70,10 +48,14 @@ function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
         <button
           type="button"
           tabIndex={0}
-          className="closeButton"
+          className="close-button"
           onClick={() => closeModalPlayers(false)}
         >
-          X
+          <img
+            className="close-button"
+            src="src/img/icons/close-white.png"
+            alt="close-button"
+          />
         </button>
         <section className="Card-ViewPlayer">
           <div className="Background-Players">

@@ -1,24 +1,25 @@
 .match-card {
-  width: 316px;
-  height: 163px;
+  width: 34vh;
+  height: 18vh;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.08) 0%,
     rgba(255, 255, 255, 0.004) 100%
   );
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
-  /* backdrop-filter: blur(7px); */
-  border-radius: 40px;
+  backdrop-filter: blur(7px);
+  border-radius: 4vh;
   border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
-  overflow: hidden;
-  margin-bottom: 20px;
+  overflow: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   scroll-snap-align: center;
 }
 
 .match-card .card-background {
-  width: 128px;
+  width: 14vh;
 }
 
 .match-card .text {

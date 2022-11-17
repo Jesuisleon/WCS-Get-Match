@@ -5,89 +5,66 @@
   background-size: contain;
   position: relative;
   z-index: 4;
+  backdrop-filter: blur(8px);
 }
 
-.closeButton {
-  display: flex;
-  align-items: center;
-  color: var(--white-color);
-  background-color: rgba(0, 0, 0, 0);
-  border-style: none;
-  font-size: 4vh;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+.player-card-container {
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 4vh;
 }
 
-.Background-Players {
+.Background-Player {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.Background-Player1 {
-  display: flex;
-  background-color: #3131336c;
-  border-radius: 30px;
-  margin: auto;
-  width: 50vh;
+  width: 45vh;
   height: 15vh;
   align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.004) 100%
+  );
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+  border-radius: 4vh;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.Background-Player:hover {
+  opacity: 70%;
 }
 
 .player-img {
-  display: flex;
-  margin-right: 5vh;
-  margin-left: 1vh;
   width: 5rem;
   height: 5rem;
+  border-radius: 4vh;
 }
-
-.player-CardText {
-  width: 80%;
-}
-
-.player-All-Text-Name {
+.player-image {
   display: flex;
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1vh;
+  height: 100%;
+  width: 25%;
 }
 
-.player-Name {
-  padding-left: 5px;
-}
-
-.player-All-Text-Age {
+.player-card-text {
   display: flex;
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  flex-direction: column;
+  margin-left: 3vh;
+  margin-right: auto;
+  gap: 1rem;
 }
 
-.player-Age {
-  padding-left: 5px;
-}
-
-.player-All-Text-City {
-  display: flex;
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
-}
-
-.player-City {
-  padding-left: 5px;
-}
-
-.player-TitleName {
+.player-card-name h2 {
   color: var(--orange-light-color);
 }
-
-.player-TitleAge {
+.player-card-age h2 {
   color: var(--orange-superlight-color);
 }
-
-.player-TitleCity {
+.player-card-city h2 {
   color: var(--orange-dark-color);
 }
 
-.player-CardText {
-  font-size: 0.7rem;
+.Background-Players {
+  display: grid;
+  gap: 1.5rem;
 }

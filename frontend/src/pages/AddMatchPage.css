@@ -60,8 +60,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .step-container {
   display: flex;
-  gap: 25px;
-  margin: 9px;
+  gap: 1rem;
+  margin: 0.6rem;
 }
 
 .inline {
@@ -109,4 +109,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   margin-top: 1rem;
   padding: 0.8rem;
   background-color: var(--orange-light-color);
+}
+.close {
+  color: var(--red-color);
+  font-weight: bold;
 }

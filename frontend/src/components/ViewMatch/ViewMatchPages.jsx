@@ -1,7 +1,7 @@
 import "./ViewMatchPages.css";
 import { useState } from "react";
-import AddPlayersPage from "@components/ViewMatch/AddPlayersPage";
-import MatchCards from "@components/MatchCards/MatchCards";
+import AddPlayersPage from "./AddPlayersPage";
+import MatchCards from "../MatchCards/MatchCards";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
 import InsideCard from "../../img/mobile/inside-card.png";
 import OutsideCard from "../../img/mobile/outside-card.png";
@@ -72,13 +72,17 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
       </div>
       <div className="view-teams">
         <div
-          className="close"
+          className="close-button"
           onClick={onClose}
           onKeyDown={onClose}
           role="link"
           tabIndex={0}
         >
-          X
+          <img
+            className="close-button"
+            src="src/img/icons/close-white.png"
+            alt="close-button"
+          />
         </div>
         <div className="team1">
           {MatchCardsInfos.filter((card) => card.id === matchId)

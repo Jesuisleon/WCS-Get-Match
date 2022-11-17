@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
-import ModalCalendar from "@components/Search/Calendar/ModalCalendar";
+import ModalCalendar from "../components/Search/Calendar/ModalCalendar";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 
 const steps = [
