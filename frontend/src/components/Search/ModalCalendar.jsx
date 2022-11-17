@@ -22,19 +22,18 @@ export default function CalendarModal({
 
   return (
     <div
+      className="calendar-container"
       onClick={onCloseCalendar}
       onKeyDown={onCloseCalendar}
-      className="calendar-main"
       role="button"
       tabIndex={0}
     >
-      <div className="Calendar-close-div" />
       <div
         onClick={onCloseCalendar}
         onKeyDown={onCloseCalendar}
         role="button"
         tabIndex={0}
-        className="calendar-section"
+        className="calendar"
       >
         <div
           onClick={(e) => {
@@ -45,9 +44,15 @@ export default function CalendarModal({
           }}
           role="button"
           tabIndex={0}
-          className="calendar-container"
         >
-          <Calendar onChange={setDate} value={date} />
+          <Calendar
+            className="background-container"
+            onChange={setDate}
+            value={date}
+            calendarType="US"
+            locale="en"
+            minDetail="year"
+          />
         </div>
       </div>
     </div>

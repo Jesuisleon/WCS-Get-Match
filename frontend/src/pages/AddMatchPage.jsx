@@ -1,13 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import "./AddMatchPage.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
-import ModalCalendar from "../components/Search/Calendar/ModalCalendar";
+import ModalCalendar from "@components/Search/ModalCalendar";
 import MatchCardsInfos from "../data/MatchCardsInfos";
+import { MatchListContext } from "../data/MatchListContext";
 
 const steps = [
   {
@@ -39,7 +40,7 @@ export function InputStepper({ index, handleNext, handleBack, children }) {
           </button>
         )}
         {index !== 0 && (
-          <button type="button" onClick={handleBack} className="button back">
+          <button type="button" className="button back" onClick={handleBack}>
             Back
           </button>
         )}
@@ -54,8 +55,8 @@ export function CityStepper({ register }) {
       <div className="inline">
         <img
           className="icons"
-          src="src/img/icons/localisation-white.png"
-          alt="localisation-icons"
+          src="src/img/icons/map-white.png"
+          alt="map-icons"
         />
         <div className="select-dropdown borders-styled">
           <select className="select" {...register("city")}>
@@ -66,6 +67,11 @@ export function CityStepper({ register }) {
         </div>
       </div>
       <div className="inline adress-input">
+        <img
+          className="icons"
+          src="src/img/icons/adress-white.png"
+          alt="adress-icons"
+        />
         <input
           placeholder="Enter the adress"
           type="text"
@@ -76,7 +82,14 @@ export function CityStepper({ register }) {
   );
 }
 
-export function DateStepper({ setViewCalendar, date, time, register }) {
+export function DateStepper({ setViewCalendar, date, time, setTime }) {
+  const handleChange = (e) => {
+    const hours = e.target.value.split(":")[0];
+    const minutes = e.target.value.split(":")[1];
+    const newTime = new Date(`November 16, 2022 ${hours}:${minutes}:00`);
+    setTime(newTime);
+  };
+
   return (
     <div className="stepper">
       <div
@@ -96,8 +109,8 @@ export function DateStepper({ setViewCalendar, date, time, register }) {
       <div className="inline">
         <img
           className="icons"
-          src="src/img/icons/schedule-white.png"
-          alt="schedule-icons"
+          src="src/img/icons/clock-white.png"
+          alt="clock-icons"
         />
         <input
           type="time"
@@ -109,7 +122,7 @@ export function DateStepper({ setViewCalendar, date, time, register }) {
             hour: "2-digit",
             minute: "2-digit",
           })}
-          {...register("time", {})}
+          onChange={handleChange}
         />
       </div>
     </div>
@@ -120,6 +133,11 @@ export function MatchTypeStepper({ register }) {
   return (
     <div className="stepper">
       <div className="inline">
+        <img
+          className="icons"
+          src="src/img/icons/players-left-white.png"
+          alt="clock-icons"
+        />
         <select {...register("versus")}>
           <option value="1vs1">1vs1</option>
           <option value="3vs3">3vs3</option>
@@ -127,6 +145,11 @@ export function MatchTypeStepper({ register }) {
         </select>
       </div>
       <div className="inline">
+        <img
+          className="icons"
+          src="src/img/icons/field-white.png"
+          alt="field-icons"
+        />
         <select {...register("groundType")}>
           <option value="Inside">Inside</option>
           <option value="Outside">Outside</option>
@@ -147,8 +170,10 @@ export default function VerticalLinearStepper({
   const { register, handleSubmit } = useForm();
 
   const [viewCalendar, setViewCalendar] = useState(false);
-  const [time] = useState(new Date());
+  const [time, setTime] = useState(new Date());
   const [date, setDate] = useState(new Date());
+
+  const { refresh, setRefresh } = useContext(MatchListContext);
 
   const onSubmit = (data) => {
     const output = {
@@ -208,15 +233,19 @@ export default function VerticalLinearStepper({
       ],
     };
     output.date = date.toLocaleDateString("en-US");
+    output.time = time.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
     output.id = MatchCardsInfos.length + 2;
     if (output.versus === "1vs1") output.maxPlayers = 2;
     if (output.versus === "3vs3") output.maxPlayers = 6;
     if (output.versus === "5vs5") output.maxPlayers = 10;
     MatchCardsInfos.push(output);
-
     setTimeout(() => {
       setViewAddMatch();
       viewMatch(output.id);
+      setRefresh(!refresh);
     }, 1000);
   };
 
@@ -261,6 +290,7 @@ export default function VerticalLinearStepper({
                     setViewCalendar={setViewCalendar}
                     date={date}
                     time={time}
+                    setTime={setTime}
                   />
                 )}
                 {index === 2 && <MatchTypeStepper register={register} />}

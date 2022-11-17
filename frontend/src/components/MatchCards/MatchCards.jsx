@@ -1,4 +1,6 @@
 import "./MatchCards.css";
+import React, { useContext } from "react";
+import { MatchViewContext } from "../../data/MatchListContext";
 
 export function CardTextElements({ value, color, icons }) {
   return (
@@ -11,19 +13,22 @@ export function CardTextElements({ value, color, icons }) {
 
 export default function MatchCards({
   time,
+  date,
   versus,
   img,
   city,
   playersLeft,
-  viewMatch,
+  toViewMatch,
 }) {
+  const { viewMatch } = useContext(MatchViewContext);
+
   return (
     <div
-      onClick={viewMatch}
-      onKeyDown={viewMatch}
+      onClick={toViewMatch}
+      onKeyDown={toViewMatch}
       role="button"
       tabIndex={0}
-      className="match-card"
+      className={`match-card background-container ${!viewMatch && "not-open"}`}
     >
       <div className="image">
         <img src={img} alt="card-background" className="card-background" />
@@ -33,22 +38,27 @@ export default function MatchCards({
         <CardTextElements
           value={city}
           color="white"
-          icons="src/img/icons/localisation-white.png"
+          icons="src/img/icons/map-white.png"
+        />
+        <CardTextElements
+          value={date}
+          color="white"
+          icons="src/img/icons/calendar-white.png"
         />
         <CardTextElements
           value={time}
-          color="grey"
-          icons="src/img/icons/schedule-grey.png"
+          color="white"
+          icons="src/img/icons/clock-white.png"
         />
         <CardTextElements
           value={versus}
-          color="grey"
-          icons="src/img/icons/versus-grey.png"
+          color="white"
+          icons="src/img/icons/player-white.png"
         />
         <CardTextElements
           value={`${playersLeft} Players Left`}
-          color="grey"
-          icons="src/img/icons/players-left-grey.png"
+          color="white"
+          icons="src/img/icons/players-left-white.png"
         />
       </div>
     </div>

@@ -56,8 +56,8 @@
 
 .avatar-container {
   overflow: hidden;
-  height: 10vh;
-  width: 10vh;
+  height: 10rem;
+  width: 10rem;
   border-radius: 100%;
   border: 1px solid white;
   background: linear-gradient(

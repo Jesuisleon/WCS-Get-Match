@@ -64,12 +64,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   margin: 0.6rem;
 }
 
-.inline {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 .stepper {
   margin-top: 1rem;
   display: flex;

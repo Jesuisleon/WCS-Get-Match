@@ -27,14 +27,13 @@
 
   --size-h1: 3vmin;
   --size-h2: 1.8rem;
-  --size-text: 17px;
-  --size-text-button: 27px;
+  --size-text: 1rem;
+  --size-text-button: 2rem;
 
   --font-title: "Russo One", sans-serif;
   --font-text: "Aldrich", sans-serif;
   --font-typed: "Zilla Slab Highlight", cursive;
 }
-
 /* DEFAULT-CSS */
 body {
   background-color: var(--black-color);
@@ -45,10 +44,6 @@ body {
   scrollbar-width: none;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 /* SECTION-CONTENT */
 
 section {
@@ -57,14 +52,6 @@ section {
   align-items: center;
   flex-direction: column;
   scroll-snap-align: start;
-}
-
-/* SNAP-PAGE-CONTENT */
-
-.app {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
 }
 
 /* LOGO-CONTENT */
@@ -80,11 +67,31 @@ section {
   min-width: 13%;
 }
 
+.grey {
+  color: var(--grey-color);
+}
+
+.inline {
+  display: flex;
+  gap: 0.5rem;
+}
+
 /* ICONS-CONTENT */
 
 .icons {
-  padding-bottom: 4px;
-  width: 18px;
+  width: 1.4rem;
+}
+
+/* SNAP-PAGE-CONTENT */
+
+.app {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 /* BORDER-STYLED-CONTENT */
@@ -96,13 +103,14 @@ section {
 }
 
 /* DROPDOWN-MENU-CONTENT */
-
 .select-dropdown {
+  position: relative;
+  display: flex;
+  gap: 0.1rem;
   background-color: transparent;
   width: auto;
   max-width: 100%;
   padding-top: 4px;
-  position: relative;
 }
 
 .select {
@@ -110,7 +118,7 @@ section {
   font-family: var(--font-text);
   color: var(--white-color);
   font-size: var(--size-text);
-  line-height: 20px;
+  line-height: 1rem;
   border: none;
   background-color: transparent;
   -webkit-appearance: none;
@@ -136,4 +144,17 @@ section {
 
 .close-button:hover {
   filter: drop-shadow(0px 0px 3px var(--orange-dark-color));
+}
+
+/* BACKGROUND-CONTAINER-CONTENT */
+.background-container {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.004) 100%
+  );
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+  border-radius: 1.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px);
 }

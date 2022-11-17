@@ -11,7 +11,7 @@ export function PlayersData({ data, title, className }) {
   );
 }
 
-function PlayerCard({ avatar, name, age, city, onClick }) {
+export function PlayerCard({ avatar, name, age, city, onClick }) {
   return (
     <div className="player-card-container">
       <div
@@ -37,11 +37,13 @@ function PlayerCard({ avatar, name, age, city, onClick }) {
 function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
   const handleClick = (playerIndex) => {
     const PlayerPicked = PlayersInfos.findIndex((e) => e.id === playerIndex);
-    MatchCardsInfos.find((e) => e.id === matchId)[team][playerPosition] =
-      PlayersInfos[PlayerPicked];
+    const MatchCard = MatchCardsInfos.find((e) => e.id === matchId);
+    MatchCard[team][playerPosition] = PlayersInfos[PlayerPicked];
     PlayersInfos.splice(PlayerPicked, 1);
+    MatchCard.playersLeft -= 1;
     closeModalPlayers(false);
   };
+
   return (
     <div className="modalPlayersBackground">
       <div className="modalPlayersContenair">
