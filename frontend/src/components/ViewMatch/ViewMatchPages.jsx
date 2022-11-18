@@ -1,5 +1,6 @@
 import "./ViewMatchPages.css";
 import { useState } from "react";
+import CloseButton from "@assets/CloseButton";
 import AddPlayersPage from "./AddPlayersPage";
 import MatchCards from "../MatchCards/MatchCards";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
@@ -15,15 +16,11 @@ export function TeamPosition({
 }) {
   if (isOpen === false) {
     return (
-      <div
-        role="button"
-        tabIndex={0}
-        className={`players-container  ${className}`}
-      >
-        <div className="avatar-container">
-          <img className="avatar-player" src={avatar} alt="players" />
+      <div role="button" tabIndex={0} className={className}>
+        <div className="player-container">
+          <img className="player-avatar" src={avatar} alt="players" />
         </div>
-        <p className="players-name">{name}</p>
+        <p className="player-name">{name}</p>
       </div>
     );
   }
@@ -31,13 +28,13 @@ export function TeamPosition({
     <div
       role="button"
       tabIndex={0}
-      className={`players-container  ${className}`}
+      className={className}
       onClick={setOpenModalPlayers}
       onKeyDown={setOpenModalPlayers}
     >
-      <div className="avatar-container">
+      <div className="player-container">
         <img
-          className="add-player"
+          className="player-add"
           src="src/img/icons/add-player-white.png"
           alt="players"
         />
@@ -59,31 +56,9 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
   };
 
   return (
-    <div className="viewback">
-      <div className="modal-viewMatch">
-        {openModalPlayers && (
-          <AddPlayersPage
-            closeModalPlayers={setOpenModalPlayers}
-            matchId={matchId}
-            team={Team}
-            playerPosition={PlayerPosition}
-          />
-        )}
-      </div>
+    <div className="modal-background">
+      <CloseButton onClick={onClose} />
       <div className="view-teams">
-        <div
-          className="close-button"
-          onClick={onClose}
-          onKeyDown={onClose}
-          role="link"
-          tabIndex={0}
-        >
-          <img
-            className="close-button"
-            src="src/img/icons/close-white.png"
-            alt="close-button"
-          />
-        </div>
         <div className="team1">
           {MatchCardsInfos.filter((card) => card.id === matchId)
             .map((e) => e.team1)
@@ -92,7 +67,7 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
               <TeamPosition
                 isOpen={player.isOpen}
                 key={player.id}
-                className={index === 2 ? "middle" : null}
+                className={`position${index} centered`}
                 name={player.name}
                 avatar={player.avatar}
                 setOpenModalPlayers={() => {
@@ -101,7 +76,7 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
               />
             ))}
         </div>
-        <div className="terrain">
+        <div className="field">
           {MatchCardsInfos.filter((card) => card.id === matchId).map((card) => (
             <MatchCards
               img={card.groundType === "Inside" ? InsideCard : OutsideCard}
@@ -125,7 +100,7 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
               <TeamPosition
                 isOpen={player.isOpen}
                 key={player.id}
-                className={index === 2 ? "middle" : null}
+                className={`position${index} centered`}
                 name={player.name}
                 avatar={player.avatar}
                 setOpenModalPlayers={() => {
@@ -135,6 +110,14 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
             ))}
         </div>
       </div>
+      {openModalPlayers && (
+        <AddPlayersPage
+          closeModalPlayers={setOpenModalPlayers}
+          matchId={matchId}
+          team={Team}
+          playerPosition={PlayerPosition}
+        />
+      )}
     </div>
   );
 }

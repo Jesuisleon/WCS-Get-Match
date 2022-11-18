@@ -1,4 +1,5 @@
 import "./AddPlayersPage.css";
+import CloseButton from "@assets/CloseButton";
 import PlayersInfos from "../../data/PlayersInfos";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
 
@@ -45,20 +46,9 @@ function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
   };
 
   return (
-    <div className="modalPlayersBackground">
+    <div className="modal-background">
       <div className="modalPlayersContenair">
-        <button
-          type="button"
-          tabIndex={0}
-          className="close-button"
-          onClick={() => closeModalPlayers(false)}
-        >
-          <img
-            className="close-button"
-            src="src/img/icons/close-white.png"
-            alt="close-button"
-          />
-        </button>
+        <CloseButton onClick={() => closeModalPlayers(false)} />
         <section className="Card-ViewPlayer">
           <div className="Background-Players">
             {PlayersInfos.map((player) => (

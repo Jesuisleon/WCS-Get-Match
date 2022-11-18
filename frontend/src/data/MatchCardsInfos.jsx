@@ -27,7 +27,7 @@ const MatchCardsInfos = [
       },
       {
         id: 3,
-        name: "Jean-François",
+        name: "Jean",
         age: "12",
         from: "Perpignan",
         avatar:
@@ -41,7 +41,8 @@ const MatchCardsInfos = [
         name: "Francis",
         age: "12",
         from: "Paris",
-        avatar: "url",
+        avatar:
+          "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/1628389.png",
         isOpen: false,
       },
       {
@@ -49,7 +50,8 @@ const MatchCardsInfos = [
         name: "Kevin",
         age: "12",
         from: "Paris",
-        avatar: "url",
+        avatar:
+          "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/203500.png",
         isOpen: false,
       },
       {

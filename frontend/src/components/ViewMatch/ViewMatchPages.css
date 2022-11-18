@@ -1,19 +1,8 @@
-.viewback {
-  z-index: 2;
-  position: fixed;
-  top: 10%;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  height: 100%;
-  width: 100%;
-}
-
 .view-teams {
+  position: relative;
   margin: auto;
-  height: 93%;
-  width: 93%;
+  width: 90%;
+  height: 90%;
   background: url("src/img/mobile/surbackground.png");
   background-position: center center;
   background-size: cover;
@@ -21,43 +10,99 @@
   background-color: var(--black-color);
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
+  justify-content: space-around;
   align-items: center;
-  position: relative;
 }
 
 .team1 {
-  display: flex;
-  justify-content: space-between;
-  margin-top: var(--spacing-4);
-  height: 280px;
-  position: absolute;
-  width: 80%;
+  flex: 3;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template: repeat(auto, 1) / repeat(auto, 1);
+  grid-template-areas:
+    "B Z C"
+    "T A t"
+    "D Y E";
+}
+
+.field {
+  flex: 1;
 }
 
 .team2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: var(--spacing-4);
-  height: 280px;
-  position: relative;
-  width: 80%;
+  flex: 3;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template: repeat(auto, 1) / repeat(auto, 1);
+  grid-template-areas:
+    "J y K"
+    "S G s"
+    "H z I";
 }
 
-.players-container {
+.centered {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  box-sizing: content-box;
+  justify-content: center;
 }
 
-.avatar-container {
-  overflow: hidden;
-  height: 10rem;
-  width: 10rem;
+.team1 .position0 {
+  grid-area: A;
+}
+
+.team1 .position1 {
+  grid-area: B;
+}
+
+.team1 .position2 {
+  grid-area: C;
+}
+
+.team1 .position3 {
+  grid-area: D;
+}
+
+.team1 .position4 {
+  grid-area: E;
+}
+
+.team2 .position0 {
+  grid-area: G;
+}
+
+.team2 .position1 {
+  grid-area: H;
+}
+
+.team2 .position2 {
+  grid-area: I;
+}
+
+.team2 .position3 {
+  grid-area: J;
+}
+
+.team2 .position4 {
+  grid-area: K;
+}
+
+/* FOR PLAYERS CONTAINER */
+
+.player-container {
   border-radius: 100%;
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 1px solid white;
   background: linear-gradient(
     180deg,
@@ -66,64 +111,28 @@
   );
 }
 
-.avatar-container:hover {
+.player-avatar {
+  width: 100%;
+}
+
+.player-container:hover {
   opacity: 85%;
 }
 
-.avatar-player {
-  margin: auto;
-  width: 100%;
-  border-radius: 100%;
+.player-add {
+  width: 30%;
 }
 
-p.players-name {
-  position: absolute;
-  font-weight: bold;
-  text-shadow: -3px -3px 0 var(--black-light-color),
-    3px -3px 0 var(--black-light-color), -3px 3px 0 var(--black-light-color),
-    3px 3px 0 var(--black-light-color);
-  bottom: 3px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 2.5vh;
-  margin: 0;
-  height: auto;
-}
-
-.team1 .middle {
-  position: absolute;
-  bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-}
-
-.team2 .middle {
-  position: absolute;
-  top: 0;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-}
-
-.terrain {
-  margin: 0;
-  height: auto;
-}
-
-.terrain-logo {
-  width: 16rem;
-  height: 9rem;
-}
-
-.add-player {
-  display: grid;
-  margin: 30%;
-  width: 40%;
-}
-
-.add-player:hover {
+.player-add:hover {
   opacity: 50%;
+}
+
+p.player-name {
+  transform: translate(0, -10px);
+  text-shadow: -0.1rem -0.1rem 0 var(--black-light-color);
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin: 0;
 }

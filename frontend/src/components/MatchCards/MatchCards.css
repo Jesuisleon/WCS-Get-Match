@@ -1,10 +1,10 @@
 .match-card {
-  width: 25rem;
+  width: 22rem;
   height: 11rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
-  overflow: auto;
+  overflow: hidden;
   margin-top: 1rem;
   margin-bottom: 1rem;
   scroll-snap-align: center;
@@ -16,7 +16,7 @@
 }
 
 .match-card .card-background {
-  width: 11rem;
+  width: 10rem;
 }
 
 .match-card .text {

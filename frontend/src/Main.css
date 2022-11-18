@@ -132,20 +132,6 @@ section {
   box-shadow: none;
 }
 
-/*Close-Buuton*/
-.close-button {
-  display: flex;
-  width: 6vh;
-  background: transparent;
-  filter: drop-shadow(0px 0px 2px var(--orange-dark-color));
-  border-style: none;
-  margin: auto;
-}
-
-.close-button:hover {
-  filter: drop-shadow(0px 0px 3px var(--orange-dark-color));
-}
-
 /* BACKGROUND-CONTAINER-CONTENT */
 .background-container {
   background: linear-gradient(
@@ -157,4 +143,17 @@ section {
   border-radius: 1.3rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(7px);
+}
+
+/* MODAL-BACKGROUND-CONTENT */
+.modal-background {
+  z-index: 2;
+  position: fixed;
+  top: 10%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  height: 100%;
+  width: 100%;
 }
