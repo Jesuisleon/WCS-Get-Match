@@ -10,7 +10,7 @@ export default function ArrowButton() {
           className="polygon-button"
         />
         <img
-          src="src/img/mobile/arrow-logo.png"
+          src="src/img/icons/arrow.png"
           alt="arrow-logo"
           className="arrow-logo"
         />

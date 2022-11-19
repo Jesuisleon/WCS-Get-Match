@@ -2,7 +2,7 @@ import "./ViewMatchPages.css";
 import { useState } from "react";
 import CloseButton from "@assets/CloseButton";
 import AddPlayersPage from "./AddPlayersPage";
-import MatchCards from "../MatchCards/MatchCards";
+import MatchCards from "../../components/MatchCards/MatchCards";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
 import InsideCard from "../../img/mobile/inside-card.png";
 import OutsideCard from "../../img/mobile/outside-card.png";
@@ -57,8 +57,8 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
 
   return (
     <div className="modal-background">
-      <CloseButton onClick={onClose} />
       <div className="view-teams">
+        <CloseButton onClick={onClose} />
         <div className="team1">
           {MatchCardsInfos.filter((card) => card.id === matchId)
             .map((e) => e.team1)

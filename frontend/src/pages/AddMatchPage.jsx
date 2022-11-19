@@ -10,6 +10,7 @@ import ModalCalendar from "@components/Calendar/ModalCalendar";
 import TimerPicker from "@components/TimerPicker";
 import CityPicker from "@components/CityPicker";
 import CalendarPicker from "@components/Calendar/CalendarPicker";
+import CloseButton from "@assets/CloseButton";
 import { MatchListContext } from "../data/MatchListContext";
 import MatchCardsInfos from "../data/MatchCardsInfos";
 
@@ -214,17 +215,9 @@ export default function VerticalLinearStepper({
   };
 
   return (
-    <section className="add-match-page">
+    <section className="modal-background">
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        <div
-          className="close"
-          onClick={onClose}
-          onKeyDown={onClose}
-          role="link"
-          tabIndex={0}
-        >
-          X
-        </div>
+        <CloseButton onClick={onClose} />
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (
             <Step key={step.label}>

@@ -26,7 +26,7 @@
   --spacing-4: calc(var(--spacing) * 4);
 
   --size-h1: 3vmin;
-  --size-h2: 1.8rem;
+  --size-h2: 1.3rem;
   --size-text: 1rem;
   --size-text-button: 2rem;
 
@@ -66,10 +66,12 @@ section {
   width: 7rem;
 }
 
+/* COLORS-TEXT-CONTENT */
 .grey {
   color: var(--grey-color);
 }
 
+/* SET-INLINE-CONTENT */
 .inline {
   display: flex;
   align-items: center;
@@ -148,8 +150,9 @@ section {
 /* MODAL-BACKGROUND-CONTENT */
 .modal-background {
   z-index: 2;
+  backdrop-filter: blur(4px);
   position: fixed;
-  top: 10%;
+  top: 0;
   bottom: 0;
   right: 0;
   left: 0;

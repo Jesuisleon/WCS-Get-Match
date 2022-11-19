@@ -1,15 +1,10 @@
 /*Close-Buuton*/
 .close-button {
-  position: absolute;
-  top: 1%;
-  left: 0;
-  right: 0;
   margin-left: auto;
   margin-right: auto;
   width: 4rem;
   /* filter: drop-shadow(0px 0px 2px var(--orange-dark-color));  */
   margin: auto;
-  z-index: 10;
 }
 
 .close-button:hover {
