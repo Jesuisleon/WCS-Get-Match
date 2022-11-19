@@ -43,32 +43,58 @@ function HashtagBar({ onChange }) {
         isMulti
         autoFocus
         isSearchable
-        placeholder="#"
         styles={styles}
-        // theme={(theme) => ({
-        //   ...theme,
-        //   borderRadius: 10,
-        //   colors: {
-        //     ...theme.colors,
-        //     primary25: "orange", // background on select
-        //     primary: "white", // border selected
-        //     danger: "orange", // cross selected
-        //     dangerLight: "gba(49, 49, 51, 0.5)", // cross selected
-        //     neutral0: "rgba(49, 49, 51, 0.5)", //  background container
-        //     neutral10: "rgba(49, 49, 51, 0.2)", // background selected
-        //     neutral20: "rgba(49, 49, 51, 1)", // borders unselected
-        //     neutral50: "rgba(49, 49, 51, 1)", // placeholder
-        //     neutral30: "rgba(49, 49, 51, 0.2)", // border hover
-        //     neutral60: "white", // button when pick
-        //     neutral80: "white", // hashtag text
-        //   },
-        // })}
+        theme={(theme) => ({
+          ...theme,
+          borderRadius: 10,
+          colors: {
+            ...theme.colors,
+            primary25: "orange", // background on select
+            primary: "white", // border selected
+            danger: "orange", // cross selected
+            dangerLight: "rgba(49, 49, 51, 0.5)", // cross selected
+            neutral0: "rgba(49, 49, 51, 0.5)", //  background container
+            neutral10: "rgba(49, 49, 51, 0.2)", // background selected
+            neutral20: "rgba(49, 49, 51, 1)", // borders unselected
+            neutral50: "rgba(49, 49, 51, 1)", // placeholder
+            neutral30: "rgba(49, 49, 51, 0.2)", // border hover
+            neutral60: "white", // button when pick
+            neutral80: "white", // hashtag text
+          },
+        })}
       />
     </div>
   );
 }
 
-export function Timer() {
+export function Timer({ time, setTime }) {
+  const toSetHours = time.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const [amPm, setAmPm] = useState(toSetHours.slice(6, 8));
+  const [handleHours, setHandleHours] = useState(toSetHours.slice(0, 2));
+  const [handleMinutes, setHandleMinutes] = useState(
+    (Math.round(toSetHours.slice(3, 5) / 15) * 15) % 60
+  );
+
+  useEffect(() => {
+    let hours = Number(handleHours);
+
+    if (amPm === "PM") {
+      hours += 12;
+    }
+
+    function minTwoDigits(n) {
+      return (n < 10 ? "0" : "") + n;
+    }
+    const newTime = new Date(
+      `November 16, 2022 ${minTwoDigits(hours)}:${handleMinutes}:00`
+    );
+    setTime(newTime);
+  }, [amPm, handleHours, handleMinutes]);
+
   return (
     <div className="inline ">
       <img
@@ -77,7 +103,12 @@ export function Timer() {
         alt="clock-icons"
       />
       <div className="select-dropdown borders-styled">
-        <select className="select" aria-label="hours">
+        <select
+          className="select"
+          aria-label="hours"
+          defaultValue={toSetHours.slice(0, 2)}
+          onChange={(e) => setHandleHours(e.target.value)}
+        >
           <option value="00">00</option>
           <option value="01">01</option>
           <option value="02">02</option>
@@ -93,30 +124,28 @@ export function Timer() {
           <option value="12">12</option>
         </select>
         <span>:</span>
-        <select className="select" aria-label="minutes">
+        <select
+          className="select"
+          aria-label="minutes"
+          defaultValue={(Math.round(toSetHours.slice(3, 5) / 15) * 15) % 60}
+          onChange={(e) => setHandleMinutes(e.target.value)}
+        >
           <option value="0">00</option>
           <option value="15">15</option>
           <option value="30">30</option>
           <option value="45">45</option>
         </select>
         <span>:</span>
-        <select className="select" aria-label="amp-pm">
+        <select
+          className="select"
+          aria-label="amp-pm"
+          defaultValue={toSetHours.slice(6, 8)}
+          onChange={(e) => setAmPm(e.target.value)}
+        >
           <option value="AM">AM</option>
           <option value="PM">PM</option>
         </select>
       </div>
-      {/* <input
-        onChange={handleChange}
-        type="time"
-        value={time.toLocaleTimeString("fr", {
-          hour: "2-digit",
-          minute: "2-digit",
-        })}
-        placeholder={time.toLocaleTimeString("en-US", {
-          hour: "2-digit",
-          minute: "2-digit",
-        })}
-      /> */}
     </div>
   );
 }
@@ -180,6 +209,7 @@ export default function SearchButtons({
   const [hashtagList, setHashtagList] = useState([]);
   const [time, setTime] = useState(new Date());
   const [date, setDate] = useState(new Date());
+
   const dateAndTime = new Date(
     `${date.toLocaleDateString("en-US")} 
     ${time.toLocaleTimeString("en-US", {

@@ -63,8 +63,7 @@ section {
 }
 
 .logo {
-  width: 10vmax;
-  min-width: 13%;
+  width: 7rem;
 }
 
 .grey {
@@ -73,13 +72,14 @@ section {
 
 .inline {
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 /* ICONS-CONTENT */
 
 .icons {
-  width: 1.4rem;
+  width: 1.6rem;
 }
 
 /* SNAP-PAGE-CONTENT */
