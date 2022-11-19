@@ -6,9 +6,12 @@ import { useForm } from "react-hook-form";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
-import ModalCalendar from "@components/Search/ModalCalendar";
-import MatchCardsInfos from "../data/MatchCardsInfos";
+import ModalCalendar from "@components/Calendar/ModalCalendar";
+import TimerPicker from "@components/TimerPicker";
+import CityPicker from "@components/CityPicker";
+import CalendarPicker from "@components/Calendar/CalendarPicker";
 import { MatchListContext } from "../data/MatchListContext";
+import MatchCardsInfos from "../data/MatchCardsInfos";
 
 const steps = [
   {
@@ -49,23 +52,10 @@ export function InputStepper({ index, handleNext, handleBack, children }) {
   );
 }
 
-export function CityStepper({ register }) {
+export function CityStepper({ city, setCity, register }) {
   return (
     <div className="stepper">
-      <div className="inline">
-        <img
-          className="icons"
-          src="src/img/icons/map-white.png"
-          alt="map-icons"
-        />
-        <div className="select-dropdown borders-styled">
-          <select className="select" {...register("city")}>
-            <option value="NEW-YORK">NEW-YORK</option>
-            <option value="BOSTON">BOSTON</option>
-            <option value="CHICAGO">CHICAGO</option>
-          </select>
-        </div>
-      </div>
+      <CityPicker city={city} setCity={setCity} />
       <div className="inline adress-input">
         <img
           className="icons"
@@ -83,48 +73,10 @@ export function CityStepper({ register }) {
 }
 
 export function DateStepper({ setViewCalendar, date, time, setTime }) {
-  const handleChange = (e) => {
-    const hours = e.target.value.split(":")[0];
-    const minutes = e.target.value.split(":")[1];
-    const newTime = new Date(`November 16, 2022 ${hours}:${minutes}:00`);
-    setTime(newTime);
-  };
-
   return (
     <div className="stepper">
-      <div
-        onClick={() => setViewCalendar(true)}
-        onKeyDown={() => setViewCalendar(true)}
-        role="button"
-        tabIndex={0}
-        className="inline"
-      >
-        <img
-          className="icons"
-          src="src/img/icons/calendar-white.png"
-          alt="calendar-icons"
-        />
-        <p className="borders-styled">{date.toLocaleDateString("en-US")}</p>
-      </div>
-      <div className="inline">
-        <img
-          className="icons"
-          src="src/img/icons/clock-white.png"
-          alt="clock-icons"
-        />
-        <input
-          type="time"
-          defaultValue={time.toLocaleTimeString("fr", {
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
-          placeholder={time.toLocaleTimeString("en-US", {
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
-          onChange={handleChange}
-        />
-      </div>
+      <CalendarPicker date={date} setViewCalendar={setViewCalendar} />
+      <TimerPicker time={time} setTime={setTime} />
     </div>
   );
 }
@@ -172,6 +124,7 @@ export default function VerticalLinearStepper({
   const [viewCalendar, setViewCalendar] = useState(false);
   const [time, setTime] = useState(new Date());
   const [date, setDate] = useState(new Date());
+  const [city, setCity] = useState("NEW-YORK");
 
   const { refresh, setRefresh } = useContext(MatchListContext);
 
@@ -241,6 +194,7 @@ export default function VerticalLinearStepper({
     if (output.versus === "1vs1") output.maxPlayers = 2;
     if (output.versus === "3vs3") output.maxPlayers = 6;
     if (output.versus === "5vs5") output.maxPlayers = 10;
+    output.city = city;
     MatchCardsInfos.push(output);
     setTimeout(() => {
       setViewAddMatch();
@@ -283,7 +237,13 @@ export default function VerticalLinearStepper({
                 handleNext={handleNext}
                 handleBack={handleBack}
               >
-                {index === 0 && <CityStepper register={register} />}
+                {index === 0 && (
+                  <CityStepper
+                    city={city}
+                    setCity={setCity}
+                    register={register}
+                  />
+                )}
                 {index === 1 && (
                   <DateStepper
                     register={register}

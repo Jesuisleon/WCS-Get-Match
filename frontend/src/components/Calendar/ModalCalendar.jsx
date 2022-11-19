@@ -1,5 +1,4 @@
 /* eslint no-lone-blocks: "error" */
-
 import { useEffect } from "react";
 import Calendar from "react-calendar";
 import "./ModalCalendar.css";
