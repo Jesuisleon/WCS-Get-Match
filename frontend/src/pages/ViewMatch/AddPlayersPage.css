@@ -1,70 +1,25 @@
-.Card-ViewPlayer {
-  background-image: url("src/img/mobile/main-background.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  position: relative;
+.card-viewplayer {
+  margin: 0;
+  padding: 0;
+  background-color: var(--black-color);
   z-index: 4;
-  backdrop-filter: blur(8px);
 }
 
 .player-card-container {
-  background-color: rgba(30, 30, 30, 0.7);
-  border-radius: 4vh;
-}
-
-.Background-Player {
-  display: flex;
-  width: 45vh;
-  height: 15vh;
-  align-items: center;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.08) 0%,
-    rgba(255, 255, 255, 0.004) 100%
-  );
-  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
-  border-radius: 4vh;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.Background-Player:hover {
-  opacity: 70%;
-}
-
-.player-img {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 4vh;
-}
-.player-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 1vh;
-  height: 100%;
-  width: 25%;
-}
-
-.player-card-text {
   display: flex;
   flex-direction: column;
-  margin-left: 3vh;
+  margin-left: 1rem;
   margin-right: auto;
-  gap: 1rem;
+  gap: 0.6rem;
 }
 
-.player-card-name h2 {
+.player-card-name h3 {
   color: var(--orange-light-color);
 }
-.player-card-age h2 {
+
+.player-card-age h3 {
   color: var(--orange-superlight-color);
 }
-.player-card-city h2 {
+.player-card-city h3 {
   color: var(--orange-dark-color);
-}
-
-.Background-Players {
-  display: grid;
-  gap: 1.5rem;
 }

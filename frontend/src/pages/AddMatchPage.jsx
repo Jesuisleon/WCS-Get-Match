@@ -216,7 +216,10 @@ export default function VerticalLinearStepper({
 
   return (
     <section className="modal-background">
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="modal-container background-container"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <CloseButton onClick={onClose} />
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (

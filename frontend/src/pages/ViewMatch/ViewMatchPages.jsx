@@ -20,7 +20,9 @@ export function TeamPosition({
         <div className="player-container">
           <img className="player-avatar" src={avatar} alt="players" />
         </div>
-        <p className="player-name">{name}</p>
+        <p className="player-name" style={{ transform: "translate(0, -10px)" }}>
+          {name}
+        </p>
       </div>
     );
   }
@@ -57,7 +59,7 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
 
   return (
     <div className="modal-background">
-      <div className="view-teams">
+      <div className="modal-container background-container view-teams">
         <CloseButton onClick={onClose} />
         <div className="team1">
           {MatchCardsInfos.filter((card) => card.id === matchId)

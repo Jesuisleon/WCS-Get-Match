@@ -1,17 +1,9 @@
 .view-teams {
-  position: relative;
-  margin: auto;
-  width: 90%;
-  height: 90%;
   background: url("src/img/mobile/surbackground.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--black-color);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .team1 {
@@ -127,12 +119,10 @@
   opacity: 50%;
 }
 
-p.player-name {
-  transform: translate(0, -10px);
-  text-shadow: -0.1rem -0.1rem 0 var(--black-light-color);
+.player-name {
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: var(--size-text);
   margin: 0;
 }

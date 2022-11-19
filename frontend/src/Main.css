@@ -159,4 +159,21 @@ section {
   margin: auto;
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  background-color: var(--black-color);
+  margin: auto;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }

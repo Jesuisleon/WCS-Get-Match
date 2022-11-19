@@ -6,26 +6,29 @@ import MatchCardsInfos from "../../data/MatchCardsInfos";
 export function PlayersData({ data, title, className }) {
   return (
     <div className={`inline ${className}`}>
-      <h2>{title}</h2>
-      <p>{data}</p>
+      <h3>{title}</h3>
+      <p className="player-name">{data}</p>
     </div>
   );
 }
 
 export function PlayerCard({ avatar, name, age, city, onClick }) {
   return (
-    <div className="player-card-container">
+    <div
+      className="background-container"
+      style={{ padding: "1rem", margin: "1rem" }}
+    >
       <div
         onClick={onClick}
         onKeyDown={onClick}
         role="button"
         tabIndex={0}
-        className="Background-Player"
+        className="inline"
       >
-        <div className="player-image">
-          <img className="player-img" src={avatar} alt="playerImg" />
+        <div className="player-container">
+          <img className="player-avatar" src={avatar} alt="avatar" />
         </div>
-        <div className="player-card-text">
+        <div className="player-card-container">
           <PlayersData data={name} title="NAME:" className="player-card-name" />
           <PlayersData data={age} title="AGE:" className="player-card-age" />
           <PlayersData data={city} title="CITY:" className="player-card-city" />
@@ -47,22 +50,20 @@ function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
 
   return (
     <div className="modal-background">
-      <div className="modalPlayersContenair">
+      <div className="modal-container background-container card-viewplayer">
         <CloseButton onClick={() => closeModalPlayers(false)} />
-        <section className="Card-ViewPlayer">
-          <div className="Background-Players">
-            {PlayersInfos.map((player) => (
-              <PlayerCard
-                key={player.id}
-                onClick={() => handleClick(player.id)}
-                name={player.name}
-                age={player.age}
-                city={player.from}
-                avatar={player.avatar}
-              />
-            ))}
-          </div>
-        </section>
+        <div className="background-players">
+          {PlayersInfos.map((player) => (
+            <PlayerCard
+              key={player.id}
+              onClick={() => handleClick(player.id)}
+              name={player.name}
+              age={player.age}
+              city={player.from}
+              avatar={player.avatar}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
