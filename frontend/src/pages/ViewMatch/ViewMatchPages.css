@@ -126,3 +126,22 @@
   font-size: var(--size-text);
   margin: 0;
 }
+
+/* PLAYERS-CARDS-CONTENT */
+.player-card-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-right: auto;
+  gap: 0.6rem;
+}
+
+.player-card-name h3 {
+  color: var(--orange-light-color);
+}
+.player-card-age h3 {
+  color: var(--orange-superlight-color);
+}
+.player-card-city h3 {
+  color: var(--orange-dark-color);
+}

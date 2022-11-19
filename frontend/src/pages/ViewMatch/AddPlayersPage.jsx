@@ -1,4 +1,3 @@
-import "./AddPlayersPage.css";
 import CloseButton from "@assets/CloseButton";
 import PlayersInfos from "../../data/PlayersInfos";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
@@ -50,7 +49,10 @@ function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
 
   return (
     <div className="modal-background">
-      <div className="modal-container background-container card-viewplayer">
+      <div
+        className="modal-container background-container"
+        style={{ padding: "0.7rem" }}
+      >
         <CloseButton onClick={() => closeModalPlayers(false)} />
         <div className="background-players">
           {PlayersInfos.map((player) => (

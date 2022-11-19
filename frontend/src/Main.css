@@ -150,7 +150,7 @@ section {
 /* MODAL-BACKGROUND-CONTENT */
 .modal-background {
   z-index: 2;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(0.6rem);
   position: fixed;
   top: 0;
   bottom: 0;
