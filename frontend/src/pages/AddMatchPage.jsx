@@ -53,22 +53,10 @@ export function InputStepper({ index, handleNext, handleBack, children }) {
   );
 }
 
-export function CityStepper({ city, setCity, register }) {
+export function CityStepper({ city, setCity }) {
   return (
     <div className="stepper">
       <CityPicker city={city} setCity={setCity} />
-      <div className="inline adress-input">
-        <img
-          className="icons"
-          src="src/img/icons/adress-white.png"
-          alt="adress-icons"
-        />
-        <input
-          placeholder="Enter the adress"
-          type="text"
-          {...register("adress")}
-        />
-      </div>
     </div>
   );
 }
@@ -91,22 +79,33 @@ export function MatchTypeStepper({ register }) {
           src="src/img/icons/players-left-white.png"
           alt="clock-icons"
         />
-        <select {...register("versus")}>
-          <option value="1vs1">1vs1</option>
-          <option value="3vs3">3vs3</option>
-          <option value="5vs5">5vs5</option>
-        </select>
-      </div>
-      <div className="inline">
-        <img
-          className="icons"
-          src="src/img/icons/field-white.png"
-          alt="field-icons"
-        />
-        <select {...register("groundType")}>
-          <option value="Inside">Inside</option>
-          <option value="Outside">Outside</option>
-        </select>
+        <div
+        className="select-dropdown borders-styled">
+          <select
+          className="select"
+            {...register("versus")}
+          >
+            <option value="1vs1">1vs1</option>
+            <option value="3vs3">3vs3</option>
+            <option value="5vs5">5vs5</option>
+          </select>
+          </div>
+                </div>
+                <div className="inline">
+          <img
+            className="icons"
+            src="src/img/icons/field-white.png"
+            alt="field-icons"
+          />
+        <div className="select-dropdown borders-styled">
+          <select
+          className="select"
+            {...register("groundType")}>
+              <option value="Inside">Inside</option>
+              <option value="Outside">Outside</option>
+            </select>
+        </div>
+        
       </div>
     </div>
   );
@@ -237,7 +236,6 @@ export default function VerticalLinearStepper({
                   <CityStepper
                     city={city}
                     setCity={setCity}
-                    register={register}
                   />
                 )}
                 {index === 1 && (
