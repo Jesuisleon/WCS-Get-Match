@@ -134,6 +134,13 @@ section {
   box-shadow: none;
 }
 
+.background-players {
+  height: 200rem;
+  width: auto;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
 /* BACKGROUND-CONTAINER-CONTENT */
 .background-container {
   background: linear-gradient(
