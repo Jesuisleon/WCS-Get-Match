@@ -14,6 +14,25 @@ export function TeamPosition({
   className,
   isOpen,
 }) {
+  if (isOpen === true) {
+    return (
+      <div
+        role="button"
+        tabIndex={0}
+        className={className}
+        onClick={setOpenModalPlayers}
+        onKeyDown={setOpenModalPlayers}
+      >
+        <div className="player-container">
+          <img
+            className="player-add"
+            src="src/img/icons/add-player-white.png"
+            alt="players"
+          />
+        </div>
+      </div>
+    );
+  }
   if (isOpen === false) {
     return (
       <div role="button" tabIndex={0} className={className}>
@@ -26,23 +45,6 @@ export function TeamPosition({
       </div>
     );
   }
-  return (
-    <div
-      role="button"
-      tabIndex={0}
-      className={className}
-      onClick={setOpenModalPlayers}
-      onKeyDown={setOpenModalPlayers}
-    >
-      <div className="player-container">
-        <img
-          className="player-add"
-          src="src/img/icons/add-player-white.png"
-          alt="players"
-        />
-      </div>
-    </div>
-  );
 }
 
 export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
@@ -50,6 +52,12 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
   const [openModalPlayers, setOpenModalPlayers] = useState(false);
   const [PlayerPosition, setPlayerPosition] = useState();
   const [Team, setTeam] = useState();
+
+  let PlayersKeys = 0;
+  function IncrementPlayersKeys() {
+    PlayersKeys += 1;
+    return PlayersKeys;
+  }
 
   const handleClick = (index, team) => {
     setTeam(team);
@@ -68,7 +76,7 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
             .map((player, index) => (
               <TeamPosition
                 isOpen={player.isOpen}
-                key={player.id}
+                key={() => IncrementPlayersKeys()}
                 className={`position${index} centered`}
                 name={player.name}
                 avatar={player.avatar}
@@ -101,7 +109,7 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
             .map((player, index) => (
               <TeamPosition
                 isOpen={player.isOpen}
-                key={player.id}
+                key={() => IncrementPlayersKeys()}
                 className={`position${index} centered`}
                 name={player.name}
                 avatar={player.avatar}

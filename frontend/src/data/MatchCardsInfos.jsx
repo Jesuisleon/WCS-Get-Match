@@ -1,8 +1,8 @@
 const MatchCardsInfos = [
   {
     id: 1,
+    admin: "Patricia",
     city: "NEW-YORK",
-    adress: "31000 Toulouse 52 rue des blanchers",
     date: "12/12/2022",
     time: "08:00 AM",
     versus: "3vs3",
@@ -68,8 +68,8 @@ const MatchCardsInfos = [
   },
   {
     id: 2,
+    admin: "Bob",
     city: "NEW-YORK",
-    adress: "31000 Toulouse 52 rue des blanchers",
     date: "12/12/2022",
     time: "09:00 AM",
     versus: "1vs1",
@@ -100,8 +100,8 @@ const MatchCardsInfos = [
   },
   {
     id: 3,
+    admin: "Jean-Roch",
     city: "NEW-YORK",
-    adress: "31000 Toulouse 52 rue des blanchers",
     date: "12/12/2022",
     time: "08:00 AM",
     versus: "5vs5",

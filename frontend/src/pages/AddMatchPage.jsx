@@ -79,33 +79,26 @@ export function MatchTypeStepper({ register }) {
           src="src/img/icons/players-left-white.png"
           alt="clock-icons"
         />
-        <div
-        className="select-dropdown borders-styled">
-          <select
-          className="select"
-            {...register("versus")}
-          >
+        <div className="select-dropdown borders-styled">
+          <select className="select" {...register("versus")}>
             <option value="1vs1">1vs1</option>
             <option value="3vs3">3vs3</option>
             <option value="5vs5">5vs5</option>
           </select>
-          </div>
-                </div>
-                <div className="inline">
-          <img
-            className="icons"
-            src="src/img/icons/field-white.png"
-            alt="field-icons"
-          />
-        <div className="select-dropdown borders-styled">
-          <select
-          className="select"
-            {...register("groundType")}>
-              <option value="Inside">Inside</option>
-              <option value="Outside">Outside</option>
-            </select>
         </div>
-        
+      </div>
+      <div className="inline">
+        <img
+          className="icons"
+          src="src/img/icons/field-white.png"
+          alt="field-icons"
+        />
+        <div className="select-dropdown borders-styled">
+          <select className="select" {...register("groundType")}>
+            <option value="Inside">Inside</option>
+            <option value="Outside">Outside</option>
+          </select>
+        </div>
       </div>
     </div>
   );
@@ -131,6 +124,7 @@ export default function VerticalLinearStepper({
   const onSubmit = (data) => {
     const output = {
       ...data,
+      admin: "Jordan",
       playersLeft: 10,
       team1: [
         {
@@ -232,12 +226,7 @@ export default function VerticalLinearStepper({
                 handleNext={handleNext}
                 handleBack={handleBack}
               >
-                {index === 0 && (
-                  <CityStepper
-                    city={city}
-                    setCity={setCity}
-                  />
-                )}
+                {index === 0 && <CityStepper city={city} setCity={setCity} />}
                 {index === 1 && (
                   <DateStepper
                     register={register}

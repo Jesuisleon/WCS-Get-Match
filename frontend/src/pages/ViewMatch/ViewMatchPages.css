@@ -19,31 +19,6 @@
     "D Y E";
 }
 
-.field {
-  flex: 1;
-}
-
-.team2 {
-  flex: 3;
-  width: 100%;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  grid-template: repeat(auto, 1) / repeat(auto, 1);
-  grid-template-areas:
-    "J y K"
-    "S G s"
-    "H z I";
-}
-
-.centered {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .team1 .position0 {
   grid-area: A;
 }
@@ -64,6 +39,23 @@
   grid-area: E;
 }
 
+.field {
+  flex: 1;
+}
+
+.team2 {
+  flex: 3;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template: repeat(auto, 1) / repeat(auto, 1);
+  grid-template-areas:
+    "J y K"
+    "S G s"
+    "H z I";
+}
+
 .team2 .position0 {
   grid-area: G;
 }
@@ -82,6 +74,14 @@
 
 .team2 .position4 {
   grid-area: K;
+}
+
+.centered {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* FOR PLAYERS CONTAINER */
