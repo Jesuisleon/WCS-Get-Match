@@ -8,7 +8,7 @@ import axios from "axios";
 import { MatchListContext, MatchViewContext } from "../data/MatchListContext";
 import InsideCard from "../img/mobile/inside-card.png";
 import OutsideCard from "../img/mobile/outside-card.png";
-import PlayersInfos from "../data/PlayersInfos";
+import { PlayersInfos } from "../data/PlayersInfos";
 
 export default function MainPage() {
   const [user, setUser] = useState([]);

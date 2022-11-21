@@ -1,5 +1,5 @@
 import CloseButton from "@assets/CloseButton";
-import PlayersInfos from "../../data/PlayersInfos";
+import { PlayersInfos } from "../../data/PlayersInfos";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
 
 export function PlayersData({ data, title, className }) {

@@ -2,26 +2,21 @@ import "./ViewMatchPages.css";
 import { useState } from "react";
 import CloseButton from "@assets/CloseButton";
 import AddPlayersPage from "./AddPlayersPage";
+import AddSelfToMatch from "./AddSelfToMatch";
 import MatchCards from "../../components/MatchCards/MatchCards";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
 import InsideCard from "../../img/mobile/inside-card.png";
 import OutsideCard from "../../img/mobile/outside-card.png";
 
-export function TeamPosition({
-  setOpenModalPlayers,
-  name,
-  avatar,
-  className,
-  isOpen,
-}) {
+export function TeamPosition({ openModal, name, avatar, className, isOpen }) {
   if (isOpen === true) {
     return (
       <div
         role="button"
         tabIndex={0}
         className={className}
-        onClick={setOpenModalPlayers}
-        onKeyDown={setOpenModalPlayers}
+        onClick={openModal}
+        onKeyDown={openModal}
       >
         <div className="player-container">
           <img
@@ -50,6 +45,7 @@ export function TeamPosition({
 export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
   if (!viewMatch) return null;
   const [openModalPlayers, setOpenModalPlayers] = useState(false);
+  const [addToMatch, setAddToMatch] = useState(false);
   const [PlayerPosition, setPlayerPosition] = useState();
   const [Team, setTeam] = useState();
 
@@ -59,10 +55,17 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
     return PlayersKeys;
   }
 
+  const match = MatchCardsInfos.filter((card) => card.id === matchId);
+
   const handleClick = (index, team) => {
     setTeam(team);
     setPlayerPosition(index);
-    setOpenModalPlayers(true);
+    if (match[0].admin !== "Jordan") {
+      setAddToMatch(true);
+    }
+    if (match[0].admin === "Jordan") {
+      setOpenModalPlayers(true);
+    }
   };
 
   return (
@@ -70,24 +73,24 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
       <div className="modal-container background-container view-teams">
         <CloseButton onClick={onClose} />
         <div className="team1">
-          {MatchCardsInfos.filter((card) => card.id === matchId)
+          {match
             .map((e) => e.team1)
             .flat()
             .map((player, index) => (
               <TeamPosition
                 isOpen={player.isOpen}
-                key={() => IncrementPlayersKeys()}
+                key={IncrementPlayersKeys()}
                 className={`position${index} centered`}
                 name={player.name}
                 avatar={player.avatar}
-                setOpenModalPlayers={() => {
+                openModal={() => {
                   handleClick(index, "team1");
                 }}
               />
             ))}
         </div>
         <div className="field">
-          {MatchCardsInfos.filter((card) => card.id === matchId).map((card) => (
+          {match.map((card) => (
             <MatchCards
               img={card.groundType === "Inside" ? InsideCard : OutsideCard}
               key={card.id}
@@ -103,17 +106,17 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
           ))}
         </div>
         <div className="team2">
-          {MatchCardsInfos.filter((card) => card.id === matchId)
+          {match
             .map((e) => e.team2)
             .flat()
             .map((player, index) => (
               <TeamPosition
                 isOpen={player.isOpen}
-                key={() => IncrementPlayersKeys()}
+                key={IncrementPlayersKeys()}
                 className={`position${index} centered`}
                 name={player.name}
                 avatar={player.avatar}
-                setOpenModalPlayers={() => {
+                openModal={() => {
                   handleClick(index, "team2");
                 }}
               />
@@ -122,7 +125,15 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
       </div>
       {openModalPlayers && (
         <AddPlayersPage
-          closeModalPlayers={setOpenModalPlayers}
+          closeModalPlayers={() => setOpenModalPlayers(!openModalPlayers)}
+          matchId={matchId}
+          team={Team}
+          playerPosition={PlayerPosition}
+        />
+      )}
+      {addToMatch && (
+        <AddSelfToMatch
+          close={() => setAddToMatch(false)}
           matchId={matchId}
           team={Team}
           playerPosition={PlayerPosition}

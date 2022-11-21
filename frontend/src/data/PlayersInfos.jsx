@@ -2,7 +2,17 @@ import avatar1 from "../img/mobile/avatar1.png";
 import avatar2 from "../img/mobile/avatar2.png";
 import avatar3 from "../img/mobile/avatar3.png";
 
-const PlayersInfos = [
+export const AdminInfos = {
+  id: 100,
+  name: "Jordan",
+  age: 20,
+  from: "NY",
+  avatar:
+    "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/893.png",
+  isOpen: false,
+};
+
+export const PlayersInfos = [
   {
     id: 1,
     name: "Lebron Leon",
