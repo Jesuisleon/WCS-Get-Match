@@ -91,10 +91,11 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
   };
 
   const handleClickToDelete = (index, team) => {
-    setTeam(team);
-    setPlayerPosition(index);
     if (match[0].admin !== "Jordan") {
-      if (addToMatch.onMatch) setAddToMatch({ ...addToMatch, open: true });
+      setTeam(team);
+      setPlayerPosition(index);
+      if (addToMatch.onMatch && match[0][team][index].name === "Jordan")
+        setAddToMatch({ ...addToMatch, open: true });
     }
   };
 
@@ -150,7 +151,7 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
                 openModal={() => {
                   handleClick(index, "team2");
                 }}
-                deleteSelf={() => handleClickToDelete(index, "team1")}
+                deleteSelf={() => handleClickToDelete(index, "team2")}
               />
             ))}
         </div>
@@ -165,7 +166,7 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
       )}
       {addToMatch.open && (
         <AddSelf
-          close={() => setAddToMatch({ open: false })}
+          close={() => setAddToMatch({ ...addToMatch, open: false })}
           addToMatch={setAddToMatch}
           onMatch={addToMatch.onMatch}
           matchId={matchId}

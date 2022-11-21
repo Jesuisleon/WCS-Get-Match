@@ -108,7 +108,6 @@ section {
 .select-dropdown {
   position: relative;
   display: flex;
-  gap: 0.1rem;
   background-color: transparent;
   width: auto;
   max-width: 100%;
@@ -155,7 +154,19 @@ section {
 }
 
 /* MODAL-BACKGROUND-CONTENT */
+
+@keyframes zoom {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 .modal-background {
+  animation-name: zoom;
+  animation-duration: 0.1s;
   z-index: 2;
   backdrop-filter: blur(0.6rem);
   position: fixed;
