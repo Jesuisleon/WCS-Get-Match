@@ -13,6 +13,7 @@ import CalendarPicker from "@components/Calendar/CalendarPicker";
 import CloseButton from "@assets/CloseButton";
 import { MatchListContext } from "../data/MatchListContext";
 import MatchCardsInfos from "../data/MatchCardsInfos";
+import { AdminInfos } from "../data/PlayersInfos";
 
 const steps = [
   {
@@ -124,71 +125,37 @@ export default function VerticalLinearStepper({
   const onSubmit = (data) => {
     const output = {
       ...data,
-      admin: "Jordan",
-      playersLeft: 10,
-      team1: [
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-      ],
-      team2: [
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-      ],
+      team1: [],
+      team2: [],
     };
+
+    const player = {
+      id: null,
+      name: null,
+      age: null,
+      from: null,
+      avatar: null,
+      isOpen: true,
+    };
+
+    output.id = MatchCardsInfos.length + 2;
     output.date = date.toLocaleDateString("en-US");
     output.time = time.toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
     });
-    output.id = MatchCardsInfos.length + 2;
-    if (output.versus === "1vs1") output.maxPlayers = 2;
-    if (output.versus === "3vs3") output.maxPlayers = 6;
-    if (output.versus === "5vs5") output.maxPlayers = 10;
     output.city = city;
+    const NumberOfPlayers = Number(output.versus.slice(0, 1));
+
+    for (let x = 0; x < NumberOfPlayers; x += 1) {
+      output.team1.push(player);
+      output.team2.push(player);
+    }
+    output.playersLeft = NumberOfPlayers * 2;
+    output.maxPlayers = NumberOfPlayers * 2;
+
+    output.team1[0] = AdminInfos;
+    output.admin = AdminInfos.name;
     MatchCardsInfos.push(output);
     setTimeout(() => {
       setViewAddMatch();

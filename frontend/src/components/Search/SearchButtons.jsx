@@ -117,9 +117,11 @@ export default function SearchButtons({
             .flat()
         ),
       ].filter((element, index) => index > 1);
+
       const filterKeysByHashtag = (cards, keys) => {
         return hashtag.some((card) => cards[keys].includes(card[keys]));
       };
+
       const FilterCards = cardsFilterByCityAndDate.filter((cards) => {
         if (hashtag.length === 0) return cards;
 

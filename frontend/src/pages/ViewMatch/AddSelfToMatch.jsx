@@ -3,9 +3,9 @@ import MatchCardsInfos from "../../data/MatchCardsInfos";
 
 function AddSelfToMatch({ close, matchId, team, playerPosition }) {
   const handleClick = () => {
-    const MatchCard = MatchCardsInfos.find((e) => e.id === matchId);
-    MatchCard[team][playerPosition] = AdminInfos;
-    MatchCard.playersLeft -= 1;
+    const match = MatchCardsInfos.find((e) => e.id === matchId);
+    match[team][playerPosition] = AdminInfos;
+    match.playersLeft -= 1;
     close();
   };
 

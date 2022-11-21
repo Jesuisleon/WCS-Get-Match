@@ -5,6 +5,7 @@ import AddPlayersPage from "./AddPlayersPage";
 import AddSelfToMatch from "./AddSelfToMatch";
 import MatchCards from "../../components/MatchCards/MatchCards";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
+import { AdminInfos } from "../../data/PlayersInfos";
 import InsideCard from "../../img/mobile/inside-card.png";
 import OutsideCard from "../../img/mobile/outside-card.png";
 
@@ -60,12 +61,16 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
   const handleClick = (index, team) => {
     setTeam(team);
     setPlayerPosition(index);
+
     if (match[0].admin !== "Jordan") {
+      if (match[0].team1.includes(AdminInfos)) return null;
+      if (match[0].team2.includes(AdminInfos)) return null;
       setAddToMatch(true);
     }
     if (match[0].admin === "Jordan") {
       setOpenModalPlayers(true);
     }
+    return null;
   };
 
   return (
