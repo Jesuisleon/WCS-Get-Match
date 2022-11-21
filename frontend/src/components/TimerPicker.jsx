@@ -6,24 +6,32 @@ export function Timer({ time, setTime }) {
     minute: "2-digit",
   });
 
+  function hourTwoDigits(n) {
+    return (n < 10 ? "0" : "") + n;
+  }
+
+  function convertToMinutes(m) {
+    if (m > 45) return 0;
+    return (Math.round(m / 15) * 15) % 60;
+  }
+
+  const minutes = time.getMinutes();
+  let hours = Number(toSetHours.slice(0, 2));
+  if (minutes > 45) hours += 1;
+
   const [amPm, setAmPm] = useState(toSetHours.slice(6, 8));
-  const [handleHours, setHandleHours] = useState(toSetHours.slice(0, 2));
+  const [handleHours, setHandleHours] = useState(hours);
   const [handleMinutes, setHandleMinutes] = useState(
-    (Math.round(toSetHours.slice(3, 5) / 15) * 15) % 60
+    hourTwoDigits(convertToMinutes(minutes))
   );
 
   useEffect(() => {
-    let hours = Number(handleHours);
-
     if (amPm === "PM") {
       hours += 12;
     }
 
-    function minTwoDigits(n) {
-      return (n < 10 ? "0" : "") + n;
-    }
     const newTime = new Date(
-      `November 16, 2022 ${minTwoDigits(hours)}:${handleMinutes}:00`
+      `November 16, 2022 ${hourTwoDigits(hours)}:${handleMinutes}:00`
     );
     setTime(newTime);
   }, [amPm, handleHours, handleMinutes]);
@@ -39,7 +47,7 @@ export function Timer({ time, setTime }) {
         <select
           className="select"
           aria-label="hours"
-          defaultValue={toSetHours.slice(0, 2)}
+          defaultValue={handleHours}
           onChange={(e) => setHandleHours(e.target.value)}
         >
           <option value="00">00</option>
@@ -60,7 +68,7 @@ export function Timer({ time, setTime }) {
         <select
           className="select"
           aria-label="minutes"
-          defaultValue={(Math.round(toSetHours.slice(3, 5) / 15) * 15) % 60}
+          defaultValue={handleMinutes}
           onChange={(e) => setHandleMinutes(e.target.value)}
         >
           <option value="0">00</option>
