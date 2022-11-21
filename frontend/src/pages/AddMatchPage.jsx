@@ -151,7 +151,7 @@ export default function VerticalLinearStepper({
       output.team1.push(player);
       output.team2.push(player);
     }
-    output.playersLeft = NumberOfPlayers * 2;
+    output.playersLeft = NumberOfPlayers * 2 - 1;
     output.maxPlayers = NumberOfPlayers * 2;
 
     output.team1[0] = AdminInfos;
