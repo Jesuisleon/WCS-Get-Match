@@ -10,7 +10,7 @@ export function Search({ setSearchValue, searchValue }) {
         className="search-bar-player"
         value={searchValue}
         type="text"
-        placeholder="Type here..."
+        placeholder="Select a Player.."
         onChange={(event) => setSearchValue(event.target.value)}
       />
     </div>
