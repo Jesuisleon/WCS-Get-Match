@@ -2,14 +2,20 @@ import "./ViewMatchPages.css";
 import { useState } from "react";
 import CloseButton from "@assets/CloseButton";
 import AddPlayersPage from "./AddPlayersPage";
-import AddSelfToMatch from "./AddSelfToMatch";
+import { AddSelf } from "./SelfToMatch";
 import MatchCards from "../../components/MatchCards/MatchCards";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
-import { AdminInfos } from "../../data/PlayersInfos";
 import InsideCard from "../../img/mobile/inside-card.png";
 import OutsideCard from "../../img/mobile/outside-card.png";
 
-export function TeamPosition({ openModal, name, avatar, className, isOpen }) {
+export function TeamPosition({
+  openModal,
+  deleteSelf,
+  name,
+  avatar,
+  className,
+  isOpen,
+}) {
   if (isOpen === true) {
     return (
       <div
@@ -31,7 +37,13 @@ export function TeamPosition({ openModal, name, avatar, className, isOpen }) {
   }
   if (isOpen === false) {
     return (
-      <div role="button" tabIndex={0} className={className}>
+      <div
+        role="button"
+        tabIndex={0}
+        className={className}
+        onClick={deleteSelf}
+        onKeyDown={deleteSelf}
+      >
         <div className="player-container">
           <img className="player-avatar" src={avatar} alt="players" />
         </div>
@@ -45,8 +57,13 @@ export function TeamPosition({ openModal, name, avatar, className, isOpen }) {
 
 export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
   if (!viewMatch) return null;
+
   const [openModalPlayers, setOpenModalPlayers] = useState(false);
-  const [addToMatch, setAddToMatch] = useState(false);
+  const [addToMatch, setAddToMatch] = useState({
+    open: false,
+    onMatch: false,
+  });
+
   const [PlayerPosition, setPlayerPosition] = useState();
   const [Team, setTeam] = useState();
 
@@ -63,14 +80,22 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
     setPlayerPosition(index);
 
     if (match[0].admin !== "Jordan") {
-      if (match[0].team1.includes(AdminInfos)) return null;
-      if (match[0].team2.includes(AdminInfos)) return null;
-      setAddToMatch(true);
+      if (addToMatch.onMatch) return null;
+      setAddToMatch({ ...addToMatch, open: true });
     }
+
     if (match[0].admin === "Jordan") {
       setOpenModalPlayers(true);
     }
     return null;
+  };
+
+  const handleClickToDelete = (index, team) => {
+    setTeam(team);
+    setPlayerPosition(index);
+    if (match[0].admin !== "Jordan") {
+      if (addToMatch.onMatch) setAddToMatch({ ...addToMatch, open: true });
+    }
   };
 
   return (
@@ -91,6 +116,7 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
                 openModal={() => {
                   handleClick(index, "team1");
                 }}
+                deleteSelf={() => handleClickToDelete(index, "team1")}
               />
             ))}
         </div>
@@ -124,6 +150,7 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
                 openModal={() => {
                   handleClick(index, "team2");
                 }}
+                deleteSelf={() => handleClickToDelete(index, "team1")}
               />
             ))}
         </div>
@@ -136,9 +163,11 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
           playerPosition={PlayerPosition}
         />
       )}
-      {addToMatch && (
-        <AddSelfToMatch
-          close={() => setAddToMatch(false)}
+      {addToMatch.open && (
+        <AddSelf
+          close={() => setAddToMatch({ open: false })}
+          addToMatch={setAddToMatch}
+          onMatch={addToMatch.onMatch}
           matchId={matchId}
           team={Team}
           playerPosition={PlayerPosition}

@@ -210,7 +210,7 @@ export default function VerticalLinearStepper({
         </Stepper>
         {activeStep === steps.length && (
           <div className="match-ready">
-            <p>Your match is ready</p>
+            <p>YOUR MATCH IS READY</p>
           </div>
         )}
       </form>

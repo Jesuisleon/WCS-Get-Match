@@ -48,7 +48,8 @@
 .match-ready {
   margin-top: 1rem;
   padding: 0.8rem;
-  background-color: var(--orange-light-color);
+  background-color: #4def80;
+  color: var(--black-color);
 }
 
 /* ADRESS-INPUT-PICKER */

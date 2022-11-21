@@ -1,12 +1,27 @@
-import { AdminInfos } from "../../data/PlayersInfos";
+import { AdminInfos, BlankInfos } from "../../data/PlayersInfos";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
 
-function AddSelfToMatch({ close, matchId, team, playerPosition }) {
+export function AddSelf({
+  close,
+  onMatch,
+  addToMatch,
+  matchId,
+  team,
+  playerPosition,
+}) {
   const handleClick = () => {
     const match = MatchCardsInfos.find((e) => e.id === matchId);
-    match[team][playerPosition] = AdminInfos;
-    match.playersLeft -= 1;
-    close();
+
+    if (onMatch) {
+      match[team][playerPosition] = BlankInfos;
+      match.playersLeft += 1;
+      addToMatch({ onMatch: false, open: false });
+    }
+    if (!onMatch) {
+      match[team][playerPosition] = AdminInfos;
+      match.playersLeft -= 1;
+      addToMatch({ onMatch: true, open: false });
+    }
   };
 
   return (
@@ -15,7 +30,11 @@ function AddSelfToMatch({ close, matchId, team, playerPosition }) {
         className="modal-container background-container"
         style={{ padding: "1.5rem" }}
       >
-        <p>Do you want to join the match</p>
+        {!onMatch ? (
+          <p>Do you want to join the match</p>
+        ) : (
+          <p>Do you want to leave the match</p>
+        )}
         <div className="inline">
           <button
             style={{ margin: "0" }}
@@ -40,4 +59,4 @@ function AddSelfToMatch({ close, matchId, team, playerPosition }) {
   );
 }
 
-export default AddSelfToMatch;
+export default AddSelf;

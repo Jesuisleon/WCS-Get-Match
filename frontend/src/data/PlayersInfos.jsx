@@ -2,6 +2,15 @@ import avatar1 from "../img/mobile/avatar1.png";
 import avatar2 from "../img/mobile/avatar2.png";
 import avatar3 from "../img/mobile/avatar3.png";
 
+export const BlankInfos = {
+  id: null,
+  name: null,
+  age: null,
+  from: null,
+  avatar: null,
+  isOpen: true,
+};
+
 export const AdminInfos = {
   id: 100,
   name: "Jordan",
