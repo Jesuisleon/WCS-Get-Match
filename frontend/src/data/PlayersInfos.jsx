@@ -48,7 +48,7 @@ export const PlayersInfos = [
   },
   {
     id: 5,
-    Name: "Kobe Bryant",
+    name: "Kobe Bryant",
     Age: 20,
     from: "Miami",
     avatar: avatar1,
