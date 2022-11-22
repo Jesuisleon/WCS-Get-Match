@@ -1,33 +1,9 @@
-.search-bar-container {
-  margin: 0;
-}
-
-.search-bar-player {
-  border-color: var((--grey-color));
-  background-color: var(--black-light-color);
-  border-radius: 10px;
-  border-style: solid;
-  border-width: 1px;
-  min-width: 38px;
-  box-sizing: border-box;
-  width: 18rem;
-  height: 2.4rem;
-  position: relative;
-  margin: 10;
-  font-size: large;
-  color: var(--white-color);
-  font-family: var(--font-text);
-}
-
 .MuiStep-vertical {
   width: 100%;
-  padding-top: 1rem;
 }
 
 .step-container {
   font-size: var(--size-h2);
-  color: var(--white-color);
-  font-family: var(--font-title);
   text-transform: uppercase;
   display: flex;
   gap: 1rem;
@@ -35,7 +11,7 @@
 }
 
 .stepper {
-  margin-top: 1rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -44,6 +20,22 @@
 .button-container {
   display: flex;
   gap: 1rem;
+}
+
+.button {
+  margin: 2rem 0 0 0;
+  background: rgba(49, 49, 51, 0.5);
+  color: var(--white-color);
+  font-family: var(--font-text);
+  font-size: var(--size-text-search);
+  line-height: auto;
+  padding: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  /* box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .next:hover {
@@ -59,5 +51,10 @@
   padding: 0.8rem;
   background-color: #4def80;
   color: var(--black-color);
-  font-size: var(--size-text-button);
+}
+
+@media screen and (min-width: 769px) {
+  .MuiStep-vertical {
+    padding-top: 2rem;
+  }
 }

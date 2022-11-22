@@ -31,14 +31,20 @@
   padding-top: 0.2rem;
 }
 
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 769px) {
   .search-container {
-    width: 83rem;
+    width: 80%;
     flex-direction: row;
     flex-direction: row-reverse;
-    justify-content: space-around;
+    justify-content: center;
   }
+
+  .search-container > * {
+    flex: 1 1 0;
+  }
+
   .search-buttons {
     height: 4rem;
+    flex: 2;
   }
 }

@@ -53,7 +53,7 @@ export function Timer({ time, setTime }) {
         src="src/img/icons/clock-white.png"
         alt="clock-icons"
       />
-      <div className="select-dropdown borders-styled">
+      <div className="borders-styled">
         <select
           className="select"
           aria-label="hours"

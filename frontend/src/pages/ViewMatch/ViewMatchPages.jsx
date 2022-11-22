@@ -100,9 +100,9 @@ export default function ViewMatchPages({ viewMatch, onClose, matchId }) {
   };
 
   return (
-    <div className="modal-background close-button-on-top">
-      <CloseButton onClick={onClose} />
+    <div className="modal-background ">
       <div className="modal-container background-container view-teams">
+        {!openModalPlayers && <CloseButton onClick={onClose} />}
         <div className="team1">
           {match
             .map((e) => e.team1)

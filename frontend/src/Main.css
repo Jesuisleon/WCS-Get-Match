@@ -36,7 +36,7 @@
   --font-typed: "Zilla Slab Highlight", cursive;
 }
 
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 769px) {
   :root {
     --size-h2: 1.8rem;
     --size-text: 1.1rem;
@@ -94,10 +94,9 @@ section {
 /* ICONS-CONTENT */
 .icons {
   width: 1.2rem;
-  padding-bottom: 0.3rem;
 }
 
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 769px) {
   .icons {
     width: 1.5rem;
   }
@@ -118,7 +117,20 @@ section {
 .borders-styled {
   border-bottom: 1px white solid;
   border-top: 1px white solid;
-  padding-top: 0.3rem;
+}
+
+.dropdown-content {
+  min-width: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.borders-styled:hover .dropdown-content {
+  display: block;
+}
+
+.borders-styled:hover .select {
+  background-color: var(--black-color);
 }
 
 .select {
@@ -151,6 +163,7 @@ section {
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(7px);
+  max-height: 100%;
   overflow-y: scroll;
 }
 
@@ -176,7 +189,7 @@ section {
   right: 0;
   left: 0;
   margin: auto;
-  height: 100%;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -197,28 +210,29 @@ section {
   gap: 0;
 }
 
-/* BUTTONS CONTENT */
-.button {
-  margin: 2rem 0 0 0;
-  background: rgba(49, 49, 51, 0.5);
-  color: var(--white-color);
-  font-family: var(--font-text);
-  font-size: var(--size-text-search);
-  line-height: auto;
-  padding: 0.4rem;
-  padding-top: 0.6rem;
+.search-bar-player {
+  background-color: var(--black-light-color);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.5rem;
-  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 20rem;
+  height: 2.4rem;
+  color: var(--white-color);
+  font-family: var(--font-text);
 }
 
-@media screen and (min-width: 740px) {
+input {
+  font-size: var(--size-h2);
+}
+
+@media screen and (min-width: 769px) {
   .modal-container {
     padding: 2rem;
     margin: 0;
-    height: 95%;
+    height: fit-content;
+  }
+
+  .search-bar-player {
+    margin: 1rem;
+    min-width: 95.5%;
   }
 }

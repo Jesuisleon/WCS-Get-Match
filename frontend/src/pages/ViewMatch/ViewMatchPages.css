@@ -142,6 +142,7 @@
   margin-left: 1rem;
   margin-right: auto;
   gap: 0.6rem;
+  width: 13rem;
 }
 
 .player-card-name h3 {
@@ -154,13 +155,7 @@
   color: var(--orange-dark-color);
 }
 
-.close-button-on-top {
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-}
-
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 769px) {
   .view-teams {
     display: flex;
     flex-direction: row;
@@ -170,21 +165,17 @@
   }
 
   .player-container {
-    width: 10rem;
-    height: 10rem;
+    width: 8rem;
+    height: 8rem;
   }
 
   .player-card-container {
     gap: 2rem;
+    width: fit-content;
   }
 
   .player-name {
     font-size: 1.8rem;
-  }
-
-  .close-button-on-top {
-    align-items: center;
-    flex-direction: column;
   }
 
   .modal-players {
