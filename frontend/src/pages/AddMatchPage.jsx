@@ -33,7 +33,9 @@ export function InputStepper({ index, handleNext, handleBack, children }) {
       {children}
       <div className="button-container">
         {index === steps.length - 1 ? (
-          <input className="button submit" type="submit" onClick={handleNext} />
+          <button className="button submit" type="submit" onClick={handleNext}>
+            Submit
+          </button>
         ) : (
           <button
             type="button"
@@ -76,7 +78,7 @@ export function MatchTypeStepper({ register }) {
     <div className="stepper">
       <div className="inline">
         <img
-          className="icons"
+          className="icons search-icons"
           src="src/img/icons/players-left-white.png"
           alt="clock-icons"
         />
@@ -90,7 +92,7 @@ export function MatchTypeStepper({ register }) {
       </div>
       <div className="inline">
         <img
-          className="icons"
+          className="icons search-icons"
           src="src/img/icons/field-white.png"
           alt="field-icons"
         />

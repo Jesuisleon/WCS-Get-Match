@@ -9,7 +9,7 @@ export function City({ city, setCity }) {
   return (
     <div className="inline">
       <img
-        className="icons"
+        className="icons search-icons"
         src="src/img/icons/map-white.png"
         alt="map-icons"
       />

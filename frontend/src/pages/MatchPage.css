@@ -20,8 +20,7 @@
 .add-match-button {
   margin-top: var(--spacing-2);
   margin-bottom: var(--spacing-4);
-  min-width: 12vh;
-  padding: 0.7rem;
+  padding: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,5 +34,14 @@
 .add-match-button p {
   font-family: var(--font-title);
   font-size: var(--size-text-button);
-  margin: 0.5rem 1.2rem;
+  margin: 0.4rem 0.3rem;
+}
+
+@media screen and (min-width: 740px) {
+  .cards-container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+  }
 }

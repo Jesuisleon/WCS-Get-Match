@@ -45,7 +45,7 @@ export function PlayerCard({ avatar, name, age, city, onClick }) {
         <div className="player-card-container">
           <PlayersData data={name} title="NAME:" className="player-card-name" />
           <PlayersData data={age} title="AGE:" className="player-card-age" />
-          <PlayersData data={city} title="CITY:" className="player-card-city" />
+          <PlayersData data={city} title="FROM:" className="player-card-city" />
         </div>
       </div>
     </div>
@@ -53,7 +53,9 @@ export function PlayerCard({ avatar, name, age, city, onClick }) {
 }
 
 function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
-  const playerAlphabeticClassed = [...PlayersInfos].sort((a,b) => a.name > b.name ? 1 : -1, );
+  const playerAlphabeticClassed = [...PlayersInfos].sort((a, b) =>
+    a.name > b.name ? 1 : -1
+  );
   const [searchValue, setSearchValue] = useState("");
   const handleClick = (playerIndex) => {
     const PlayerPicked = PlayersInfos.findIndex((e) => e.id === playerIndex);
@@ -73,18 +75,22 @@ function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
         <CloseButton onClick={() => closeModalPlayers(false)} />
         <Search searchValue={searchValue} setSearchValue={setSearchValue} />
         <div className="background-players">
-          {playerAlphabeticClassed.filter((filterPlayer) =>
-            filterPlayer.name.toLowerCase().includes(searchValue.toLowerCase())
-          ).map((player) => (
-            <PlayerCard
-              key={player.id}
-              onClick={() => handleClick(player.id)}
-              name={player.name}
-              age={player.age}
-              city={player.from}
-              avatar={player.avatar}
-            />
-          ))}
+          {playerAlphabeticClassed
+            .filter((filterPlayer) =>
+              filterPlayer.name
+                .toLowerCase()
+                .includes(searchValue.toLowerCase())
+            )
+            .map((player) => (
+              <PlayerCard
+                key={player.id}
+                onClick={() => handleClick(player.id)}
+                name={player.name}
+                age={player.age}
+                city={player.from}
+                avatar={player.avatar}
+              />
+            ))}
         </div>
       </div>
     </div>

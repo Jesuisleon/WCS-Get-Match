@@ -28,14 +28,14 @@ export function AddSelf({
     <div className="modal-background">
       <div
         className="modal-container background-container"
-        style={{ padding: "1.5rem" }}
+        style={{ padding: "1.5rem", gap: "0.7rem" }}
       >
         {!onMatch ? (
           <p>Do you want to join the match</p>
         ) : (
           <p>Do you want to leave the match</p>
         )}
-        <div className="inline">
+        <div className="inline" style={{ gap: "0.5rem" }}>
           <button
             style={{ margin: "0" }}
             type="button"

@@ -16,13 +16,30 @@
 }
 
 .match-card .card-background {
-  width: 8rem;
+  width: 7.4rem;
 }
 
 .match-card .text {
-  margin-left: 0.5rem;
+  margin-left: 1rem;
   display: flex;
   flex-direction: column;
-  font-size: 0.9rem;
+  font-size: var(--size-text);
   gap: 0.5rem;
+}
+
+@media screen and (min-width: 740px) {
+  .match-card {
+    margin: 0;
+    width: 25rem;
+    height: 12rem;
+  }
+
+  .match-card .card-background {
+    width: 10rem;
+  }
+  .match-card .text {
+    margin-left: 1rem;
+    font-size: var(--size-text);
+    gap: 0.7rem;
+  }
 }

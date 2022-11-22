@@ -29,7 +29,7 @@ function HashtagBar({ onChange }) {
 
     container: (base) => ({
       ...base,
-      width: "360px",
+      width: "20rem",
     }),
     menu: (base) => ({
       ...base,

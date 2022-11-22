@@ -5,14 +5,16 @@ export default function Calendar({ date, setViewCalendar }) {
       onKeyDown={() => setViewCalendar(true)}
       role="button"
       tabIndex={0}
-      className="inline "
+      className="inline"
     >
       <img
-        className="icons"
+        className="icons search-icons"
         src="src/img/icons/calendar-white.png"
         alt="calendar-icons"
       />
-      <p className="borders-styled">{date.toLocaleDateString("en-US")}</p>
+      <p className="select borders-styled">
+        {date.toLocaleDateString("en-US")}
+      </p>
     </div>
   );
 }
