@@ -17,13 +17,16 @@ export function Timer({ time, setTime }) {
 
   const minutes = time.getMinutes();
   let hours = Number(toSetHours.slice(0, 2));
+  
   if (minutes > 45) hours += 1;
 
+
   const [amPm, setAmPm] = useState(toSetHours.slice(6, 8));
-  const [handleHours, setHandleHours] = useState(hours);
+  const [handleHours, setHandleHours] = useState(hourTwoDigits(hours));
   const [handleMinutes, setHandleMinutes] = useState(
     hourTwoDigits(convertToMinutes(minutes))
   );
+
 
   useEffect(() => {
     if (amPm === "PM") {
