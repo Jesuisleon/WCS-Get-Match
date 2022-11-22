@@ -115,11 +115,9 @@ const team = "team1";
 
 MatchCardsInfos[0][team][0] = PlayersInfos[0];
 
-console.log(MatchCardsInfos[0][team][0]);
-
 console.log(
   PlayersInfos.splice(
-    PlayersInfos.findIndex((e) => e.id === 1),
+    PlayersInfos.find((element) => element.id === 1),
     1
   )
 );

@@ -2,20 +2,31 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
 }
+
 .search-buttons {
-  height: 30px;
+  height: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 0px;
-  gap: 50px;
+  gap: 1rem;
 }
 
-.search-buttons .inline {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.search-button:hover {
+  opacity: 0.8;
+  cursor: crosshair;
+}
+
+/* HASHTAGBAR */
+.css-tj5bde-Svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+.css-88qp4k {
+  padding: 0;
+  padding-top: 0.2rem;
 }

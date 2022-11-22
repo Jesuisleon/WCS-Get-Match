@@ -6,7 +6,7 @@
   background-attachment: scroll;
   background-size: cover;
   position: relative;
-  gap: 20px;
+  gap: 1rem;
 }
 
 /* CARDS-CONTAINER-CONTENT */
@@ -20,18 +20,20 @@
 .add-match-button {
   margin-top: var(--spacing-2);
   margin-bottom: var(--spacing-4);
-  background: rgba(49, 49, 51, 0.5);
   min-width: 12vh;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+  padding: 0.7rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.add-match-button:hover {
+  opacity: 0.8;
+  cursor: crosshair;
+}
+
 .add-match-button p {
   font-family: var(--font-title);
   font-size: var(--size-text-button);
-  margin: 1vh 2vh;
+  margin: 0.5rem 1.2rem;
 }

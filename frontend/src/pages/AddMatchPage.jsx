@@ -1,13 +1,19 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import "./AddMatchPage.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
-import ModalCalendar from "@components/Search/Calendar/ModalCalendar";
+import ModalCalendar from "@components/Calendar/ModalCalendar";
+import TimerPicker from "@components/TimerPicker";
+import CityPicker from "@components/CityPicker";
+import CalendarPicker from "@components/Calendar/CalendarPicker";
+import CloseButton from "@assets/CloseButton";
+import { MatchListContext } from "../data/MatchListContext";
 import MatchCardsInfos from "../data/MatchCardsInfos";
+import { AdminInfos } from "../data/PlayersInfos";
 
 const steps = [
   {
@@ -39,7 +45,7 @@ export function InputStepper({ index, handleNext, handleBack, children }) {
           </button>
         )}
         {index !== 0 && (
-          <button type="button" onClick={handleBack} className="button back">
+          <button type="button" className="button back" onClick={handleBack}>
             Back
           </button>
         )}
@@ -48,70 +54,19 @@ export function InputStepper({ index, handleNext, handleBack, children }) {
   );
 }
 
-export function CityStepper({ register }) {
+export function CityStepper({ city, setCity }) {
   return (
     <div className="stepper">
-      <div className="inline">
-        <img
-          className="icons"
-          src="src/img/icons/localisation-white.png"
-          alt="localisation-icons"
-        />
-        <div className="select-dropdown borders-styled">
-          <select className="select" {...register("city")}>
-            <option value="NEW-YORK">NEW-YORK</option>
-            <option value="BOSTON">BOSTON</option>
-            <option value="CHICAGO">CHICAGO</option>
-          </select>
-        </div>
-      </div>
-      <div className="inline adress-input">
-        <input
-          placeholder="Enter the adress"
-          type="text"
-          {...register("adress")}
-        />
-      </div>
+      <CityPicker city={city} setCity={setCity} />
     </div>
   );
 }
 
-export function DateStepper({ setViewCalendar, date, time, register }) {
+export function DateStepper({ setViewCalendar, date, time, setTime }) {
   return (
     <div className="stepper">
-      <div
-        onClick={() => setViewCalendar(true)}
-        onKeyDown={() => setViewCalendar(true)}
-        role="button"
-        tabIndex={0}
-        className="inline"
-      >
-        <img
-          className="icons"
-          src="src/img/icons/calendar-white.png"
-          alt="calendar-icons"
-        />
-        <p className="borders-styled">{date.toLocaleDateString("en-US")}</p>
-      </div>
-      <div className="inline">
-        <img
-          className="icons"
-          src="src/img/icons/schedule-white.png"
-          alt="schedule-icons"
-        />
-        <input
-          type="time"
-          defaultValue={time.toLocaleTimeString("fr", {
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
-          placeholder={time.toLocaleTimeString("en-US", {
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
-          {...register("time", {})}
-        />
-      </div>
+      <CalendarPicker date={date} setViewCalendar={setViewCalendar} />
+      <TimerPicker time={time} setTime={setTime} />
     </div>
   );
 }
@@ -120,17 +75,31 @@ export function MatchTypeStepper({ register }) {
   return (
     <div className="stepper">
       <div className="inline">
-        <select {...register("versus")}>
-          <option value="1vs1">1vs1</option>
-          <option value="3vs3">3vs3</option>
-          <option value="5vs5">5vs5</option>
-        </select>
+        <img
+          className="icons"
+          src="src/img/icons/players-left-white.png"
+          alt="clock-icons"
+        />
+        <div className="select-dropdown borders-styled">
+          <select className="select" {...register("versus")}>
+            <option value="1vs1">1vs1</option>
+            <option value="3vs3">3vs3</option>
+            <option value="5vs5">5vs5</option>
+          </select>
+        </div>
       </div>
       <div className="inline">
-        <select {...register("groundType")}>
-          <option value="Inside">Inside</option>
-          <option value="Outside">Outside</option>
-        </select>
+        <img
+          className="icons"
+          src="src/img/icons/field-white.png"
+          alt="field-icons"
+        />
+        <div className="select-dropdown borders-styled">
+          <select className="select" {...register("groundType")}>
+            <option value="Inside">Inside</option>
+            <option value="Outside">Outside</option>
+          </select>
+        </div>
       </div>
     </div>
   );
@@ -147,76 +116,51 @@ export default function VerticalLinearStepper({
   const { register, handleSubmit } = useForm();
 
   const [viewCalendar, setViewCalendar] = useState(false);
-  const [time] = useState(new Date());
+  const [time, setTime] = useState(new Date());
   const [date, setDate] = useState(new Date());
+  const [city, setCity] = useState("NEW-YORK");
+
+  const { refresh, setRefresh } = useContext(MatchListContext);
 
   const onSubmit = (data) => {
     const output = {
       ...data,
-      playersLeft: 10,
-      team1: [
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-      ],
-      team2: [
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-        {
-          id: null,
-          name: null,
-          age: null,
-          from: null,
-          avatar: null,
-          isOpen: true,
-        },
-      ],
+      team1: [],
+      team2: [],
     };
-    output.date = date.toLocaleDateString("en-US");
-    output.id = MatchCardsInfos.length + 2;
-    if (output.versus === "1vs1") output.maxPlayers = 2;
-    if (output.versus === "3vs3") output.maxPlayers = 6;
-    if (output.versus === "5vs5") output.maxPlayers = 10;
-    MatchCardsInfos.push(output);
 
+    const player = {
+      id: null,
+      name: null,
+      age: null,
+      from: null,
+      avatar: null,
+      isOpen: true,
+    };
+
+    output.id = MatchCardsInfos.length + 2;
+    output.date = date.toLocaleDateString("en-US");
+    output.time = time.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    output.city = city;
+    const NumberOfPlayers = Number(output.versus.slice(0, 1));
+
+    for (let x = 0; x < NumberOfPlayers; x += 1) {
+      output.team1.push(player);
+      output.team2.push(player);
+    }
+    output.playersLeft = NumberOfPlayers * 2 - 1;
+    output.maxPlayers = NumberOfPlayers * 2;
+
+    output.team1[0] = AdminInfos;
+    output.admin = AdminInfos.name;
+    MatchCardsInfos.push(output);
     setTimeout(() => {
       setViewAddMatch();
       viewMatch(output.id);
+      setRefresh(!refresh);
     }, 1000);
   };
 
@@ -231,17 +175,12 @@ export default function VerticalLinearStepper({
   };
 
   return (
-    <section className="add-match-page">
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        <div
-          className="close"
-          onClick={onClose}
-          onKeyDown={onClose}
-          role="link"
-          tabIndex={0}
-        >
-          X
-        </div>
+    <section className="modal-background">
+      <form
+        className="modal-container background-container"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <CloseButton onClick={onClose} />
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (
             <Step key={step.label}>
@@ -254,13 +193,14 @@ export default function VerticalLinearStepper({
                 handleNext={handleNext}
                 handleBack={handleBack}
               >
-                {index === 0 && <CityStepper register={register} />}
+                {index === 0 && <CityStepper city={city} setCity={setCity} />}
                 {index === 1 && (
                   <DateStepper
                     register={register}
                     setViewCalendar={setViewCalendar}
                     date={date}
                     time={time}
+                    setTime={setTime}
                   />
                 )}
                 {index === 2 && <MatchTypeStepper register={register} />}
@@ -270,7 +210,7 @@ export default function VerticalLinearStepper({
         </Stepper>
         {activeStep === steps.length && (
           <div className="match-ready">
-            <p>Your match is ready</p>
+            <p>YOUR MATCH IS READY</p>
           </div>
         )}
       </form>

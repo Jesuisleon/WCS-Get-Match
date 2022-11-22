@@ -5,7 +5,7 @@ export default function Calendar({ date, setViewCalendar }) {
       onKeyDown={() => setViewCalendar(true)}
       role="button"
       tabIndex={0}
-      className="inline"
+      className="inline "
     >
       <img
         className="icons"
