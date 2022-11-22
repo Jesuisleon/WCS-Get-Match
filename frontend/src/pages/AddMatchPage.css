@@ -1,5 +1,6 @@
 .MuiStep-vertical {
   width: 100%;
+  padding-top: 1rem;
 }
 
 .step-container {
@@ -50,18 +51,4 @@
   padding: 0.8rem;
   background-color: #4def80;
   color: var(--black-color);
-}
-
-/* ADRESS-INPUT-PICKER */
-.adress-input input {
-  text-align: center;
-  color: var(--white-color);
-  font-size: var(--size-text);
-  font-family: var(--font-text);
-  width: 150px;
-  background: none;
-  border: none;
-  border-bottom: 1px white solid;
-  border-top: 1px white solid;
-  padding-top: 4px;
 }

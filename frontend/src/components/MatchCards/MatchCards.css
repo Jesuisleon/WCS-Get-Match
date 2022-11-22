@@ -1,6 +1,6 @@
 .match-card {
-  width: 22rem;
-  height: 11rem;
+  width: 18rem;
+  height: 9rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
@@ -16,13 +16,13 @@
 }
 
 .match-card .card-background {
-  width: 10rem;
+  width: 8rem;
 }
 
 .match-card .text {
-  margin-left: 14px;
+  margin-left: 0.5rem;
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
+  font-size: 0.9rem;
   gap: 0.5rem;
 }

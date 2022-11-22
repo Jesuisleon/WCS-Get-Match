@@ -5,6 +5,7 @@ export function Timer({ time, setTime }) {
     hour: "2-digit",
     minute: "2-digit",
   });
+  const [amPm, setAmPm] = useState(toSetHours.slice(6, 8));
 
   function hourTwoDigits(n) {
     return (n < 10 ? "0" : "") + n;
@@ -15,26 +16,29 @@ export function Timer({ time, setTime }) {
     return (Math.round(m / 15) * 15) % 60;
   }
 
+  function convertToHours(h) {
+    if (h > 24) return h - 24;
+    return h;
+  }
+
   const minutes = time.getMinutes();
   let hours = Number(toSetHours.slice(0, 2));
-  
+
   if (minutes > 45) hours += 1;
+  if (amPm === "PM") hours += 12;
 
-
-  const [amPm, setAmPm] = useState(toSetHours.slice(6, 8));
-  const [handleHours, setHandleHours] = useState(hourTwoDigits(hours));
+  const [handleHours, setHandleHours] = useState(
+    hourTwoDigits(convertToHours(hours))
+  );
   const [handleMinutes, setHandleMinutes] = useState(
     hourTwoDigits(convertToMinutes(minutes))
   );
 
-
   useEffect(() => {
-    if (amPm === "PM") {
-      hours += 12;
-    }
-
     const newTime = new Date(
-      `November 16, 2022 ${hourTwoDigits(hours)}:${handleMinutes}:00`
+      `November 16, 2022 ${hourTwoDigits(
+        convertToHours(hours)
+      )}:${hourTwoDigits(convertToMinutes(minutes))}:00`
     );
     setTime(newTime);
   }, [amPm, handleHours, handleMinutes]);

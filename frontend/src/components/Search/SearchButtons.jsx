@@ -1,7 +1,8 @@
+/* eslint no-nested-ternary: "off" */
+
 import "./SearchButtons.css";
 import { useState, useEffect, useContext } from "react";
 import ReactSelect from "react-select";
-import { red } from "@mui/material/colors";
 import ModalCalendar from "@components/Calendar/ModalCalendar";
 import TimerPicker from "@components/TimerPicker";
 import CityPicker from "@components/CityPicker";
@@ -19,21 +20,32 @@ function HashtagBar({ onChange }) {
   };
 
   const styles = {
+    option: (base, { isFocused, isSelected }) => ({
+      ...base,
+      background: isFocused ? "#ef7f4d" : isSelected ? "#ef7f4d" : undefined,
+      zIndex: 1,
+      borderRadius: "1rem",
+    }),
+
     container: (base) => ({
       ...base,
-      width: 360,
+      width: "360px",
     }),
     menu: (base) => ({
       ...base,
-      backgroundColor: red,
+      borderRadius: "1rem",
+      fontSize: "0.8rem",
+      border: "1px solid rgba(255, 255, 255, 0.2)",
     }),
     control: (base) => ({
       ...base,
-      backgroundColor: red,
+      padding: "0.1rem",
     }),
     multiValue: (base) => ({
       ...base,
-      backgroundColor: red,
+      fontSize: "1rem",
+      padding: "0.1rem",
+      backgroundColor: "rgba(20, 20, 20, 0.5)",
     }),
   };
 
@@ -53,12 +65,12 @@ function HashtagBar({ onChange }) {
           colors: {
             ...theme.colors,
             primary25: "orange", // background on select
-            primary: "white", // border selected
+            primary: "rgba(255, 255, 255, 0.2)", // border selected
             danger: "orange", // cross selected
             dangerLight: "rgba(49, 49, 51, 0.5)", // cross selected
-            neutral0: "rgba(49, 49, 51, 0.5)", //  background container
+            neutral0: "rgba(30, 30, 30, 1)", //  background container
             neutral10: "rgba(49, 49, 51, 0.2)", // background selected
-            neutral20: "rgba(49, 49, 51, 1)", // borders unselected
+            neutral20: "rgba(255, 255, 255, 0.2)", // borders unselected
             neutral50: "rgba(49, 49, 51, 1)", // placeholder
             neutral30: "rgba(49, 49, 51, 0.2)", // border hover
             neutral60: "white", // button when pick
