@@ -53,8 +53,8 @@ export function PlayerCard({ avatar, name, age, city, onClick }) {
 }
 
 function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
+  const playerAlphabeticClassed = [...PlayersInfos].sort((a,b) => a.name > b.name ? 1 : -1, );
   const [searchValue, setSearchValue] = useState("");
-
   const handleClick = (playerIndex) => {
     const PlayerPicked = PlayersInfos.findIndex((e) => e.id === playerIndex);
     const MatchCard = MatchCardsInfos.find((e) => e.id === matchId);
@@ -73,7 +73,7 @@ function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
         <CloseButton onClick={() => closeModalPlayers(false)} />
         <Search searchValue={searchValue} setSearchValue={setSearchValue} />
         <div className="background-players">
-          {PlayersInfos.filter((filterPlayer) =>
+          {playerAlphabeticClassed.filter((filterPlayer) =>
             filterPlayer.name.toLowerCase().includes(searchValue.toLowerCase())
           ).map((player) => (
             <PlayerCard
