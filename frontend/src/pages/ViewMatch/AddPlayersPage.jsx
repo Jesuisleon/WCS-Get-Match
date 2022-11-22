@@ -1,6 +1,21 @@
 import CloseButton from "@assets/CloseButton";
+import { useState } from "react";
 import { PlayersInfos } from "../../data/PlayersInfos";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
+
+export function Search({ setSearchValue, searchValue }) {
+  return (
+    <div className="search-bar-container">
+      <input
+        className="search-bar-player"
+        value={searchValue}
+        type="text"
+        placeholder="Select a Player.."
+        onChange={(event) => setSearchValue(event.target.value)}
+      />
+    </div>
+  );
+}
 
 export function PlayersData({ data, title, className }) {
   return (
@@ -38,6 +53,8 @@ export function PlayerCard({ avatar, name, age, city, onClick }) {
 }
 
 function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
+  const playerAlphabeticClassed = [...PlayersInfos].sort((a,b) => a.name > b.name ? 1 : -1, );
+  const [searchValue, setSearchValue] = useState("");
   const handleClick = (playerIndex) => {
     const PlayerPicked = PlayersInfos.findIndex((e) => e.id === playerIndex);
     const MatchCard = MatchCardsInfos.find((e) => e.id === matchId);
@@ -54,8 +71,11 @@ function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
         style={{ padding: "0.7rem" }}
       >
         <CloseButton onClick={() => closeModalPlayers(false)} />
+        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
         <div className="background-players">
-          {PlayersInfos.map((player) => (
+          {playerAlphabeticClassed.filter((filterPlayer) =>
+            filterPlayer.name.toLowerCase().includes(searchValue.toLowerCase())
+          ).map((player) => (
             <PlayerCard
               key={player.id}
               onClick={() => handleClick(player.id)}
