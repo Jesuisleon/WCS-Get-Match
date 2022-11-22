@@ -18,14 +18,14 @@ export function Timer({ time, setTime }) {
 
   function convertToHours(h) {
     if (h > 24) return h - 24;
+    if (h > 12 && h < 24) return h - 12;
     return h;
   }
 
   const minutes = time.getMinutes();
-  let hours = Number(toSetHours.slice(0, 2));
 
+  let hours = Number(toSetHours.slice(0, 2));
   if (minutes > 45) hours += 1;
-  if (amPm === "PM") hours += 12;
 
   const [handleHours, setHandleHours] = useState(
     hourTwoDigits(convertToHours(hours))
@@ -35,10 +35,13 @@ export function Timer({ time, setTime }) {
   );
 
   useEffect(() => {
+    let PickedHours = Number(handleHours);
+    if (amPm === "PM") PickedHours += 12;
+
     const newTime = new Date(
-      `November 16, 2022 ${hourTwoDigits(
-        convertToHours(hours)
-      )}:${hourTwoDigits(convertToMinutes(minutes))}:00`
+      `November 16, 2022 ${PickedHours}:${hourTwoDigits(
+        convertToMinutes(handleMinutes)
+      )}:00`
     );
     setTime(newTime);
   }, [amPm, handleHours, handleMinutes]);
@@ -46,7 +49,7 @@ export function Timer({ time, setTime }) {
   return (
     <div className="inline ">
       <img
-        className="icons"
+        className="icons search-icons"
         src="src/img/icons/clock-white.png"
         alt="clock-icons"
       />

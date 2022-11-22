@@ -24,7 +24,7 @@ export default function MainPage() {
         id: a.cell,
         name: a.name.first,
         age: a.dob.age,
-        from: a.city,
+        from: a.location.city,
         avatar: a.picture.medium,
         isOpen: false,
       })
@@ -53,11 +53,11 @@ export default function MainPage() {
       <MatchViewContext.Provider value={MatchViewProviderValue}>
         <section className="match-page">
           <div className="logo-container">
-            <img
+            {/* <img
               className="logo"
               src="src/img/mobile/logoGetMatch.png"
               alt="logo"
-            />
+            /> */}
           </div>
           <SearchButtons
             viewCalendar={viewCalendar}

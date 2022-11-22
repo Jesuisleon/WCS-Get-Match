@@ -28,12 +28,26 @@
   --size-h1: 3vmin;
   --size-h2: 1.2rem;
   --size-text: 0.8rem;
+  --size-text-search: 0.8rem;
   --size-text-button: 1.2rem;
 
   --font-title: "Russo One", sans-serif;
   --font-text: "Aldrich", sans-serif;
   --font-typed: "Zilla Slab Highlight", cursive;
 }
+
+@media screen and (min-width: 740px) {
+  :root {
+    --size-h2: 1.8rem;
+    --size-text: 1.1rem;
+    --size-text-search: 1.5rem;
+    --size-text-button: 1.8rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+}
+
 /* DEFAULT-CSS */
 body {
   background-color: var(--black-color);
@@ -80,6 +94,13 @@ section {
 /* ICONS-CONTENT */
 .icons {
   width: 1.2rem;
+  padding-bottom: 0.3rem;
+}
+
+@media screen and (min-width: 740px) {
+  .icons {
+    width: 1.5rem;
+  }
 }
 
 /* SNAP-PAGE-CONTENT */
@@ -100,22 +121,12 @@ section {
   padding-top: 0.3rem;
 }
 
-/* DROPDOWN-MENU-CONTENT */
-/* .select-dropdown {
-  position: relative;
-  display: flex;
-  background-color: transparent;
-  width: auto;
-  max-width: 100%;
-  padding-top: 4px;
-} */
-
 .select {
   text-align: center;
   font-family: var(--font-text);
   color: var(--white-color);
-  font-size: var(--size-text);
-  line-height: 1rem;
+  font-size: var(--size-text-search);
+  line-height: auto;
   border: none;
   background-color: transparent;
   -webkit-appearance: none;
@@ -186,13 +197,14 @@ section {
   gap: 0;
 }
 
-/* BUTTONS CONTETN */
+/* BUTTONS CONTENT */
 .button {
   margin: 2rem 0 0 0;
   background: rgba(49, 49, 51, 0.5);
   color: var(--white-color);
   font-family: var(--font-text);
-  line-height: 1rem;
+  font-size: var(--size-text-search);
+  line-height: auto;
   padding: 0.4rem;
   padding-top: 0.6rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -201,4 +213,12 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (min-width: 740px) {
+  .modal-container {
+    padding: 2rem;
+    margin: 0;
+    height: 95%;
+  }
 }

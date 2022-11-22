@@ -5,6 +5,8 @@
 
 .step-container {
   font-size: var(--size-h2);
+  color: var(--white-color);
+  font-family: var(--font-title);
   text-transform: uppercase;
   display: flex;
   gap: 1rem;
@@ -36,4 +38,5 @@
   padding: 0.8rem;
   background-color: #4def80;
   color: var(--black-color);
+  font-size: var(--size-text-button);
 }

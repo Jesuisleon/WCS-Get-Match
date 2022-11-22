@@ -26,3 +26,20 @@
   font-size: var(--size-text);
   gap: 0.5rem;
 }
+
+@media screen and (min-width: 740px) {
+  .match-card {
+    margin: 0;
+    width: 25rem;
+    height: 12rem;
+  }
+
+  .match-card .card-background {
+    width: 10rem;
+  }
+  .match-card .text {
+    margin-left: 1rem;
+    font-size: var(--size-text);
+    gap: 0.7rem;
+  }
+}

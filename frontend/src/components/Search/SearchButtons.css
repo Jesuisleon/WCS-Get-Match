@@ -30,3 +30,15 @@
   padding: 0;
   padding-top: 0.2rem;
 }
+
+@media screen and (min-width: 740px) {
+  .search-container {
+    width: 83rem;
+    flex-direction: row;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+  }
+  .search-buttons {
+    height: 4rem;
+  }
+}

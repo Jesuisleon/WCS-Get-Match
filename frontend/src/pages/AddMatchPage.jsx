@@ -78,7 +78,7 @@ export function MatchTypeStepper({ register }) {
     <div className="stepper">
       <div className="inline">
         <img
-          className="icons"
+          className="icons search-icons"
           src="src/img/icons/players-left-white.png"
           alt="clock-icons"
         />
@@ -92,7 +92,7 @@ export function MatchTypeStepper({ register }) {
       </div>
       <div className="inline">
         <img
-          className="icons"
+          className="icons search-icons"
           src="src/img/icons/field-white.png"
           alt="field-icons"
         />

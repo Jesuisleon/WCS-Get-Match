@@ -30,7 +30,7 @@ export function PlayerCard({ avatar, name, age, city, onClick }) {
         <div className="player-card-container">
           <PlayersData data={name} title="NAME:" className="player-card-name" />
           <PlayersData data={age} title="AGE:" className="player-card-age" />
-          <PlayersData data={city} title="CITY:" className="player-card-city" />
+          <PlayersData data={city} title="FROM:" className="player-card-city" />
         </div>
       </div>
     </div>
