@@ -33,7 +33,9 @@ export function InputStepper({ index, handleNext, handleBack, children }) {
       {children}
       <div className="button-container">
         {index === steps.length - 1 ? (
-          <input className="button submit" type="submit" onClick={handleNext} />
+          <button className="button submit" type="submit" onClick={handleNext}>
+            Submit
+          </button>
         ) : (
           <button
             type="button"
