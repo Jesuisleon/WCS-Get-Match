@@ -53,7 +53,9 @@ export function PlayerCard({ avatar, name, age, city, onClick }) {
 }
 
 function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
-  const playerAlphabeticClassed = [...PlayersInfos].sort((a,b) => a.name > b.name ? 1 : -1, );
+  const playerAlphabeticClassed = [...PlayersInfos].sort((a, b) =>
+    a.name > b.name ? 1 : -1
+  );
   const [searchValue, setSearchValue] = useState("");
   const handleClick = (playerIndex) => {
     const PlayerPicked = PlayersInfos.findIndex((e) => e.id === playerIndex);
@@ -73,18 +75,22 @@ function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
         <CloseButton onClick={() => closeModalPlayers(false)} />
         <Search searchValue={searchValue} setSearchValue={setSearchValue} />
         <div className="background-players">
-          {playerAlphabeticClassed.filter((filterPlayer) =>
-            filterPlayer.name.toLowerCase().includes(searchValue.toLowerCase())
-          ).map((player) => (
-            <PlayerCard
-              key={player.id}
-              onClick={() => handleClick(player.id)}
-              name={player.name}
-              age={player.age}
-              city={player.from}
-              avatar={player.avatar}
-            />
-          ))}
+          {playerAlphabeticClassed
+            .filter((filterPlayer) =>
+              filterPlayer.name
+                .toLowerCase()
+                .includes(searchValue.toLowerCase())
+            )
+            .map((player) => (
+              <PlayerCard
+                key={player.id}
+                onClick={() => handleClick(player.id)}
+                name={player.name}
+                age={player.age}
+                city={player.from}
+                avatar={player.avatar}
+              />
+            ))}
         </div>
       </div>
     </div>
