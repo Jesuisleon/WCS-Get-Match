@@ -1,0 +1,17 @@
+/*Close-Buuton*/
+.close-button {
+  margin-left: auto;
+  margin-right: auto;
+  width: 2.7rem;
+  margin: auto;
+}
+
+.close-button:hover {
+  filter: drop-shadow(0px 0px 3px var(--grey-color));
+}
+
+@media screen and (min-width: 740px) {
+  .close-button {
+    width: 4rem;
+  }
+}

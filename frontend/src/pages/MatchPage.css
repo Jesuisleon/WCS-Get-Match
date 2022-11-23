@@ -1,0 +1,48 @@
+/* INIT CONTENT */
+.match-page {
+  background: url("../img/mobile/main-background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+  position: relative;
+  gap: 1rem;
+}
+
+/* CARDS-CONTAINER-CONTENT */
+.cards-container {
+  flex: 1;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+/* ADD-MATCH-BUTTON */
+.add-match-button {
+  margin-top: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-match-button:hover {
+  opacity: 0.8;
+  cursor: crosshair;
+}
+
+.add-match-button p {
+  font-family: var(--font-title);
+  font-size: var(--size-text-button);
+  margin: 0.4rem 0.3rem;
+}
+
+@media screen and (min-width: 769px) {
+  .cards-container {
+    width: 85%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 25rem);
+    grid-template-rows: repeat(auto-fill, 12rem);
+    grid-gap: 2rem;
+  }
+}

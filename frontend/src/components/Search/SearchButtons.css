@@ -1,0 +1,52 @@
+.search-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-buttons {
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 1rem;
+}
+
+.search-button:hover {
+  opacity: 0.8;
+  cursor: crosshair;
+}
+
+/* HASHTAGBAR */
+.css-tj5bde-Svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+.css-88qp4k {
+  padding: 0;
+  padding-top: 0.2rem;
+}
+
+.hashtag-bar {
+  width: 19rem;
+}
+
+@media screen and (min-width: 769px) {
+  .search-container {
+    width: 80%;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  .search-buttons {
+    height: 4rem;
+  }
+
+  .borders-calendar {
+    padding: 0.4rem 0;
+  }
+}

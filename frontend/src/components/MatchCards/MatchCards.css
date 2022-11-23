@@ -1,0 +1,44 @@
+.match-card {
+  width: 18rem;
+  height: 9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  scroll-snap-align: center;
+}
+
+.not-open:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.match-card .card-background {
+  width: 7.4rem;
+}
+
+.match-card .text {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--size-text);
+  gap: 0.3rem;
+}
+
+@media screen and (min-width: 740px) {
+  .match-card {
+    width: 25rem;
+    height: 12rem;
+  }
+
+  .match-card .card-background {
+    width: 10rem;
+  }
+  .match-card .text {
+    margin-left: 1rem;
+    font-size: var(--size-text);
+    gap: 0.7rem;
+  }
+}

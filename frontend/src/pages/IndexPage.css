@@ -7,25 +7,3 @@
   background-size: contain;
   position: relative;
 }
-
-/* TITLE CONTENT */
-.title-text {
-  position: absolute;
-  width: 350px;
-  margin-top: 30rem;
-  margin-left: 10rem;
-}
-
-.title-text h1 {
-  text-align: center;
-  font-size: var(--size-h1);
-  text-shadow: 0px 1px 19px rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(1px);
-}
-
-/* BUTTON CONTENT */
-.index-button {
-  position: absolute;
-  bottom: var(--spacing-3);
-  transform: rotate(90deg);
-}
