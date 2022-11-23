@@ -27,10 +27,10 @@ function HashtagBar({ onChange }) {
       borderRadius: "1rem",
     }),
 
-    container: (base) => ({
-      ...base,
-      width: "20rem",
-    }),
+    // container: (base) => ({
+    //   ...base,
+    //   width: "20rem",
+    // }),
     menu: (base) => ({
       ...base,
       borderRadius: "1rem",
@@ -55,6 +55,7 @@ function HashtagBar({ onChange }) {
         value={hashtagBarSearch}
         onChange={handleChange}
         options={HashtagList}
+        className="hashtag-bar"
         isMulti
         autoFocus
         isSearchable

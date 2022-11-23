@@ -3,12 +3,11 @@
   margin-left: auto;
   margin-right: auto;
   width: 2.7rem;
-  /* transform: translate(0, 0.5rem); */
   margin: auto;
 }
 
 .close-button:hover {
-  filter: drop-shadow(0px 0px 3px var(--orange-dark-color));
+  filter: drop-shadow(0px 0px 3px var(--grey-color));
 }
 
 @media screen and (min-width: 740px) {

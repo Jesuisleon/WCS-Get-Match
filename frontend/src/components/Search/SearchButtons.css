@@ -31,14 +31,22 @@
   padding-top: 0.2rem;
 }
 
-@media screen and (min-width: 740px) {
+.hashtag-bar {
+  width: 19rem;
+}
+
+@media screen and (min-width: 769px) {
   .search-container {
-    width: 83rem;
-    flex-direction: row;
+    width: 80%;
     flex-direction: row-reverse;
-    justify-content: space-around;
+    justify-content: center;
   }
+
   .search-buttons {
     height: 4rem;
+  }
+
+  .borders-calendar {
+    padding: 0.4rem 0;
   }
 }

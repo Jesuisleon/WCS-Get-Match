@@ -43,7 +43,7 @@ export function AddSelf({
             variant="contained"
             onClick={handleClick}
           >
-            YES
+            Yes
           </button>
           <button
             style={{ margin: "0" }}
@@ -51,7 +51,7 @@ export function AddSelf({
             className="button back"
             onClick={close}
           >
-            NO
+            No
           </button>
         </div>
       </div>

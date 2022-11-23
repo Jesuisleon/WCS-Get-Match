@@ -5,12 +5,12 @@ import MatchCardsInfos from "../../data/MatchCardsInfos";
 
 export function Search({ setSearchValue, searchValue }) {
   return (
-    <div className="search-bar-container">
+    <div style={{ width: "100%", margin: "auto" }}>
       <input
         className="search-bar-player"
         value={searchValue}
         type="text"
-        placeholder="Select a Player.."
+        placeholder=" Select a player"
         onChange={(event) => setSearchValue(event.target.value)}
       />
     </div>
@@ -69,7 +69,7 @@ function AddPlayersPage({ closeModalPlayers, matchId, team, playerPosition }) {
   return (
     <div className="modal-background">
       <div
-        className="modal-container background-container"
+        className="background-container modal-container"
         style={{ padding: "0.7rem" }}
       >
         <CloseButton onClick={() => closeModalPlayers(false)} />

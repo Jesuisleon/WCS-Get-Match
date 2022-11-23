@@ -24,12 +24,11 @@
   display: flex;
   flex-direction: column;
   font-size: var(--size-text);
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 @media screen and (min-width: 740px) {
   .match-card {
-    margin: 0;
     width: 25rem;
     height: 12rem;
   }

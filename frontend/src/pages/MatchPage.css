@@ -37,11 +37,12 @@
   margin: 0.4rem 0.3rem;
 }
 
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 769px) {
   .cards-container {
+    width: 85%;
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(auto, 1fr);
+    grid-template-columns: repeat(auto-fill, 25rem);
+    grid-template-rows: repeat(auto-fill, 12rem);
+    grid-gap: 2rem;
   }
 }
