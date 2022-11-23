@@ -12,7 +12,7 @@ export default function Calendar({ date, setViewCalendar }) {
         src="src/img/icons/calendar-white.png"
         alt="calendar-icons"
       />
-      <div className="borders-styled" style={{ padding: "0.4rem 0" }}>
+      <div className="borders-styled borders-calendar">
         <p className="select">{date.toLocaleDateString("en-US")}</p>
       </div>
     </div>

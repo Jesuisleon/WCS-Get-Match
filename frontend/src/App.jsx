@@ -5,8 +5,8 @@ import IndexPage from "@pages/IndexPage";
 function App() {
   return (
     <div className="app">
-      <MatchPage />
       <IndexPage />
+      <MatchPage />
     </div>
   );
 }

@@ -31,6 +31,10 @@
   padding-top: 0.2rem;
 }
 
+.hashtag-bar {
+  width: 19rem;
+}
+
 @media screen and (min-width: 769px) {
   .search-container {
     width: 80%;
@@ -46,5 +50,8 @@
   .search-buttons {
     height: 4rem;
     flex: 2;
+  }
+  .borders-calendar {
+    padding: 0.4rem 0;
   }
 }

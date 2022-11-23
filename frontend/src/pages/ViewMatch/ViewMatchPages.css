@@ -155,6 +155,11 @@
   color: var(--orange-dark-color);
 }
 
+.horizontal {
+  display: flex;
+  flex-direction: column;
+}
+
 @media screen and (min-width: 769px) {
   .view-teams {
     display: flex;
@@ -183,5 +188,10 @@
     height: 90rem;
     box-sizing: content-box;
     overflow: hidden;
+  }
+
+  .horizontal {
+    display: flex;
+    flex-direction: column;
   }
 }
