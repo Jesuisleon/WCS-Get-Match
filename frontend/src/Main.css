@@ -40,7 +40,7 @@
   :root {
     --size-h2: 1.8rem;
     --size-text: 1.1rem;
-    --size-text-search: 1.5rem;
+    --size-text-search: 1.3rem;
     --size-text-button: 1.8rem;
   }
   h3 {
@@ -131,6 +131,10 @@ section {
 
 .borders-styled:hover .select {
   background-color: var(--black-color);
+}
+
+p.select {
+  font-size: var(--font-text-search);
 }
 
 .select {

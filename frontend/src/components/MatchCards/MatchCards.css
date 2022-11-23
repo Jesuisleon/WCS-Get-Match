@@ -29,7 +29,6 @@
 
 @media screen and (min-width: 740px) {
   .match-card {
-    margin: 2rem;
     width: 25rem;
     height: 12rem;
   }

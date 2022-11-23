@@ -38,19 +38,14 @@
 @media screen and (min-width: 769px) {
   .search-container {
     width: 80%;
-    flex-direction: row;
     flex-direction: row-reverse;
     justify-content: center;
   }
 
-  .search-container > * {
-    flex: 1 1 0;
-  }
-
   .search-buttons {
     height: 4rem;
-    flex: 2;
   }
+
   .borders-calendar {
     padding: 0.4rem 0;
   }
