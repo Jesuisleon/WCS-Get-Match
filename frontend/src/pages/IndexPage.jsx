@@ -1,5 +1,4 @@
 import "./IndexPage.css";
-import ArrowButton from "../assets/ArrowButton";
 
 export default function IndexPage() {
   return (
@@ -10,9 +9,6 @@ export default function IndexPage() {
           src="src/img/mobile/logoGetMatch.png"
           alt="logo"
         />
-      </div>
-      <div className="index-button">
-        <ArrowButton />
       </div>
     </section>
   );
