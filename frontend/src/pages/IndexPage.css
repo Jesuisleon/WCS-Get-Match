@@ -7,10 +7,3 @@
   background-size: contain;
   position: relative;
 }
-
-/* BUTTON CONTENT */
-.index-button {
-  position: absolute;
-  bottom: var(--spacing-3);
-  transform: rotate(90deg);
-}
