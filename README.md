@@ -10,7 +10,7 @@ Lucas Fasilleau : https://github.com/madashii
 Jonathan Bonhoure : https://github.com/SkullZRulZ
 Léon Versavel : It's me.
 
-<img src="/frontend/src/img/screenshot.png" alt="get match" title="get match">
+<img src="/screenshot.png" alt="get match" title="get match">
 
 ## GET MATCH 
 
