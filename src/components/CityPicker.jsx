@@ -10,7 +10,7 @@ export function City({ city, setCity }) {
     <div className="inline">
       <img
         className="icons search-icons"
-        src="src/img/icons/map-white.png"
+        src="./src/img/icons/map-white.png"
         alt="map-icons"
       />
       <div className="borders-styled">
