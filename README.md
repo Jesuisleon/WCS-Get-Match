@@ -13,5 +13,7 @@ Léon Versavel : It's me.<br>
 <img src="/screenshot.png" alt="get match" title="get match">
 
 ## GET MATCH 
+Test the app:
+https://get-match.netlify.app/
 
 ### FEATURES
