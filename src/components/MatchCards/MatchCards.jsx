@@ -38,27 +38,27 @@ export default function MatchCards({
         <CardTextElements
           value={city}
           color="white"
-          icons="src/img/icons/map-white.png"
+          icons="/img/icons/map-white.png"
         />
         <CardTextElements
           value={date}
           color="white"
-          icons="src/img/icons/calendar-white.png"
+          icons="/img/icons/calendar-white.png"
         />
         <CardTextElements
           value={time}
           color="white"
-          icons="src/img/icons/clock-white.png"
+          icons="/img/icons/clock-white.png"
         />
         <CardTextElements
           value={versus}
           color="white"
-          icons="src/img/icons/player-white.png"
+          icons="/img/icons/player-white.png"
         />
         <CardTextElements
           value={`${playersLeft} Players Left`}
           color="white"
-          icons="src/img/icons/players-left-white.png"
+          icons="/img/icons/players-left-white.png"
         />
       </div>
     </div>

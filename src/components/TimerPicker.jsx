@@ -50,7 +50,7 @@ export function Timer({ time, setTime }) {
     <div className="inline ">
       <img
         className="icons search-icons"
-        src="src/img/icons/clock-white.png"
+        src="/img/icons/clock-white.png"
         alt="clock-icons"
       />
       <div className="borders-styled">

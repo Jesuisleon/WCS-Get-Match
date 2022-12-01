@@ -5,8 +5,8 @@ import AddPlayersPage from "./AddPlayersPage";
 import { AddSelf } from "./SelfToMatch";
 import MatchCards from "../../components/MatchCards/MatchCards";
 import MatchCardsInfos from "../../data/MatchCardsInfos";
-import InsideCard from "../../img/mobile/inside-card.png";
-import OutsideCard from "../../img/mobile/outside-card.png";
+import InsideCard from "@img/mobile/inside-card.png";
+import OutsideCard from "@img/mobile/outside-card.png";
 
 export function TeamPosition({
   openModal,
@@ -28,7 +28,7 @@ export function TeamPosition({
         <div className="player-container">
           <img
             className="player-add"
-            src="src/img/icons/add-player-white.png"
+            src="/img/icons/add-player-white.png"
             alt="players"
           />
         </div>

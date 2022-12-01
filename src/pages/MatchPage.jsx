@@ -6,8 +6,8 @@ import ViewMatchPage from "@pages/ViewMatch/ViewMatchPages";
 import AddMatchPage from "@pages/AddMatchPage";
 import axios from "axios";
 import { MatchListContext, MatchViewContext } from "../data/MatchListContext";
-import InsideCard from "../img/mobile/inside-card.png";
-import OutsideCard from "../img/mobile/outside-card.png";
+import InsideCard from "@img/mobile/inside-card.png";
+import OutsideCard from "@img/mobile/outside-card.png";
 import { PlayersInfos } from "../data/PlayersInfos";
 
 export default function MainPage() {
@@ -53,11 +53,6 @@ export default function MainPage() {
       <MatchViewContext.Provider value={MatchViewProviderValue}>
         <section className="match-page">
           <div className="logo-container">
-            {/* <img
-              className="logo"
-              src="src/img/mobile/logoGetMatch.png"
-              alt="logo"
-            /> */}
           </div>
           <SearchButtons
             viewCalendar={viewCalendar}

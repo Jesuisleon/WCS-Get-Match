@@ -9,7 +9,7 @@ export default function Calendar({ date, setViewCalendar }) {
     >
       <img
         className="icons search-icons"
-        src="src/img/icons/calendar-white.png"
+        src="/img/icons/calendar-white.png"
         alt="calendar-icons"
       />
       <div className="borders-styled borders-calendar">

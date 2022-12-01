@@ -1,6 +1,3 @@
-import avatar1 from "../img/mobile/avatar1.png";
-import avatar2 from "../img/mobile/avatar2.png";
-import avatar3 from "../img/mobile/avatar3.png";
 
 export const BlankInfos = {
   id: null,
@@ -27,7 +24,7 @@ export const PlayersInfos = [
     name: "Lebron Leon",
     age: 20,
     from: "NY",
-    avatar: avatar1,
+    avatar: "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/893.png",
     isOpen: false,
   },
   {
@@ -35,7 +32,7 @@ export const PlayersInfos = [
     name: "Magik Remy",
     age: 20,
     from: "LA",
-    avatar: avatar2,
+    avatar: "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/893.png",
     isOpen: false,
   },
   {
@@ -43,7 +40,7 @@ export const PlayersInfos = [
     name: "Jordan Jhon",
     age: 20,
     from: "Cleveland",
-    avatar: avatar3,
+    avatar: "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/893.png",
     isOpen: false,
   },
   {
@@ -60,7 +57,7 @@ export const PlayersInfos = [
     name: "Kobe Bryant",
     Age: 20,
     from: "Miami",
-    avatar: avatar1,
+    avatar: "https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/893.png",
     isOpen: false,
   },
 ];
