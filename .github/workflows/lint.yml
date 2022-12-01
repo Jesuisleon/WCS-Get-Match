@@ -31,7 +31,7 @@ jobs:
           node-version: 16
 
       - name: Install Node.js dependencies
-        run: npm run setup
+        run: npm run setup --legacy-peer-deps
 
       - name: Run linters
         run: npm run lint
