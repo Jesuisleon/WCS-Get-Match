@@ -15,7 +15,7 @@
 
 ![Screen Shot](screenshot.png)
 
-Our website provides basketball enthusiasts with a platform to easily find or create games with other players in their area. Users can sign up and create a profile, which includes their location, preferred position, and availability. They can then search for games based on location, date, time, and skill level, or create their own game and invite others to join.
+Our website provides basketball enthusiasts with a platform to easily find or create games with other players in an USA area. You are already login as Michael, you can join a match, pick your preferred position, and set your availability. You can also search for games based on location, date, or create your own game and invite others to join.
 
 ## Built With
 
