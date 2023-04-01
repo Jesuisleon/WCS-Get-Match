@@ -7,6 +7,8 @@
     <br/>
     <br/>
     <a href="https://get-match.netlify.app/">View Demo</a>
+    .
+    <a href="https://www.figma.com/file/mLzcbobsuRNA37fyjFthA1/WCS-%2F-Project-2-1.1-(Copy)?node-id=0%3A1&t=AqbJFlfK9XIid5pw-1">View Figma</a>
   </p>
 </p>
 
@@ -14,6 +16,8 @@
 ## About The Project
 
 ![Screen Shot](screenshot.png)
+
+
 
 Our website provides basketball enthusiasts with a platform to easily find or create games with other players in an USA area. You are already login as Michael, you can join a match, pick your preferred position, and set your availability. You can also search for games based on location, date, or create your own game and invite others to join.
 
